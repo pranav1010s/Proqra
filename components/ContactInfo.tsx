@@ -37,7 +37,7 @@ export default function ContactInfo() {
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <a
-              href="mailto:hello@proqra.com"
+              href="mailto:hellos@proqra.com"
               className="text-white/40 hover:text-white text-xs tracking-wider font-bold border-b border-white/20 hover:border-white transition-all duration-300 py-1"
             >
               hello@proqra.com
