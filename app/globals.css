@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Serif Italic class for emphasis */
+.italic-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #222222; }
+::-webkit-scrollbar-thumb:hover { background: #333333; }
+
+/* Stark High-Contrast Selection */
+::selection { background: #2563EB; color: #ffffff; }
+
+/* Dynamic Glassmorphism Navbars */
+.glass-dark {
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Form inputs */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+/* Service Row Inversion Styles */
+.service-row {
+  background-color: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-row:hover {
+  background-color: #ffffff !important;
+}
+
+.service-row .service-num {
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-row:hover .service-num {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.service-row .service-title {
+  color: #ffffff;
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-row:hover .service-title {
+  color: #000000 !important;
+}
+
+.service-row .service-desc {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-row:hover .service-desc {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
