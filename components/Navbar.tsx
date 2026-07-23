@@ -9,20 +9,21 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-lg border-b border-white/10 py-4 px-6 md:px-12 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-6 md:px-12 transition-all duration-300">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Typographic logo - PROQRA in all-caps, tracking-tighter */}
-        <Link href="/" className="font-black text-xl tracking-tighter text-white uppercase select-none">
+        <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2">
           PROQRA
+          <span className="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {['Services', 'Contact'].map((label) => (
             <a
               key={label}
               href={`#${label.toLowerCase()}`}
-              className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
+              className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
             >
               {label}
             </a>
@@ -30,7 +31,7 @@ export default function Navbar() {
           <Link
             href="/get-started"
             id="nav-cta"
-            className="text-sm font-bold uppercase tracking-wide bg-blue-600 text-white rounded-none px-6 py-3 hover:bg-blue-500 transition-colors duration-300"
+            className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-2.5 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20"
           >
             Get Started
           </Link>
@@ -38,7 +39,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-1 text-white transition-colors duration-300"
+          className="md:hidden p-1.5 text-slate-700 hover:text-slate-900 transition-colors duration-300"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
           id="mobile-menu-toggle"
@@ -55,15 +56,15 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden border-t border-white/10 bg-black/90 backdrop-blur-lg mt-4 -mx-6 px-6"
+            className="md:hidden overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-lg mt-4 -mx-6 px-6 shadow-lg"
           >
-            <div className="py-6 flex flex-col gap-5">
+            <div className="py-6 flex flex-col gap-4">
               {['Services', 'Contact'].map((label) => (
                 <a
                   key={label}
                   href={`#${label.toLowerCase()}`}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
+                  className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
                 >
                   {label}
                 </a>
@@ -72,7 +73,7 @@ export default function Navbar() {
                 href="/get-started"
                 id="mobile-nav-cta"
                 onClick={() => setOpen(false)}
-                className="text-sm font-bold uppercase tracking-wide bg-blue-600 text-white rounded-none px-6 py-3.5 text-center mt-2 hover:bg-blue-500 transition-colors duration-300"
+                className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-3 text-center mt-2 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20"
               >
                 Get Started
               </Link>
@@ -83,3 +84,4 @@ export default function Navbar() {
     </header>
   )
 }
+

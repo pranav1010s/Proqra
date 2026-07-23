@@ -65,23 +65,23 @@ export default function GetStartedForm() {
     }
   }
 
-  // Polished glass inputs as per directive
+  // Polished clean light inputs
   const inputClass =
-    'w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-sm px-4 py-3.5 text-sm text-white placeholder-white/20 transition-all duration-300 focus:ring-1 focus:ring-blue-600 focus:border-blue-600 focus:outline-none'
+    'w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-900 placeholder-slate-400 shadow-sm transition-all duration-200 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:outline-none'
 
-  const labelClass = 'block text-[12px] font-bold text-white/40 mb-2 tracking-wide'
+  const labelClass = 'block text-[12px] font-bold text-slate-700 mb-1.5 tracking-wide'
 
   if (status === 'success') {
     return (
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-[580px] mx-auto py-16 text-center"
+        className="max-w-[580px] mx-auto py-12 px-8 bg-white border border-slate-200 rounded-2xl shadow-sm text-center"
         id="success-message"
       >
-        <p className="text-white text-4xl font-extrabold mb-6 tracking-tight">Done.</p>
-        <p className="text-white text-lg font-bold mb-3">Requirements received.</p>
-        <p className="text-white/40 text-sm leading-relaxed max-w-sm mx-auto">
+        <p className="text-slate-900 text-4xl font-extrabold mb-4 tracking-tight">Done.</p>
+        <p className="text-slate-900 text-lg font-bold mb-2">Requirements received.</p>
+        <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
           Thank you, {form.fullName}. We will review your staffing goals and get back to you
           at {form.email} within 1–2 business days.
         </p>
@@ -95,7 +95,7 @@ export default function GetStartedForm() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       onSubmit={handleSubmit}
-      className="max-w-[580px] mx-auto space-y-6"
+      className="max-w-[580px] mx-auto space-y-5 bg-white p-8 sm:p-10 border border-slate-200/80 rounded-2xl shadow-sm"
       id="requirements-form"
       noValidate
     >
@@ -141,14 +141,14 @@ export default function GetStartedForm() {
           <label htmlFor="budget" className={labelClass}>Target team size</label>
           <select id="budget" name="budget" value={form.budget} onChange={update} className={`${inputClass} cursor-pointer`}>
             <option value="" disabled>Select</option>
-            {teamSizeOptions.map((o) => (<option key={o} value={o} className="bg-black text-white">{o}</option>))}
+            {teamSizeOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
           </select>
         </div>
         <div>
           <label htmlFor="timeline" className={labelClass}>Target timeline to start hiring</label>
           <select id="timeline" name="timeline" value={form.timeline} onChange={update} className={`${inputClass} cursor-pointer`}>
             <option value="" disabled>Select</option>
-            {timelineOptions.map((o) => (<option key={o} value={o} className="bg-black text-white">{o}</option>))}
+            {timelineOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
           </select>
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function GetStartedForm() {
       {/* Error */}
       <AnimatePresence>
         {status === 'error' && (
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-red-500 text-xs font-bold tracking-wider" id="form-error">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-red-600 text-xs font-bold tracking-wide" id="form-error">
             {errorMsg}
           </motion.p>
         )}
@@ -173,7 +173,7 @@ export default function GetStartedForm() {
         type="submit"
         id="submit-requirements"
         disabled={status === 'loading'}
-        className="group w-full bg-blue-600 text-white font-bold text-xs tracking-wider px-6 py-4 rounded-sm hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.5)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
+        className="group w-full bg-blue-600 text-white font-bold text-xs tracking-wider uppercase px-6 py-4 rounded-lg hover:bg-blue-700 hover:shadow-md hover:shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
       >
         {status === 'loading' ? (
           <><Loader2 size={14} className="animate-spin" /> Submitting…</>
@@ -187,3 +187,4 @@ export default function GetStartedForm() {
     </motion.form>
   )
 }
+

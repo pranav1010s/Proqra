@@ -6,17 +6,17 @@ import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between px-6 sm:px-12 md:px-20 bg-black pt-32 pb-16 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute left-1/3 top-1/3 -translate-x-1/2 -translate-y-1/2 bg-blue-600/20 blur-[120px] w-[50vw] h-[50vw] rounded-full pointer-events-none z-0" />
+    <section className="relative min-h-[85vh] flex flex-col justify-between px-6 sm:px-12 md:px-20 bg-white pt-32 sm:pt-40 pb-16 overflow-hidden">
+      {/* Soft Ambient Glow */}
+      <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 bg-blue-500/10 blur-[130px] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full pointer-events-none z-0" />
 
-      {/* Stark typographic headline */}
-      <div className="my-auto w-full relative z-10">
+      {/* Clean typographic headline */}
+      <div className="my-auto w-full relative z-10 py-8">
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0.9, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl sm:text-6xl md:text-[clamp(4.5rem,8.5vw,7.8rem)] font-extrabold tracking-tighter text-white leading-[0.95] text-left max-w-[1300px] text-balance"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-5xl sm:text-6xl md:text-[clamp(4.2rem,8vw,7.5rem)] font-extrabold tracking-tighter text-slate-900 leading-[0.98] text-left max-w-[1300px] text-balance"
         >
           We build your <br className="hidden md:inline" />
           remote <span className="italic-accent text-blue-600 font-normal tracking-normal">procurement team.</span>
@@ -25,24 +25,24 @@ export default function Hero() {
 
       {/* Architectural bottom footer grid */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0.9, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end w-full mt-8 relative z-10"
       >
-        {/* Subheadline pushed to the left bottom */}
+        {/* Subheadline */}
         <div className="max-w-md">
-          <p className="text-neutral-400 text-xs sm:text-[13px] font-normal leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-[15px] font-normal leading-relaxed">
             Large enterprises use Global Capability Centers to slash procurement overhead. We build you the exact same dedicated remote team, with zero infrastructure costs.
           </p>
         </div>
 
-        {/* CTA pushed to the right bottom */}
+        {/* CTA */}
         <div className="flex md:justify-end">
           <Link
             href="/get-started"
             id="hero-cta"
-            className="group inline-flex items-center gap-3 bg-white text-black font-bold text-xs tracking-widest px-10 py-5 rounded-none hover:bg-neutral-200 transition-colors duration-300 w-full sm:w-auto justify-center"
+            className="group inline-flex items-center gap-3 bg-slate-900 text-white font-bold text-xs tracking-widest uppercase px-8 py-4 rounded-lg hover:bg-slate-800 transition-all duration-300 shadow-md shadow-slate-900/10 w-full sm:w-auto justify-center"
           >
             Build Your Team
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -52,3 +52,5 @@ export default function Hero() {
     </section>
   )
 }
+
+

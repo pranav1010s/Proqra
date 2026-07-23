@@ -13,14 +13,17 @@ interface WordProps {
   children: string
   progress: MotionValue<number>
   range: [number, number]
+  activeColor?: string
 }
 
-const Word = ({ children, progress, range }: WordProps) => {
-  const opacity = useTransform(progress, range, [0.15, 1])
-  const filter = useTransform(progress, range, ['blur(8px)', 'blur(0px)'])
+const Word = ({ children, progress, range, activeColor = 'text-slate-900' }: WordProps) => {
+  const opacity = useTransform(progress, range, [0.25, 1])
 
   return (
-    <motion.span style={{ opacity, filter }} className="inline-block mr-2 lg:mr-3 mt-1">
+    <motion.span
+      style={{ opacity }}
+      className={`inline-block mr-2 lg:mr-3 mt-1 transition-colors duration-200 ${activeColor}`}
+    >
       {children}
     </motion.span>
   )
@@ -29,10 +32,10 @@ const Word = ({ children, progress, range }: WordProps) => {
 export default function Manifesto() {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Track scroll progress across the container with optimized offset trigger range
+  // Track scroll progress across the container
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 90%', 'end 65%'],
+    offset: ['start 85%', 'end 55%'],
   })
 
   const p1Words = paragraph1.split(' ')
@@ -42,16 +45,16 @@ export default function Manifesto() {
   return (
     <section
       ref={containerRef}
-      className="bg-black border-t border-white/10 relative overflow-hidden"
+      className="bg-slate-50/80 border-t border-b border-slate-200/80 relative overflow-hidden"
     >
-      <div className="max-w-3xl mx-auto pt-32 pb-24 px-6 flex flex-col gap-12 bg-black text-left text-white font-normal text-2xl md:text-3xl lg:text-[40px] leading-[1.2] tracking-tight">
+      <div className="max-w-4xl mx-auto pt-24 pb-20 px-6 flex flex-col gap-10 text-left font-normal text-2xl md:text-3xl lg:text-[38px] leading-[1.3] tracking-tight">
         {/* Paragraph 1 */}
-        <p>
+        <p className="text-slate-900 font-medium">
           {p1Words.map((word, i) => {
             const start = i / totalWords
             const end = Math.min(1, start + 1.5 / totalWords)
             return (
-              <Word key={`p1-${i}`} progress={scrollYProgress} range={[start, end]}>
+              <Word key={`p1-${i}`} progress={scrollYProgress} range={[start, end]} activeColor="text-slate-900">
                 {word}
               </Word>
             )
@@ -59,13 +62,13 @@ export default function Manifesto() {
         </p>
 
         {/* Paragraph 2 */}
-        <p className="text-neutral-400">
+        <p className="text-slate-600">
           {p2Words.map((word, i) => {
             const globalIndex = p1Words.length + i
             const start = globalIndex / totalWords
             const end = Math.min(1, start + 1.5 / totalWords)
             return (
-              <Word key={`p2-${i}`} progress={scrollYProgress} range={[start, end]}>
+              <Word key={`p2-${i}`} progress={scrollYProgress} range={[start, end]} activeColor="text-slate-600">
                 {word}
               </Word>
             )
@@ -75,3 +78,5 @@ export default function Manifesto() {
     </section>
   )
 }
+
+

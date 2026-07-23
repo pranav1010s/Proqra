@@ -11,26 +11,26 @@ export const metadata: Metadata = {
 
 export default function GetStartedPage() {
   return (
-    <main className="min-h-screen px-6 sm:px-10 py-24 bg-black relative">
-      <div className="relative z-10">
+    <main className="min-h-screen px-6 sm:px-10 py-24 bg-slate-50/60 relative">
+      <div className="relative z-10 max-w-4xl mx-auto">
         {/* Back */}
-        <div className="max-w-[580px] mx-auto mb-12">
+        <div className="max-w-[580px] mx-auto mb-10">
           <Link
             href="/"
             id="back-to-home"
-            className="inline-flex items-center gap-2 text-xs font-bold text-white/40 hover:text-white transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors duration-300"
           >
             <ArrowLeft size={14} />
-            Back
+            Back to Home
           </Link>
         </div>
 
         {/* Heading */}
-        <div className="max-w-[580px] mx-auto mb-14">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
+        <div className="max-w-[580px] mx-auto mb-10">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-3">
             Build your global team
           </h1>
-          <p className="text-neutral-400 text-[15px] leading-relaxed">
+          <p className="text-slate-600 text-[15px] leading-relaxed">
             Tell us about the roles and capabilities you want to scale. We will review your goals and get back to you with a tailored operational roadmap within 1–2 business days.
           </p>
         </div>
@@ -39,10 +39,11 @@ export default function GetStartedPage() {
         <GetStartedForm />
 
         {/* Privacy */}
-        <p className="text-center text-[10px] tracking-widest text-white/20 mt-16 uppercase">
+        <p className="text-center text-[11px] tracking-widest text-slate-400 font-medium mt-14 uppercase">
           Your information is kept private and secure.
         </p>
       </div>
     </main>
   )
 }
+
