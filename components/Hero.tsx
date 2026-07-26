@@ -18,8 +18,8 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-5xl sm:text-6xl md:text-[clamp(4.2rem,8vw,7.5rem)] font-extrabold tracking-tighter text-slate-900 leading-[0.98] text-left max-w-[1300px] text-balance"
         >
-          We build your <br className="hidden md:inline" />
-          remote <span className="italic-accent text-blue-600 font-normal tracking-normal">procurement team.</span>
+          Flawless procurement <br className="hidden md:inline" />
+          data managed <span className="italic-accent text-blue-600 font-normal tracking-normal">for you.</span>
         </motion.h1>
       </div>
 
@@ -33,7 +33,7 @@ export default function Hero() {
         {/* Subheadline */}
         <div className="max-w-md">
           <p className="text-slate-600 text-sm sm:text-[15px] font-normal leading-relaxed">
-            Large enterprises use Global Capability Centers to slash procurement overhead. We build you the exact same dedicated remote team, with zero infrastructure costs.
+            From deduplicating vendor records to resolving PO discrepancies. We take over the repetitive data maintenance your internal team doesn't have the bandwidth to handle.
           </p>
         </div>
 
