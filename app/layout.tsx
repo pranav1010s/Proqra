@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'proqra | Build your global team.',
+  title: 'PROQRA | Flawless Procurement Data Managed For You',
   description:
-    'proqra helps you recruit, hire, and manage your global capability centers and international workforce seamlessly.',
+    'PROQRA helps mid-market companies automate and maintain clean ERP procurement data, PO follow-ups, and live MI reporting.',
   openGraph: {
-    title: 'proqra | Build your global team.',
-    description: 'We recruit, hire, and manage compliance for your international workforce.',
+    title: 'PROQRA | Flawless Procurement Data Managed For You',
+    description: 'We manage repetitive supply chain tasks and ERP data hygiene for your team.',
     type: 'website',
   },
 }
@@ -23,7 +24,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
+
