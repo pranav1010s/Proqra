@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     if (resendKey) {
       const resend = new Resend(resendKey)
-      const to = process.env.CONTACT_EMAIL || 'pranav1010@gmail.com'
+      const to = process.env.CONTACT_EMAIL || 'hello@proqra.co.uk'
 
       const data = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || 'Proqra Leads <onboarding@resend.dev>',

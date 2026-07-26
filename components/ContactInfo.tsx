@@ -40,7 +40,7 @@ export default function ContactInfo() {
               href="mailto:hello@proqra.com"
               className="text-slate-500 hover:text-slate-900 text-xs tracking-wider font-bold border-b border-slate-300 hover:border-slate-900 transition-all duration-300 py-1"
             >
-              hello@proqra.com
+              hello@proqra.co.uk
             </a>
           </div>
         </motion.div>
