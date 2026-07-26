@@ -17,10 +17,13 @@ export async function POST(req: Request) {
 
     if (resendKey) {
       const resend = new Resend(resendKey)
+      
+      // Sending to your new IONOS inbox
       const to = process.env.CONTACT_EMAIL || 'hello@proqra.co.uk'
 
       const data = await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || 'Proqra Leads <onboarding@resend.dev>',
+        // THIS IS THE CRUCIAL FIX: Sending from your verified domain
+        from: process.env.RESEND_FROM_EMAIL || 'PROQRA Website <hello@proqra.co.uk>',
         to,
         subject: `New Data Audit Request: ${companyName}`,
         html: `
