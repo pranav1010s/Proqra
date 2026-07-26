@@ -22,10 +22,10 @@ export default function ContactInfo() {
           className="py-8"
         >
           <h2 className="text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
-            Ready to scale your team <span className="italic-accent text-blue-600 font-normal">globally?</span>
+            We manage the background data. <span className="italic-accent text-blue-600 font-normal">You drive the strategy.</span>
           </h2>
           <p className="text-slate-600 text-[15px] leading-relaxed mb-10 max-w-lg mx-auto">
-            Tell us about the roles you are looking to hire. We will outline a customized plan for talent sourcing, compliance, and local payroll setup.
+            Stop losing time to repetitive supply chain tasks and ERP hygiene. <br />Book a quick discovery call to discuss your current supply chain bottlenecks, and let's map out exactly how much manual work we can take off your plate..
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
@@ -33,7 +33,7 @@ export default function ContactInfo() {
               id="contact-cta"
               className="group inline-flex items-center gap-2 bg-slate-900 text-white font-bold text-xs tracking-wider uppercase px-8 py-4 rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-md shadow-slate-900/10"
             >
-              Build Your Team
+              Get Started
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <a

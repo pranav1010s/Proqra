@@ -42,9 +42,9 @@ export default function Hero() {
           <Link
             href="/get-started"
             id="hero-cta"
-            className="group inline-flex items-center gap-3 bg-slate-900 text-white font-bold text-xs tracking-widest uppercase px-8 py-4 rounded-lg hover:bg-slate-800 transition-all duration-300 shadow-md shadow-slate-900/10 w-full sm:w-auto justify-center"
+            className="group inline-flex items-center gap-3 bg-slate-900 text-white font-bold text-xs tracking-wider uppercase px-8 py-4 rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-md shadow-slate-900/10 w-full sm:w-auto justify-center"
           >
-            Build Your Team
+            Get Started
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
           </Link>
         </div>
