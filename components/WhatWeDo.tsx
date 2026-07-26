@@ -6,18 +6,18 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 const steps = [
   {
     num: '01',
-    title: 'Dedicated Procurement Talent',
-    description: 'We source high-performing strategic buyers, sourcing analysts, and supply chain coordinators tailored to your exact operational needs.',
+    title: 'PR-to-PO Execution & Follow-Ups',
+    description: 'We turn your purchase requisitions into accurate orders and handle all the back-and-forth with suppliers. No more chasing emails or delayed shipments, we make sure things get ordered and delivered on time',
   },
   {
     num: '02',
-    title: 'Remote EOR & Compliance',
-    description: 'We handle full-service international payroll, benefits, and strict local labor compliance, acting as your seamless Employer of Record.',
+    title: 'ERP & Cloud Data Management',
+    description: 'We work directly within your ERP and data architecture to clean up duplicate vendors, fix outdated material records, and keep everything organized so your team can actually trust the numbers.',
   },
   {
     num: '03',
-    title: 'System Integration',
-    description: 'Your remote team is provisioned with secure hardware and embeds directly into your existing ERP systems and daily corporate workflows.',
+    title: 'Live Insights & MI Reporting',
+    description: 'Stop digging through outdated spreadsheets. We build simple, live dashboards that show your team exactly where your money is going, where the delays are, and what needs your attention today.',
   },
 ]
 
