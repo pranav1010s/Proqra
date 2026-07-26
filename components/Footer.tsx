@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-3">Contact</p>
             <a href="mailto:hello@proqra.com" className="text-[13px] text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300">
-              hello@proqra.com
+              hello@proqra.co.uk
             </a>
           </div>
         </div>
