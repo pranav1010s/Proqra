@@ -6,20 +6,19 @@ import { Loader2, ArrowRight } from 'lucide-react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
-const teamSizeOptions = [
-  '1–5 employees',
-  '5–15 employees',
-  '15–50 employees',
-  '50+ employees',
-  'Not sure yet',
+const erpOptions = [
+  'SAP (ECC or S/4HANA)',
+  'Oracle / NetSuite',
+  'Microsoft Dynamics',
+  'Coupa',
+  'Other / Multiple Systems',
 ]
 
 const timelineOptions = [
-  'As soon as possible',
+  'Immediate priority',
   'Within 1 month',
   '1–3 months',
-  '3–6 months',
-  'Flexible',
+  'Just exploring options',
 ]
 
 export default function GetStartedForm() {
@@ -28,9 +27,8 @@ export default function GetStartedForm() {
     companyName: '',
     email: '',
     phone: '',
-    requirements: '',
-    software: '',
-    budget: '',
+    painPoints: '',
+    erpSystem: '',
     timeline: '',
     notes: '',
   })
@@ -53,9 +51,15 @@ export default function GetStartedForm() {
         body: JSON.stringify(form),
       })
 
+      let data: any = {}
+      try {
+        data = await res.json()
+      } catch {
+        throw new Error('Server error occurred. Please try again.')
+      }
+
       if (!res.ok) {
-        const data = await res.json()
-        throw new Error(data.error || 'Something went wrong')
+        throw new Error(data.error || 'Something went wrong. Please try again.')
       }
 
       setStatus('success')
@@ -79,11 +83,11 @@ export default function GetStartedForm() {
         className="max-w-[580px] mx-auto py-12 px-8 bg-white border border-slate-200 rounded-2xl shadow-sm text-center"
         id="success-message"
       >
-        <p className="text-slate-900 text-4xl font-extrabold mb-4 tracking-tight">Done.</p>
-        <p className="text-slate-900 text-lg font-bold mb-2">Requirements received.</p>
+        <p className="text-slate-900 text-4xl font-extrabold mb-4 tracking-tight">Received.</p>
+        <p className="text-slate-900 text-lg font-bold mb-2">Your audit request is in motion.</p>
         <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
-          Thank you, {form.fullName}. We will review your staffing goals and get back to you
-          at {form.email} within 1–2 business days.
+          Thank you, {form.fullName}. We will review your system details and reach out to 
+          at {form.email} within 1–2 business days to schedule your diagnostic.
         </p>
       </motion.div>
     )
@@ -119,33 +123,27 @@ export default function GetStartedForm() {
         </div>
         <div>
           <label htmlFor="phone" className={labelClass}>Phone number</label>
-          <input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" value={form.phone} onChange={update} className={inputClass} />
+          <input id="phone" name="phone" type="tel" placeholder="+44 (0) 7000 000000" value={form.phone} onChange={update} className={inputClass} />
         </div>
       </div>
 
-      {/* Requirements */}
+      {/* Pain Points */}
       <div>
-        <label htmlFor="requirements" className={labelClass}>What roles, skills, or operational teams are you looking to build? *</label>
-        <textarea id="requirements" name="requirements" required rows={4} placeholder="E.g., Sourcing Analysts, Tactical Buyers, Supplier Data Managers..." value={form.requirements} onChange={update} className={`${inputClass} resize-none`} />
-      </div>
-
-      {/* Software & ERP Systems */}
-      <div>
-        <label htmlFor="software" className={labelClass}>Current Software & ERP Systems (Optional)</label>
-        <input id="software" name="software" type="text" placeholder="E.g., SAP (ECC or S/4HANA), Snowflake, Power BI, Tableau..." value={form.software} onChange={update} className={inputClass} />
+        <label htmlFor="painPoints" className={labelClass}>What are your biggest data or operational bottlenecks? *</label>
+        <textarea id="painPoints" name="painPoints" required rows={4} placeholder="E.g., Too many duplicate vendors, messy material masters, PO exceptions..." value={form.painPoints} onChange={update} className={`${inputClass} resize-none`} />
       </div>
 
       {/* Row 3 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="budget" className={labelClass}>Target team size</label>
-          <select id="budget" name="budget" value={form.budget} onChange={update} className={`${inputClass} cursor-pointer`}>
-            <option value="" disabled>Select</option>
-            {teamSizeOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
+          <label htmlFor="erpSystem" className={labelClass}>Primary ERP System</label>
+          <select id="erpSystem" name="erpSystem" value={form.erpSystem} onChange={update} className={`${inputClass} cursor-pointer`}>
+            <option value="" disabled>Select System</option>
+            {erpOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
           </select>
         </div>
         <div>
-          <label htmlFor="timeline" className={labelClass}>Target timeline to start hiring</label>
+          <label htmlFor="timeline" className={labelClass}>Target timeline to resolve</label>
           <select id="timeline" name="timeline" value={form.timeline} onChange={update} className={`${inputClass} cursor-pointer`}>
             <option value="" disabled>Select</option>
             {timelineOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
@@ -155,8 +153,8 @@ export default function GetStartedForm() {
 
       {/* Notes */}
       <div>
-        <label htmlFor="notes" className={labelClass}>Any preferred regions or operational compliance needs?</label>
-        <textarea id="notes" name="notes" rows={3} placeholder="E.g., Latin America / Europe, remote-first setup..." value={form.notes} onChange={update} className={`${inputClass} resize-none`} />
+        <label htmlFor="notes" className={labelClass}>Any specific compliance or reporting needs?</label>
+        <textarea id="notes" name="notes" rows={3} placeholder="E.g., Need live dashboards, ISO compliance tracking..." value={form.notes} onChange={update} className={`${inputClass} resize-none`} />
       </div>
 
       {/* Error */}
@@ -179,7 +177,7 @@ export default function GetStartedForm() {
           <><Loader2 size={14} className="animate-spin" /> Submitting…</>
         ) : (
           <>
-            Submit request
+            Request Free Audit
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
           </>
         )}
@@ -187,4 +185,3 @@ export default function GetStartedForm() {
     </motion.form>
   )
 }
-

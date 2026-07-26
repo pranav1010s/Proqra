@@ -3,10 +3,9 @@ export interface Lead {
   companyName: string
   email: string
   phone?: string
-  requirements: string
-  budget?: string
+  painPoints: string
+  erpSystem?: string
   timeline?: string
   notes?: string
-  software?: string
   submittedAt: Date
 }

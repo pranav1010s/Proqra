@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Build Your Team | proqra',
+  title: 'Request Data Audit | PROQRA',
   description:
-    'Tell us about the roles you are looking to hire, target locations, team sizes, and timeline.',
+    'Tell us about your ERP setup and data bottlenecks to receive a free operational diagnostic.',
 }
 
 export default function GetStartedPage() {
@@ -28,10 +28,10 @@ export default function GetStartedPage() {
         {/* Heading */}
         <div className="max-w-[580px] mx-auto mb-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-3">
-            Build your global team
+            Request a Free Data Audit
           </h1>
           <p className="text-slate-600 text-[15px] leading-relaxed">
-            Tell us about the roles and capabilities you want to scale. We will review your goals and get back to you with a tailored operational roadmap within 1–2 business days.
+            Tell us about your current systems and operational bottlenecks. We will review your setup and reach out to map exactly how much manual work we can take off your plate.
           </p>
         </div>
 
@@ -40,10 +40,9 @@ export default function GetStartedPage() {
 
         {/* Privacy */}
         <p className="text-center text-[11px] tracking-widest text-slate-400 font-medium mt-14 uppercase">
-          Your information is kept private and secure.
+          Your information and systems data are kept strictly confidential.
         </p>
       </div>
     </main>
   )
 }
-
