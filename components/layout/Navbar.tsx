@@ -9,8 +9,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-6 md:px-12 transition-all duration-300">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-6 md:px-16 lg:px-24 transition-all duration-300">
+      <nav className="max-w-[1440px] mx-auto flex items-center justify-between">
         {/* Typographic logo - PROQRA in all-caps, tracking-tighter */}
         <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2">
           PROQRA
@@ -19,15 +19,24 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
-          {['Services', 'Contact'].map((label) => (
-            <a
-              key={label}
-              href={`#${label.toLowerCase()}`}
-              className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-            >
-              {label}
-            </a>
-          ))}
+          <Link
+            href="/capabilities"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+          >
+            Capabilities
+          </Link>
+          <a
+            href="/#services"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+          >
+            Services
+          </a>
+          <a
+            href="/#contact"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+          >
+            Contact
+          </a>
           <Link
             href="/get-started"
             id="nav-cta"
@@ -59,16 +68,27 @@ export default function Navbar() {
             className="md:hidden overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-lg mt-4 -mx-6 px-6 shadow-lg"
           >
             <div className="py-6 flex flex-col gap-4">
-              {['Services', 'Contact'].map((label) => (
-                <a
-                  key={label}
-                  href={`#${label.toLowerCase()}`}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-                >
-                  {label}
-                </a>
-              ))}
+              <Link
+                href="/capabilities"
+                onClick={() => setOpen(false)}
+                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+              >
+                Capabilities
+              </Link>
+              <a
+                href="/#services"
+                onClick={() => setOpen(false)}
+                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+              >
+                Services
+              </a>
+              <a
+                href="/#contact"
+                onClick={() => setOpen(false)}
+                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+              >
+                Contact
+              </a>
               <Link
                 href="/get-started"
                 id="mobile-nav-cta"

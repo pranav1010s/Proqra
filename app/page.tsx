@@ -1,9 +1,9 @@
-import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
-import Manifesto from '@/components/Manifesto'
-import WhatWeDo from '@/components/WhatWeDo'
-import ContactInfo from '@/components/ContactInfo'
-import Footer from '@/components/Footer'
+import Navbar from '@/components/layout/Navbar'
+import Hero from '@/components/home/Hero'
+import Manifesto from '@/components/home/Manifesto'
+import WhatWeDo from '@/components/home/WhatWeDo'
+import ContactInfo from '@/components/home/ContactInfo'
+import Footer from '@/components/layout/Footer'
 
 export default function HomePage() {
   return (

@@ -1,23 +1,28 @@
 'use client'
 
 import { useRef } from 'react'
+import Link from 'next/link'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 const steps = [
   {
     num: '01',
-    title: 'PR-to-PO Execution & Follow-Ups',
-    description: 'We turn your purchase requisitions into accurate orders and handle all the back-and-forth with suppliers. No more chasing emails or delayed shipments, we make sure things get ordered and delivered on time',
+    title: 'Daily Order Execution',
+    description:
+      'We take over the manual PR-to-PO grind and routine supplier follow-ups so your team can focus purely on strategy and negotiation.',
   },
   {
     num: '02',
-    title: 'ERP & Cloud Data Management',
-    description: 'We work directly within your ERP and data architecture to clean up duplicate vendors, fix outdated material records, and keep everything organized so your team can actually trust the numbers.',
+    title: 'ERP Data Management',
+    description:
+      'We clean your master data, fix outdated material records, and maintain your vendor database so your team can finally trust the system.',
   },
   {
     num: '03',
-    title: 'Live Insights & MI Reporting',
-    description: 'Stop digging through outdated spreadsheets. We build simple, live dashboards that show your team exactly where your money is going, where the delays are, and what needs your attention today.',
+    title: 'Live MI Reporting',
+    description:
+      'We replace outdated spreadsheets with custom, real-time dashboards that show exactly where your money is going and where delays are happening.',
   },
 ]
 
@@ -41,15 +46,19 @@ export default function WhatWeDo() {
     <section
       id="services"
       ref={containerRef}
-      className="max-w-7xl mx-auto px-6 pt-24 pb-32 flex flex-col lg:flex-row gap-20 relative bg-white text-slate-900"
+      className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 pt-24 pb-32 flex flex-col lg:flex-row gap-16 lg:gap-24 relative bg-white text-slate-900"
     >
       {/* Left Column (Sticky) */}
       <div className="lg:w-1/3 lg:sticky h-fit" style={{ top: '120px' }}>
-        <p className="text-blue-600 text-xs font-bold uppercase tracking-[0.25em] mb-4">
-          Capabilities
+        <p className="text-blue-600 text-xs font-bold uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
+          WHAT WE DO
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
         </p>
         <h2 className="text-[clamp(2.2rem,4vw,3.5rem)] font-extrabold tracking-tighter text-slate-900 leading-[0.98]">
-          Built to scale your operations.
+          Less administration.{' '}
+          <span className="italic-accent text-blue-600 font-normal">
+            More execution.
+          </span>
         </h2>
       </div>
 
@@ -65,7 +74,7 @@ export default function WhatWeDo() {
         />
 
         {/* Steps */}
-        <div className="space-y-28">
+        <div className="space-y-20 sm:space-y-24">
           {steps.map((step) => (
             <div key={step.num} className="relative pl-6 sm:pl-10">
               {/* Centered Dot Indicator */}
@@ -78,14 +87,24 @@ export default function WhatWeDo() {
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
                 {step.title}
               </h3>
-              <p className="text-slate-600 text-[15px] sm:text-base leading-relaxed max-w-xl">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
                 {step.description}
               </p>
             </div>
           ))}
+
+          {/* Bridge link to Capabilities Page */}
+          <div className="pt-6 pl-6 sm:pl-10">
+            <Link
+              href="/capabilities"
+              className="inline-flex items-center gap-2.5 text-slate-900 font-bold text-base hover:text-blue-600 hover:gap-3.5 transition-all duration-300 group"
+            >
+              Explore our full capabilities
+              <ArrowRight size={18} className="text-blue-600 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
   )
 }
-
