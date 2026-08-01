@@ -1,11 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <rect x="44" y="5" width="12" height="24" fill="#E8762D" />
-  <rect x="25" y="44" width="50" height="12" fill="#E8762D" />
-  <rect x="44" y="71" width="12" height="24" fill="#E8762D" />
-  <rect x="5" y="44" width="24" height="12" fill="#E8762D" />
-  <rect x="71" y="44" width="24" height="12" fill="#E8762D" />
-  <rect x="28" y="28" width="10" height="10" fill="#1C75BC" />
-  <rect x="62" y="28" width="10" height="10" fill="#1C75BC" />
-  <rect x="28" y="62" width="10" height="10" fill="#1C75BC" />
-  <rect x="62" y="62" width="10" height="10" fill="#1C75BC" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+  <!-- Central Main Cross -->
+  <path fill="#EB5528" d="M11.654 7.766v3.593H8.06v1.188h3.304v3.596h1.28v-3.596h3.309v-1.188h-3.31V7.766h-.637z"/>
+  <!-- Top Cross -->
+  <path fill="#1C75BC" d="M11.654.174v2.203H9.682v.58h1.972V5.16h.696V2.957h1.97v-.58h-1.97V.174h-.348z"/>
+  <!-- Top Right Cross -->
+  <path fill="#5C6B73" d="M17.684 2.436l-.002 1.623v1.623h-2.957v.927h2.957v3.188h1.043l.011-1.582.02-1.576 1.465-.02 1.46-.01v-.927h-2.953V2.436h-.522z"/>
+  <!-- Top Left Cross -->
+  <path fill="#E24A33" d="M5.307 2.496v3.19H2.291v.925h2.986v3.19h.985V6.61h3.013v-.925H6.262V2.496H5.77z"/>
+  <!-- Right Cross -->
+  <path fill="#1C75BC" d="M21.028 9.316v2.221h-2.012v.811h2.012v2.261h.887v-2.261H24v-.811h-2.029v-2.22h-.422z"/>
+  <!-- Left Cross -->
+  <path fill="#E24A33" d="M1.917 9.446v2.174H0v.621h1.973v2.194h.667v-2.194h2v-.62H2.609V9.446h-.318z"/>
+  <!-- Bottom Right Cross -->
+  <path fill="#5C6B73" d="M17.626 13.962v3.254h-3.016v.927h3.016v3.217h1.072v-3.216h2.986v-.928h-2.986v-3.254h-.533z"/>
+  <!-- Bottom Left Cross -->
+  <path fill="#E24A33" d="M5.163 13.97v3.246H2.262v.928h2.957v3.189H6.32v-3.189h2.955v-.928H6.32V13.97h-.55z"/>
+  <!-- Bottom Cross -->
+  <path fill="#1C75BC" d="M11.479 18.548l.002 1.103v1.1H9.566v.812h1.971v2.262h.928l.012-1.119l.017-1.143h1.969v-.812h-2v-2.203h-.465z"/>
 </svg>

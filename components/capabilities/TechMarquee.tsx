@@ -4,17 +4,17 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const techItems = [
-  { name: 'SAP S/4HANA & ECC', src: '/logos/sap.svg', width: 80, height: 36 },
-  { name: 'Oracle', src: '/logos/oracle.svg', width: 50, height: 35 },
-  { name: 'Power BI', src: '/logos/powerbi.svg', width: 32, height: 32 },
-  { name: 'Tableau', src: '/logos/tableau.svg', width: 32, height: 32 },
-  { name: 'Snowflake', src: '/logos/snowflake.svg', width: 32, height: 32 },
-  { name: 'PostgreSQL', src: '/logos/postgresql.svg', width: 32, height: 32 },
-  { name: 'MongoDB', src: '/logos/mongodb.svg', width: 32, height: 32 },
-  { name: 'Vercel', src: '/logos/vercel.svg', width: 32, height: 32 },
-  { name: 'n8n', src: '/logos/n8n.svg', width: 32, height: 32 },
-  { name: 'Python', src: '/logos/python.svg', width: 32, height: 32 },
-  { name: 'Streamlit', src: '/logos/streamlit.svg', width: 32, height: 32 },
+  { name: 'SAP S/4HANA & ECC', src: '/logos/sap.svg', width: 90, height: 40 },
+  { name: 'Oracle', src: '/logos/oracle.svg', width: 75, height: 40 },
+  { name: 'Power BI', src: '/logos/powerbi.svg', width: 40, height: 40 },
+  { name: 'Tableau', src: '/logos/tableau.svg', width: 40, height: 40 },
+  { name: 'Snowflake', src: '/logos/snowflake.svg', width: 40, height: 40 },
+  { name: 'PostgreSQL', src: '/logos/postgresql.svg', width: 40, height: 40 },
+  { name: 'MongoDB', src: '/logos/mongodb.svg', width: 40, height: 40 },
+  { name: 'Vercel', src: '/logos/vercel.svg', width: 40, height: 40 },
+  { name: 'n8n', src: '/logos/n8n.svg', width: 40, height: 40 },
+  { name: 'Python', src: '/logos/python.svg', width: 40, height: 40 },
+  { name: 'Streamlit', src: '/logos/streamlit.svg', width: 40, height: 40 },
 ]
 
 export default function TechMarquee() {
