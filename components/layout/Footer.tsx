@@ -67,7 +67,7 @@ export default function Footer() {
               proqra
             </p>
             <p className="text-xs text-slate-400 font-medium">
-              Registered in England and Wales. [Company number once registered]
+              Registered in England and Wales.
             </p>
           </div>
           <p className="text-slate-400 text-xs font-medium">
