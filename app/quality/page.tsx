@@ -56,34 +56,34 @@ export default function QualityPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
+      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:pt-52 3xl:pb-22 3xl:px-28 4xl:pt-60 4xl:pb-28 4xl:px-36">
+        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3 3xl:text-sm 4xl:text-base">
             Quality Assurance
           </p>
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6 3xl:text-6xl 3xl:mb-8 4xl:text-7xl 4xl:mb-10">
             The parts are checked before they ship, <br />
             <span className="text-blue-600 font-normal italic-accent">
               and you get the paperwork to prove it.
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed 3xl:text-xl 3xl:max-w-3xl 4xl:text-2xl 4xl:max-w-4xl">
             Overseas sourcing goes wrong quietly. Nobody tells you material was substituted or a weld was ground back until the crate arrives on your yard. Everything below is completed before goods leave India, while corrections are immediate and cheap.
           </p>
         </div>
       </section>
 
       {/* What Gets Checked */}
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:py-32 3xl:px-28 4xl:py-40 4xl:px-36">
+        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8 3xl:text-3xl 3xl:mb-12 4xl:text-4xl 4xl:mb-14">
             What gets inspected on every order
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 3xl:gap-14 4xl:gap-18">
             {checks.map((c) => (
-              <div key={c.title} className="border-t border-slate-200 pt-4">
-                <h3 className="text-sm font-bold text-slate-900 mb-1">{c.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{c.desc}</p>
+              <div key={c.title} className="border-t border-slate-200 pt-4 3xl:pt-6 4xl:pt-8">
+                <h3 className="text-sm font-bold text-slate-900 mb-1 3xl:text-base 3xl:mb-2 4xl:text-lg 4xl:mb-3">{c.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed 3xl:text-sm 4xl:text-base">{c.desc}</p>
               </div>
             ))}
           </div>
@@ -91,38 +91,38 @@ export default function QualityPage() {
       </section>
 
       {/* Documentation Pack */}
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:py-32 3xl:px-28 4xl:py-40 4xl:px-36">
+        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
 
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 3xl:text-3xl 3xl:mb-3 4xl:text-4xl 4xl:mb-4">
             What ships with your order
           </h2>
-          <p className="text-sm text-slate-600 mb-8">
+          <p className="text-sm text-slate-600 mb-8 3xl:text-base 3xl:mb-12 4xl:text-lg 4xl:mb-14">
             Full documentation pack released with the goods before arrival.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 3xl:gap-14 4xl:gap-18">
             {documentation.map((d) => (
-              <div key={d.title} className="border-t border-slate-200 pt-4">
-                <h3 className="text-sm font-bold text-slate-900 mb-1">{d.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{d.desc}</p>
+              <div key={d.title} className="border-t border-slate-200 pt-4 3xl:pt-6 4xl:pt-8">
+                <h3 className="text-sm font-bold text-slate-900 mb-1 3xl:text-base 3xl:mb-2 4xl:text-lg 4xl:mb-3">{d.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed 3xl:text-sm 4xl:text-base">{d.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 pt-6 border-t border-slate-100 text-xs text-slate-600">
+          <div className="mt-10 pt-6 border-t border-slate-100 text-xs text-slate-600 3xl:mt-14 3xl:pt-8 3xl:text-sm 4xl:text-base">
             <strong>Independent inspection:</strong> Third-party inspection through SGS, Intertek, or Bureau Veritas can be arranged at cost for high-value orders.
           </div>
         </div>
       </section>
 
-      {/* Defect Policy (Clean white background, no dark blue) */}
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
+      {/* Defect Policy */}
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:py-32 3xl:px-28 4xl:py-40 4xl:px-36">
+        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
 
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 3xl:text-3xl 3xl:mb-6 4xl:text-4xl 4xl:mb-8">
             Our position on defects, stated plainly.
           </h2>
-          <div className="space-y-4 text-sm text-slate-600 max-w-3xl leading-relaxed">
+          <div className="space-y-4 text-sm text-slate-600 max-w-3xl leading-relaxed 3xl:space-y-6 3xl:text-base 3xl:max-w-4xl 4xl:space-y-8 4xl:text-lg 4xl:max-w-5xl">
             <p>
               If parts fail inspection in India, they do not ship. They are reworked or remade by the supplier before dispatch at their expense.
             </p>
@@ -136,11 +136,11 @@ export default function QualityPage() {
         </div>
       </section>
 
-      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center">
-        <div className="max-w-xl mx-auto">
+      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center 3xl:py-24 3xl:px-28 4xl:py-28 4xl:px-36">
+        <div className="max-w-xl mx-auto 3xl:max-w-2xl 4xl:max-w-3xl">
           <Link
             href="/get-started"
-            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors"
+            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors 3xl:text-base 3xl:px-8 3xl:py-4 4xl:text-lg 4xl:px-10 4xl:py-5"
           >
             Request a Quote
           </Link>

@@ -9,44 +9,44 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-5 sm:px-8 lg:px-12 transition-all duration-300">
-      <nav className="max-w-[1440px] mx-auto flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-5 sm:px-8 lg:px-12 transition-all duration-300 3xl:py-5 3xl:px-28 4xl:py-6 4xl:px-36">
+      <nav className="max-w-[1440px] mx-auto flex items-center justify-between 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
         {/* Typographic logo - PROQRA in all-caps, tracking-tighter */}
-        <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2">
+        <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 3xl:text-2xl 4xl:text-3xl">
           PROQRA
-          <span className="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+          <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5"></span>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-7">
+        <div className="hidden md:flex items-center gap-7 3xl:gap-9 4xl:gap-11">
           <Link
             href="/how-we-source"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
             How We Source
           </Link>
           <Link
             href="/quality"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
             Quality
           </Link>
           <Link
             href="/capabilities"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
             Capabilities
           </Link>
           <Link
             href="/about"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
             About
           </Link>
           <Link
             href="/get-started"
             id="nav-cta"
-            className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-2.5 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20"
+            className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-2.5 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20 3xl:text-base 3xl:px-7 3xl:py-3 4xl:text-lg 4xl:px-8 4xl:py-3.5"
           >
             Request a Quote
           </Link>
@@ -117,4 +117,3 @@ export default function Navbar() {
     </header>
   )
 }
-

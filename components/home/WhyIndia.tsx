@@ -1,43 +1,43 @@
 export default function WhyIndia() {
   return (
-    <section className="bg-white py-16 sm:py-20 border-b border-slate-200">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">
+    <section className="bg-white py-16 sm:py-20 border-b border-slate-200 3xl:py-32 4xl:py-40">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
+        <div className="max-w-3xl mb-10 3xl:max-w-5xl 3xl:mb-16">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2 3xl:text-sm 4xl:text-base">
             Why India, Why Now
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mb-4 3xl:text-4xl 3xl:mb-6 4xl:text-5xl 4xl:mb-8">
             The tariff position changed in <span className="text-blue-600 font-normal italic-accent">July 2026.</span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed 3xl:text-xl 4xl:text-2xl">
             Under the UK–India Comprehensive Economic and Trade Agreement, most Indian fabricated metalwork now enters the UK duty-free or at reduced tariff. Parts that were marginal two years ago are now genuinely competitive.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-slate-200 3xl:gap-16 3xl:pt-12 4xl:gap-20 4xl:pt-14">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">
+            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 3xl:text-lg 3xl:mb-3 4xl:text-xl 4xl:mb-4">
               Preferential Duty
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed 3xl:text-base 4xl:text-lg">
               0% or reduced import duty on fabricated steel and aluminium with an official certificate of origin.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">
+            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 3xl:text-lg 3xl:mb-3 4xl:text-xl 4xl:mb-4">
               Established Clusters
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed 3xl:text-base 4xl:text-lg">
               Mature manufacturing hubs in Pune, Coimbatore, and Rajkot with deep laser cutting, CNC forming, and welding capacity.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">
+            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 3xl:text-lg 3xl:mb-3 4xl:text-xl 4xl:mb-4">
               On-Site Accountability
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed 3xl:text-base 4xl:text-lg">
               Verification on the factory floor by someone accountable to you, ensuring what ships matches the agreed drawing.
             </p>
           </div>

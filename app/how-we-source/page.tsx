@@ -53,37 +53,37 @@ export default function HowWeSourcePage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
+      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:pt-52 3xl:pb-22 3xl:px-28 4xl:pt-60 4xl:pb-28 4xl:px-36">
+        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3 3xl:text-sm 4xl:text-base">
             Vetting Process
           </p>
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6 3xl:text-6xl 3xl:mb-8 4xl:text-7xl 4xl:mb-10">
             Anyone can find a factory. <br />
             <span className="text-blue-600 font-normal italic-accent">
               The work is proving it can do your job.
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed 3xl:text-xl 3xl:max-w-3xl 4xl:text-2xl 4xl:max-w-4xl">
             There are thousands of fabricators in India. A directory listing or an ISO logo tells you almost nothing about whether a shop can hold your tolerances or hit your date. This is the process every supplier undergoes before quoting your work.
           </p>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:py-32 3xl:px-28 4xl:py-40 4xl:px-36">
+        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
           <div className="divide-y divide-slate-200">
             {stages.map((stage) => (
-              <div key={stage.num} className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+              <div key={stage.num} className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline 3xl:py-14 3xl:gap-6 4xl:py-16 4xl:gap-8">
                 <div className="md:col-span-2">
-                  <span className="text-xs font-mono text-slate-400">Stage {stage.num}</span>
+                  <span className="text-xs font-mono text-slate-400 3xl:text-sm 4xl:text-base">Stage {stage.num}</span>
                 </div>
                 <div className="md:col-span-4">
-                  <h2 className="text-lg font-bold text-slate-900">{stage.title}</h2>
+                  <h2 className="text-lg font-bold text-slate-900 3xl:text-xl 4xl:text-2xl">{stage.title}</h2>
                 </div>
-                <div className="md:col-span-6 space-y-2">
-                  <p className="text-sm text-slate-700 leading-relaxed">{stage.summary}</p>
-                  <p className="text-xs text-slate-500 leading-relaxed">{stage.detail}</p>
+                <div className="md:col-span-6 space-y-2 3xl:space-y-3">
+                  <p className="text-sm text-slate-700 leading-relaxed 3xl:text-base 4xl:text-lg">{stage.summary}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed 3xl:text-sm 4xl:text-base">{stage.detail}</p>
                 </div>
               </div>
             ))}
@@ -91,17 +91,17 @@ export default function HowWeSourcePage() {
         </div>
       </section>
 
-      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center 3xl:py-24 3xl:px-28 4xl:py-28 4xl:px-36">
+        <div className="max-w-xl mx-auto 3xl:max-w-2xl 4xl:max-w-3xl">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 3xl:text-3xl 3xl:mb-5 4xl:text-4xl 4xl:mb-6">
             Test our vetting on a single drawing
           </h2>
-          <p className="text-sm text-slate-600 mb-6">
+          <p className="text-sm text-slate-600 mb-6 3xl:text-base 3xl:mb-8 4xl:text-lg 4xl:mb-10">
             Send a drawing and we will assess fit and provide a landed quote with full inspection scope.
           </p>
           <Link
             href="/get-started"
-            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors"
+            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors 3xl:text-base 3xl:px-8 3xl:py-4 4xl:text-lg 4xl:px-10 4xl:py-5"
           >
             Request a Quote
           </Link>
