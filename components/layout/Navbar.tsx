@@ -9,7 +9,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-6 md:px-16 lg:px-24 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-5 sm:px-8 lg:px-12 transition-all duration-300">
       <nav className="max-w-[1440px] mx-auto flex items-center justify-between">
         {/* Typographic logo - PROQRA in all-caps, tracking-tighter */}
         <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2">

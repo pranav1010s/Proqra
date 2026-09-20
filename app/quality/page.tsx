@@ -56,8 +56,8 @@ export default function QualityPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="pt-32 sm:pt-40 pb-16 px-6 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto">
+      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
             Quality Assurance
           </p>
@@ -74,8 +74,8 @@ export default function QualityPage() {
       </section>
 
       {/* What Gets Checked */}
-      <section className="py-16 sm:py-20 px-6 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8">
             What gets inspected on every order
           </h2>
@@ -91,8 +91,9 @@ export default function QualityPage() {
       </section>
 
       {/* Documentation Pack */}
-      <section className="py-16 sm:py-20 px-6 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
+
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
             What ships with your order
           </h2>
@@ -115,8 +116,9 @@ export default function QualityPage() {
       </section>
 
       {/* Defect Policy (Clean white background, no dark blue) */}
-      <section className="py-16 sm:py-20 px-6 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
+
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
             Our position on defects, stated plainly.
           </h2>
@@ -134,7 +136,7 @@ export default function QualityPage() {
         </div>
       </section>
 
-      <section className="py-16 px-6 text-center">
+      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center">
         <div className="max-w-xl mx-auto">
           <Link
             href="/get-started"

@@ -3,11 +3,11 @@ import Link from 'next/link'
 export default function ClosingCTA() {
   return (
     <section className="bg-white py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
         <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4 text-balance">
           Start with one part, not your whole supply chain.
         </h2>
-        <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed text-balance">
+        <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed text-balance">
           The sensible way to test an overseas supplier is a single low-risk part in a modest quantity. Send us a drawing and we will tell you honestly whether it suits Indian fabrication.
         </p>
 

@@ -21,7 +21,7 @@ const items = [
 export default function WhatWeDo() {
   return (
     <section className="bg-white py-16 sm:py-20 border-b border-slate-200">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="mb-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">
             What We Do

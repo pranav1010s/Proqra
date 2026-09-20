@@ -15,7 +15,7 @@ export default function GetStartedPage() {
     <main className="min-h-screen bg-white flex flex-col justify-between">
       <Navbar />
 
-      <div className="pt-32 sm:pt-40 pb-20 px-6">
+      <div className="pt-32 sm:pt-40 pb-20 px-5 sm:px-8 lg:px-12">
         <div className="max-w-xl mx-auto mb-8">
           <Link
             href="/"

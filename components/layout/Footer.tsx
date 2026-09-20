@@ -3,7 +3,7 @@ import { Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200/80 bg-white pt-16 pb-12 px-6 sm:px-12 md:px-16 lg:px-24 text-slate-600">
+    <footer className="border-t border-slate-200/80 bg-white pt-16 pb-12 px-5 sm:px-8 lg:px-12 text-slate-600">
       <div className="max-w-[1440px] mx-auto">
         {/* Top Info & Links Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 pb-12 border-b border-slate-100">

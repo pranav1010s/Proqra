@@ -53,8 +53,8 @@ export default function HowWeSourcePage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="pt-32 sm:pt-40 pb-16 px-6 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto">
+      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
             Vetting Process
           </p>
@@ -70,8 +70,8 @@ export default function HowWeSourcePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 px-6 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
           <div className="divide-y divide-slate-200">
             {stages.map((stage) => (
               <div key={stage.num} className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
@@ -91,7 +91,7 @@ export default function HowWeSourcePage() {
         </div>
       </section>
 
-      <section className="py-16 px-6 text-center">
+      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center">
         <div className="max-w-xl mx-auto">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
             Test our vetting on a single drawing

@@ -14,8 +14,8 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="pt-32 sm:pt-40 pb-20 px-6 border-b border-slate-200">
-        <div className="max-w-3xl mx-auto">
+      <section className="pt-32 sm:pt-40 pb-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-4xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
             About PROQRA
           </p>

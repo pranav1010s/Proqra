@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 bg-blue-500/5 blur-[140px] w-[70vw] h-[40vw] max-w-[800px] max-h-[400px] rounded-full pointer-events-none z-0" />
 
       {/* Centered Hero Headline & Dual CTA Buttons */}
-      <div className="w-full relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="w-full relative z-10 text-center px-5 sm:px-8 lg:px-12 max-w-6xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold tracking-tight text-slate-900 leading-[1.08] text-balance max-w-4xl mx-auto"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold tracking-tight text-slate-900 leading-[1.08] text-balance max-w-5xl mx-auto"
         >
           Fabricated metalwork from India,{' '}
           <span className="italic-accent text-blue-600 font-normal tracking-normal">
@@ -37,7 +37,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto text-balance"
+          className="mt-6 text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-4xl mx-auto text-balance"
         >
           PROQRA sources sheet metal fabrication and welded assemblies from India. Every supplier is verified in person before they’re approved to quote your work, and every order is inspected against your drawing before it ships.
         </motion.p>
@@ -71,7 +71,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 sm:mt-18 pt-8 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto"
+          className="mt-14 sm:mt-18 pt-8 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left max-w-4xl mx-auto"
         >
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">

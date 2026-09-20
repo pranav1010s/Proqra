@@ -1,8 +1,8 @@
 export default function ProblemSection() {
   return (
     <section className="bg-white py-16 sm:py-20 border-b border-slate-200">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="max-w-2xl mb-10">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="max-w-3xl mb-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
             The Problem
           </p>
