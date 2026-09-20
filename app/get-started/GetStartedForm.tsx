@@ -23,6 +23,7 @@ export default function GetStartedForm() {
     notes: '',
   })
 
+  const [file, setFile] = useState<File | null>(null)
   const [fileName, setFileName] = useState<string | null>(null)
   const [status, setStatus] = useState<FormState>('idle')
   const [errorMsg, setErrorMsg] = useState('')
@@ -33,13 +34,22 @@ export default function GetStartedForm() {
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-    if (file.size > 25 * 1024 * 1024) {
-      setErrorMsg('File exceeds 25MB limit. Please upload a smaller file or link in notes.')
+    const selectedFile = e.target.files?.[0]
+    if (!selectedFile) {
+      setFile(null)
+      setFileName(null)
       return
     }
-    setFileName(file.name)
+    // Limit to 20MB for email attachment reliability
+    if (selectedFile.size > 20 * 1024 * 1024) {
+      setErrorMsg('File exceeds 20MB limit. Please upload a smaller file or link to a cloud drive in notes.')
+      setFile(null)
+      setFileName(null)
+      return
+    }
+    setErrorMsg('')
+    setFile(selectedFile)
+    setFileName(selectedFile.name)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,13 +64,29 @@ export default function GetStartedForm() {
     }
 
     try {
+      const formData = new FormData()
+      formData.append('fullName', form.fullName)
+      formData.append('companyName', form.companyName)
+      formData.append('email', form.email)
+      formData.append('phone', form.phone)
+      formData.append('partDescription', form.partDescription)
+      formData.append('quantity', form.quantity)
+      formData.append('materialFinish', form.materialFinish)
+      formData.append('targetLeadTime', form.targetLeadTime)
+      formData.append('notes', form.notes)
+      if (file) {
+        formData.append('drawing', file)
+      }
+
       const res = await fetch('/api/submit-lead', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, drawingFileName: fileName || 'None' }),
+        body: formData,
       })
 
-      if (!res.ok) throw new Error('Submission failed. Please try again.')
+      if (!res.ok) {
+        const errData = await res.json().catch(() => null)
+        throw new Error(errData?.error || 'Submission failed. Please try again.')
+      }
       setStatus('success')
     } catch (err: unknown) {
       setStatus('error')

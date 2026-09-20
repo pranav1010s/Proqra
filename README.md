@@ -11,7 +11,7 @@ PROQRA helps UK engineering firms source sheet metal fabrication and welded asse
 
 ---
 
-## Project Structure Guide (Plain English)
+## Project Structure Guide
 
 Here is where everything lives in this project:
 
