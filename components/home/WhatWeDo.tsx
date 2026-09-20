@@ -1,108 +1,53 @@
-'use client'
-
-import { useRef } from 'react'
 import Link from 'next/link'
-import { motion, useScroll, useSpring } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 
-const steps = [
+const items = [
   {
     num: '01',
-    title: 'Daily Order Execution',
-    description:
-      'We take over the manual PR-to-PO grind and routine supplier follow-ups so your team can focus purely on strategy and negotiation.',
+    title: 'Supplier vetting',
+    body: 'Fabricators are shortlisted from established industrial clusters (Pune, Coimbatore, Rajkot), checked against official registrations, and verified in person on the shop floor before quoting.',
   },
   {
     num: '02',
-    title: 'ERP Data Management',
-    description:
-      'We clean your master data, fix outdated material records, and maintain your vendor database so your team can finally trust the system.',
+    title: 'Quality & inspection',
+    body: 'Every order is checked against your drawing before leaving India. You receive a dimensional inspection report and mill test certs with the shipment, not a generic assurance.',
   },
   {
     num: '03',
-    title: 'Live MI Reporting',
-    description:
-      'We replace outdated spreadsheets with custom, real-time dashboards that show exactly where your money is going and where delays are happening.',
+    title: 'Logistics & delivery',
+    body: 'We manage production milestones, sea freight, customs clearance, and certificates of origin through to your door under a single point of contact and agreed delivery date.',
   },
 ]
 
 export default function WhatWeDo() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  // Track scroll progress on the parent container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start center', 'end center'],
-  })
-
-  // Smooth spring physics for editorial feel
-  const springValue = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  })
-
   return (
-    <section
-      id="services"
-      ref={containerRef}
-      className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 pt-24 pb-32 flex flex-col lg:flex-row gap-16 lg:gap-24 relative bg-white text-slate-900"
-    >
-      {/* Left Column (Sticky) */}
-      <div className="lg:w-1/3 lg:sticky h-fit" style={{ top: '120px' }}>
-        <p className="text-blue-600 text-xs font-bold uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
-          WHAT WE DO
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
-        </p>
-        <h2 className="text-[clamp(2.2rem,4vw,3.5rem)] font-extrabold tracking-tighter text-slate-900 leading-[0.98]">
-          Less administration.{' '}
-          <span className="italic-accent text-blue-600 font-normal">
-            More execution.
-          </span>
-        </h2>
-      </div>
+    <section className="bg-white py-16 sm:py-20 border-b border-slate-200">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="mb-10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">
+            What We Do
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+            End-to-end sourcing, verification, and freight
+          </h2>
+        </div>
 
-      {/* Right Column (Scrolling content) */}
-      <div className="lg:w-2/3 pl-6 sm:pl-10 relative">
-        {/* Background line */}
-        <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-slate-200" />
-
-        {/* Animated fill line */}
-        <motion.div
-          style={{ scaleY: springValue, transformOrigin: 'top' }}
-          className="absolute left-0 top-0 bottom-0 w-[2px] bg-blue-600"
-        />
-
-        {/* Steps */}
-        <div className="space-y-20 sm:space-y-24">
-          {steps.map((step) => (
-            <div key={step.num} className="relative pl-6 sm:pl-10">
-              {/* Centered Dot Indicator */}
-              <div className="absolute left-0 -translate-x-1/2 top-[10px] w-3.5 h-3.5 rounded-full bg-blue-600 border-2 border-white shadow-sm z-10" />
-
-              {/* Number and Step details */}
-              <span className="italic-accent text-3xl text-blue-600/70 block mb-2 font-normal">
-                {step.num}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
-                {step.title}
-              </h3>
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
-                {step.description}
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {items.map((item) => (
+            <div key={item.num} className="border-t border-slate-200 pt-5">
+              <span className="text-xs font-mono text-slate-400 block mb-2">{item.num}</span>
+              <h3 className="text-base font-bold text-slate-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{item.body}</p>
             </div>
           ))}
+        </div>
 
-          {/* Bridge link to Capabilities Page */}
-          <div className="pt-6 pl-6 sm:pl-10">
-            <Link
-              href="/capabilities"
-              className="inline-flex items-center gap-2.5 text-slate-900 font-bold text-base hover:text-blue-600 hover:gap-3.5 transition-all duration-300 group"
-            >
-              Explore our full capabilities
-              <ArrowRight size={18} className="text-blue-600 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-          </div>
+        <div className="mt-8 pt-6 border-t border-slate-100 flex gap-6 text-xs font-medium">
+          <Link href="/how-we-source" className="text-slate-900 underline hover:text-blue-600">
+            Read the full vetting process →
+          </Link>
+          <Link href="/quality" className="text-slate-900 underline hover:text-blue-600">
+            See what gets inspected →
+          </Link>
         </div>
       </div>
     </section>

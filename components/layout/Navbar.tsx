@@ -18,31 +18,37 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
+          <Link
+            href="/how-we-source"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+          >
+            How We Source
+          </Link>
+          <Link
+            href="/quality"
+            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+          >
+            Quality
+          </Link>
           <Link
             href="/capabilities"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
           >
             Capabilities
           </Link>
-          <a
-            href="/#services"
+          <Link
+            href="/about"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
           >
-            Services
-          </a>
-          <a
-            href="/#contact"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-          >
-            Contact
-          </a>
+            About
+          </Link>
           <Link
             href="/get-started"
             id="nav-cta"
             className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-2.5 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20"
           >
-            Get Started
+            Request a Quote
           </Link>
         </div>
 
@@ -69,33 +75,40 @@ export default function Navbar() {
           >
             <div className="py-6 flex flex-col gap-4">
               <Link
+                href="/how-we-source"
+                onClick={() => setOpen(false)}
+                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+              >
+                How We Source
+              </Link>
+              <Link
+                href="/quality"
+                onClick={() => setOpen(false)}
+                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+              >
+                Quality
+              </Link>
+              <Link
                 href="/capabilities"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
                 Capabilities
               </Link>
-              <a
-                href="/#services"
+              <Link
+                href="/about"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
-                Services
-              </a>
-              <a
-                href="/#contact"
-                onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-              >
-                Contact
-              </a>
+                About
+              </Link>
               <Link
                 href="/get-started"
                 id="mobile-nav-cta"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-3 text-center mt-2 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20"
               >
-                Get Started
+                Request a Quote
               </Link>
             </div>
           </motion.div>

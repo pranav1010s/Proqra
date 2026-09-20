@@ -1,24 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Loader2, ArrowRight } from 'lucide-react'
+import { useState, useRef } from 'react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
-const erpOptions = [
-  'SAP (ECC or S/4HANA)',
-  'Oracle / NetSuite',
-  'Microsoft Dynamics',
-  'Coupa',
-  'Other / Multiple Systems',
-]
-
-const timelineOptions = [
-  'Immediate priority',
-  'Within 1 month',
-  '1–3 months',
-  'Just exploring options',
+const leadTimeOptions = [
+  'Standard (8–12 weeks sea freight)',
+  'Urgent (4–6 weeks air freight at cost)',
+  'Flexible / exploratory',
 ]
 
 export default function GetStartedForm() {
@@ -27,161 +16,245 @@ export default function GetStartedForm() {
     companyName: '',
     email: '',
     phone: '',
-    painPoints: '',
-    erpSystem: '',
-    timeline: '',
+    partDescription: '',
+    quantity: '',
+    materialFinish: '',
+    targetLeadTime: 'Standard (8–12 weeks sea freight)',
     notes: '',
   })
+
+  const [fileName, setFileName] = useState<string | null>(null)
   const [status, setStatus] = useState<FormState>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const update = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    if (file.size > 25 * 1024 * 1024) {
+      setErrorMsg('File exceeds 25MB limit. Please upload a smaller file or link in notes.')
+      return
+    }
+    setFileName(file.name)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
     setErrorMsg('')
 
+    if (!form.fullName || !form.companyName || !form.email || !form.partDescription || !form.quantity) {
+      setStatus('error')
+      setErrorMsg('Please fill in all required fields.')
+      return
+    }
+
     try {
       const res = await fetch('/api/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, drawingFileName: fileName || 'None' }),
       })
 
-      let data: any = {}
-      try {
-        data = await res.json()
-      } catch {
-        throw new Error('Server error occurred. Please try again.')
-      }
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Something went wrong. Please try again.')
-      }
-
+      if (!res.ok) throw new Error('Submission failed. Please try again.')
       setStatus('success')
     } catch (err: unknown) {
       setStatus('error')
-      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+      setErrorMsg(err instanceof Error ? err.message : 'Submission failed.')
     }
   }
 
-  // Polished clean light inputs
   const inputClass =
-    'w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-900 placeholder-slate-400 shadow-sm transition-all duration-200 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:outline-none'
+    'w-full bg-white border border-slate-300 rounded px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors'
 
-  const labelClass = 'block text-[12px] font-bold text-slate-700 mb-1.5 tracking-wide'
+  const labelClass = 'block text-xs font-semibold text-slate-800 mb-1'
 
   if (status === 'success') {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-[580px] mx-auto py-12 px-8 bg-white border border-slate-200 rounded-2xl shadow-sm text-center"
-        id="success-message"
-      >
-        <p className="text-slate-900 text-4xl font-extrabold mb-4 tracking-tight">Received.</p>
-        <p className="text-slate-900 text-lg font-bold mb-2">Your audit request is in motion.</p>
-        <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
-          Thank you, {form.fullName}. We will review your system details and reach out to 
-          at {form.email} within 1–2 business days to schedule your diagnostic.
+      <div className="max-w-xl mx-auto py-10 px-6 bg-white border border-slate-200 rounded text-center">
+        <h3 className="text-xl font-bold text-slate-900 mb-2">Drawing Received</h3>
+        <p className="text-sm text-slate-600 leading-relaxed">
+          Thank you, {form.fullName}. We will review your drawing and get back to <strong className="text-slate-800">{form.email}</strong> within five working days with a landed cost and lead time.
         </p>
-      </motion.div>
+      </div>
     )
   }
 
   return (
-    <motion.form
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      onSubmit={handleSubmit}
-      className="max-w-[580px] mx-auto space-y-5 bg-white p-8 sm:p-10 border border-slate-200/80 rounded-2xl shadow-sm"
-      id="requirements-form"
-      noValidate
-    >
-      {/* Row 1 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="fullName" className={labelClass}>Full name *</label>
-          <input id="fullName" name="fullName" type="text" required placeholder="Jane Smith" value={form.fullName} onChange={update} className={inputClass} />
+    <form onSubmit={handleSubmit} className="max-w-xl mx-auto bg-white border border-slate-200 rounded p-6 sm:p-8">
+      <div className="space-y-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="fullName" className={labelClass}>
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              value={form.fullName}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="companyName" className={labelClass}>
+              Company *
+            </label>
+            <input
+              type="text"
+              id="companyName"
+              name="companyName"
+              required
+              value={form.companyName}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor="companyName" className={labelClass}>Company *</label>
-          <input id="companyName" name="companyName" type="text" required placeholder="Acme Inc" value={form.companyName} onChange={update} className={inputClass} />
-        </div>
-      </div>
 
-      {/* Row 2 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="email" className={labelClass}>Work email *</label>
-          <input id="email" name="email" type="email" required placeholder="jane@acme.com" value={form.email} onChange={update} className={inputClass} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="email" className={labelClass}>
+              Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={form.email}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className={labelClass}>
+              Phone (optional)
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={form.phone}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
         </div>
+
         <div>
-          <label htmlFor="phone" className={labelClass}>Phone number</label>
-          <input id="phone" name="phone" type="tel" placeholder="+44 (0) 7000 000000" value={form.phone} onChange={update} className={inputClass} />
+          <label className={labelClass}>
+            Drawing Upload (PDF, STEP, DWG, DXF, or photo)
+          </label>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            accept=".pdf,.step,.stp,.dwg,.dxf,.png,.jpg,.jpeg"
+            className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded file:border file:border-slate-300 file:text-xs file:font-semibold file:bg-slate-50 hover:file:bg-slate-100 cursor-pointer"
+          />
+          {fileName && <p className="text-xs text-slate-600 mt-1 font-mono">Selected: {fileName}</p>}
         </div>
-      </div>
 
-      {/* Pain Points */}
-      <div>
-        <label htmlFor="painPoints" className={labelClass}>What are your biggest data or operational bottlenecks? *</label>
-        <textarea id="painPoints" name="painPoints" required rows={4} placeholder="E.g., Too many duplicate vendors, messy material masters, PO exceptions..." value={form.painPoints} onChange={update} className={`${inputClass} resize-none`} />
-      </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="sm:col-span-2">
+            <label htmlFor="partDescription" className={labelClass}>
+              Part Description *
+            </label>
+            <input
+              type="text"
+              id="partDescription"
+              name="partDescription"
+              required
+              placeholder="e.g. Mild steel bracket / welded chassis"
+              value={form.partDescription}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="quantity" className={labelClass}>
+              Quantity *
+            </label>
+            <input
+              type="text"
+              id="quantity"
+              name="quantity"
+              required
+              placeholder="e.g. 250 pcs"
+              value={form.quantity}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
+        </div>
 
-      {/* Row 3 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="materialFinish" className={labelClass}>
+              Material & Finish (optional)
+            </label>
+            <input
+              type="text"
+              id="materialFinish"
+              name="materialFinish"
+              placeholder="e.g. 304 SS, Powder coat"
+              value={form.materialFinish}
+              onChange={update}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="targetLeadTime" className={labelClass}>
+              Target Lead Time
+            </label>
+            <select
+              id="targetLeadTime"
+              name="targetLeadTime"
+              value={form.targetLeadTime}
+              onChange={update}
+              className={inputClass}
+            >
+              {leadTimeOptions.map((o) => (
+                <option key={o} value={o}>{o}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div>
-          <label htmlFor="erpSystem" className={labelClass}>Primary ERP System</label>
-          <select id="erpSystem" name="erpSystem" value={form.erpSystem} onChange={update} className={`${inputClass} cursor-pointer`}>
-            <option value="" disabled>Select System</option>
-            {erpOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
-          </select>
+          <label htmlFor="notes" className={labelClass}>
+            Additional Notes
+          </label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows={3}
+            placeholder="Critical tolerances, cosmetic requirements, etc."
+            value={form.notes}
+            onChange={update}
+            className={inputClass}
+          />
         </div>
-        <div>
-          <label htmlFor="timeline" className={labelClass}>Target timeline to resolve</label>
-          <select id="timeline" name="timeline" value={form.timeline} onChange={update} className={`${inputClass} cursor-pointer`}>
-            <option value="" disabled>Select</option>
-            {timelineOptions.map((o) => (<option key={o} value={o} className="bg-white text-slate-900">{o}</option>))}
-          </select>
-        </div>
-      </div>
 
-      {/* Notes */}
-      <div>
-        <label htmlFor="notes" className={labelClass}>Any specific compliance or reporting needs?</label>
-        <textarea id="notes" name="notes" rows={3} placeholder="E.g., Need live dashboards, ISO compliance tracking..." value={form.notes} onChange={update} className={`${inputClass} resize-none`} />
-      </div>
-
-      {/* Error */}
-      <AnimatePresence>
-        {status === 'error' && (
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-red-600 text-xs font-bold tracking-wide" id="form-error">
-            {errorMsg}
-          </motion.p>
+        {errorMsg && (
+          <p className="text-xs text-red-600">{errorMsg}</p>
         )}
-      </AnimatePresence>
 
-      {/* Submit */}
-      <button
-        type="submit"
-        id="submit-requirements"
-        disabled={status === 'loading'}
-        className="group w-full bg-blue-600 text-white font-bold text-xs tracking-wider uppercase px-6 py-4 rounded-lg hover:bg-blue-700 hover:shadow-md hover:shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
-      >
-        {status === 'loading' ? (
-          <><Loader2 size={14} className="animate-spin" /> Submitting…</>
-        ) : (
-          <>
-            Request Free Audit
-            <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-          </>
-        )}
-      </button>
-    </motion.form>
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm py-3 rounded transition-colors disabled:opacity-50"
+        >
+          {status === 'loading' ? 'Submitting...' : 'Request a Quote'}
+        </button>
+      </div>
+    </form>
   )
 }

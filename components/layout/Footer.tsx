@@ -3,33 +3,39 @@ import { Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200/80 bg-white pt-14 pb-10 px-6 sm:px-12 md:px-16 lg:px-24 text-slate-600">
+    <footer className="border-t border-slate-200/80 bg-white pt-16 pb-12 px-6 sm:px-12 md:px-16 lg:px-24 text-slate-600">
       <div className="max-w-[1440px] mx-auto">
-        {/* Links row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-16">
-          <div>
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-3">Company</p>
-            <div className="flex gap-6">
-              <Link href="/capabilities" className="text-[13px] text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300">Capabilities</Link>
-              <a href="/#services" className="text-[13px] text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300">Services</a>
-              <Link href="/get-started" className="text-[13px] text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300">Get started</Link>
+        {/* Top Info & Links Row */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 pb-12 border-b border-slate-100">
+          <div className="md:col-span-6 flex flex-col gap-3">
+            <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2">
+              PROQRA
+              <span className="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+            </Link>
+            <p className="text-sm text-slate-600 max-w-sm leading-relaxed">
+              Sourcing fabricated metalwork from India for UK manufacturers.
+            </p>
+            <p className="text-sm font-semibold text-slate-900 mt-1">
+              <a href="mailto:hello@proqra.co.uk" className="hover:text-blue-600 transition-colors">
+                hello@proqra.co.uk
+              </a>
+            </p>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4">Navigation</p>
+            <div className="flex flex-col gap-2.5">
+              <Link href="/how-we-source" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">How We Source</Link>
+              <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">Quality & Inspection</Link>
+              <Link href="/capabilities" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">Capabilities</Link>
+              <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">About</Link>
+              <Link href="/get-started" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">Request a Quote</Link>
             </div>
           </div>
-          <div>
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-3">Contact</p>
-            <a href="mailto:hello@proqra.co.uk" className="text-[13px] text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300">
-              hello@proqra.co.uk
-            </a>
-          </div>
-        </div>
 
-        {/* Big wordmark */}
-        <div className="border-t border-slate-100 pt-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-          <div className="flex flex-col gap-3">
-            <p className="text-[clamp(3rem,10vw,7rem)] font-black tracking-tighter text-slate-200/70 leading-none select-none uppercase">
-              proqra
-            </p>
-            <div className="flex items-center gap-3 mt-1">
+          <div className="md:col-span-3">
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4">Connect</p>
+            <div className="flex items-center gap-3">
               <a
                 href="https://www.linkedin.com/company/proqra/"
                 target="_blank"
@@ -52,8 +58,20 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <p className="text-slate-400 text-xs pb-2 font-medium">
-            © {new Date().getFullYear()} proqra
+        </div>
+
+        {/* Bottom row: Wordmark and Legal details */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+          <div className="flex flex-col gap-2">
+            <p className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tighter text-slate-200/70 leading-none select-none uppercase">
+              proqra
+            </p>
+            <p className="text-xs text-slate-400 font-medium">
+              Registered in England and Wales. [Company number once registered]
+            </p>
+          </div>
+          <p className="text-slate-400 text-xs font-medium">
+            © 2026 PROQRA
           </p>
         </div>
       </div>

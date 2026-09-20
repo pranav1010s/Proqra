@@ -4,15 +4,19 @@ import { SpeedInsights } from "@vercel/speed-insights/next" // Imported here
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'PROQRA | Flawless Procurement Data Managed For You',
+  title: 'PROQRA | Fabricated Metalwork Sourcing from India for UK Manufacturers',
   description:
-    'PROQRA helps mid-market companies automate and maintain clean ERP procurement data, PO follow-ups, and live MI reporting.',
+    'PROQRA helps UK engineering firms source sheet metal fabrication and welded assemblies from vetted Indian suppliers, with factory verification, inspection and full documentation on every order.',
   icons: {
-    icon: '/icon.svg',
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
   },
   openGraph: {
-    title: 'PROQRA | Flawless Procurement Data Managed For You',
-    description: 'We manage repetitive supply chain tasks and ERP data hygiene for your team.',
+    title: 'PROQRA | Fabricated Metalwork Sourcing from India for UK Manufacturers',
+    description:
+      'PROQRA helps UK engineering firms source sheet metal fabrication and welded assemblies from vetted Indian suppliers, with factory verification, inspection and full documentation on every order.',
     type: 'website',
   },
 }
@@ -26,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

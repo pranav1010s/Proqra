@@ -1,11 +1,14 @@
-export interface Lead {
+export interface FabricationLead {
   fullName: string
   companyName: string
   email: string
   phone?: string
-  painPoints: string
-  erpSystem?: string
-  timeline?: string
+  partDescription: string
+  quantity: string
+  materialFinish?: string
+  targetLeadTime?: string
+  drawingFileName?: string
+  drawingFileSize?: string
   notes?: string
-  submittedAt: Date
+  submittedAt?: Date
 }
