@@ -29,6 +29,7 @@ export default function Footer() {
               <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Inspection</Link>
               <Link href="/capabilities" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Capabilities</Link>
               <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About</Link>
+              <Link href="/for-suppliers" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">For Suppliers</Link>
               <Link href="/get-started" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Request a Quote</Link>
             </div>
           </div>
