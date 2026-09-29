@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Search, 
+  Eye, 
   ShieldCheck, 
   Wrench, 
   FileCheck2, 
   Cpu, 
-  Activity, 
-  Truck,
+  ClipboardCheck,
   ArrowRight,
   ChevronRight,
   CheckCircle2
@@ -22,38 +22,53 @@ const steps = [
     name: 'Find',
     action: 'Supplier Discovery',
     headline: 'Requirements-led supplier discovery',
-    summary: 'We identify Indian manufacturers that match your product, process and volume requirements.',
-    detail: 'We source specifically around your manufacturing drawings, materials, and batch quantities, rather than relying on open catalogs.',
+    summary: 'We identify Indian engineering manufacturers that match your product, process, and volume specifications.',
+    detail: 'We evaluate manufacturing drawings, materials, and batch quantities to shortlist matching machine shops in specialized engineering hubs.',
     icon: Search,
     deliverables: [
       'Drawing and tolerance analysis (2D & 3D CAD)',
       'Cluster shortlisting across Pune, Rajkot, and Coimbatore',
       'Machine specification and capacity pre-match'
     ],
-    milestone: 'Verified Supplier Shortlist'
+    milestone: 'Shortlist of Suitable Suppliers'
   },
   {
     num: '02',
-    name: 'Qualify',
-    action: 'Shop Floor Audit',
-    headline: 'In-person shop floor evaluation',
-    summary: "We assess the supplier's factory, equipment, capability, quality systems and commercial position.",
-    detail: 'Physical inspection of running machinery, production flow, material storage, calibration logs, and business stability before any commitment.',
-    icon: ShieldCheck,
+    name: 'Audit',
+    action: 'In-Factory Visits',
+    headline: 'In-person shop-floor evaluation',
+    summary: "We visit the factory in person to check machinery, running setups, and workplace safety, with live video call access for your team.",
+    detail: 'We walk the factory floor in person to observe running equipment, verify calibration validity, and assess operator setups.',
+    icon: Eye,
     deliverables: [
       'Unannounced physical factory walk',
-      'Inspection instrument calibration audit',
-      'Material traceability and storage verification'
+      'Machine age, condition, and maintenance logs',
+      'Material storage and scrap segregation audit'
     ],
-    milestone: 'Comprehensive Audit Dossier'
+    milestone: 'On-Site Factory Audit'
   },
   {
     num: '03',
+    name: 'Qualify',
+    action: 'Capability & Safety Checks',
+    headline: 'Verifying what the supplier can deliver',
+    summary: 'Our specialty lies in full capability, quality, and safety checks to make sure the supplier can deliver what is promised.',
+    detail: 'We audit management discipline, safety standards, inspection tools, and business stability before any production commitment.',
+    icon: ShieldCheck,
+    deliverables: [
+      'Machine capability and tolerance limits check',
+      'Inspection instrument calibration audit',
+      'Workplace safety protocols and compliance'
+    ],
+    milestone: 'Formal Supplier Qualification'
+  },
+  {
+    num: '04',
     name: 'Develop',
-    action: 'Process Engineering',
+    action: 'Process Alignment',
     headline: 'Closing capability and process gaps',
-    summary: 'Where a supplier needs to meet a specific requirement, we work with them to close the gaps.',
-    detail: 'We help suppliers improve technical documentation, inspection processes, and production controls to align strictly with UK engineering standards.',
+    summary: 'Where a supplier needs to meet a specific requirement, we work with them directly to close the gaps.',
+    detail: 'We help the supplier formalize standard operating procedures, custom tooling setups, and quality records to align with UK expectations.',
     icon: Wrench,
     deliverables: [
       'Standard Operating Procedure (SOP) alignment',
@@ -63,64 +78,49 @@ const steps = [
     milestone: 'Approved Manufacturing Protocol'
   },
   {
-    num: '04',
+    num: '05',
     name: 'Validate',
     action: 'First-Article Sign-Off',
-    headline: 'First-article & specification check',
-    summary: 'Samples and first production are checked against the agreed specification.',
-    detail: 'Comprehensive dimensional reports, material certificates, and visual inspection before mass production authorization.',
+    headline: 'First-article & specification verification',
+    summary: 'Initial samples and test pieces are inspected rigorously against your agreed drawing.',
+    detail: 'We verify dimensional reports, check mill test certificates, and complete physical sample checks before authorizing initial production.',
     icon: FileCheck2,
     deliverables: [
       '100% Critical dimension metrology check',
       'Mill test certificate (MTC 3.1) chemical validation',
-      'Formal First Article Inspection (FAI) approval'
+      'Written First Article Inspection (FAI) approval'
     ],
-    milestone: 'Signed Production Release'
-  },
-  {
-    num: '05',
-    name: 'Produce',
-    action: 'Production Oversight',
-    headline: 'Governed transition to regular runs',
-    summary: 'Once the supplier is approved, we support the transition into regular production.',
-    detail: 'Active milestone oversight on the production line, ensuring tooling setups, cycle times, and process parameters remain consistent.',
-    icon: Cpu,
-    deliverables: [
-      'Line cycle time and parameter monitoring',
-      'In-process visual and dimensional checkpoints',
-      'Tool wear tracking and replacement schedule'
-    ],
-    milestone: 'Stable Production Run'
+    milestone: 'Signed First-Article Approval'
   },
   {
     num: '06',
-    name: 'Control',
-    action: 'Batch Inspection',
-    headline: 'Active oversight on every batch',
-    summary: 'We monitor quality, delivery and supplier performance as the relationship develops.',
-    detail: 'Continuous tracking of defect rates, non-conformance reports, lead-time discipline, and pre-dispatch inspection protocols.',
-    icon: Activity,
+    name: 'Launch',
+    action: 'First-Run Production',
+    headline: 'Getting started on first production materials',
+    summary: 'We oversee the setup and running of your initial production materials on the shop floor.',
+    detail: 'We check cycle times, machine parameters, and in-process checkpoints to ensure the supplier runs smoothly from day one.',
+    icon: Cpu,
     deliverables: [
-      'Pre-dispatch random sampling (AQL standards)',
-      'Defect logging and preventive action plans',
-      'Quarterly supplier scorecards and reviews'
+      'Setup verification on the production line',
+      'Initial material batch dimensional checks',
+      'Cycle time and process stability confirmation'
     ],
-    milestone: 'Pre-Shipment Authorization'
+    milestone: 'Successful First Material Run'
   },
   {
     num: '07',
-    name: 'Deliver',
-    action: 'Export Logistics',
-    headline: 'Coordinated export to UK facility',
-    summary: 'We coordinate the necessary documentation and shipment process to get the goods to the UK.',
-    detail: 'End-to-end management of bills of lading, packing lists, inspection dossiers, customs clearance, and landed UK delivery.',
-    icon: Truck,
+    name: 'Document',
+    action: 'Complete Client Dossier',
+    headline: 'Full documentation shared from start to finish',
+    summary: 'We document everything from starting point to completion and share the full dossier with your team.',
+    detail: 'You receive complete audit reports, calibration certs, first-article sign-offs, and factory contacts for a transparent, direct relationship.',
+    icon: ClipboardCheck,
     deliverables: [
-      'Export crating and corrosion-protection packing',
-      'Customs clearance and UK duty handling',
-      'Landed delivery directly to your facility'
+      'Comprehensive in-factory audit dossier',
+      'First-article metrology and material certificates',
+      'Direct supplier contact and handover pack'
     ],
-    milestone: 'Landed UK Delivery'
+    milestone: 'Complete Handover Dossier'
   }
 ]
 
@@ -148,10 +148,10 @@ export default function InteractiveProcessSection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-3xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-              The 7-step sourcing journey.
+              How we qualify and launch your supplier.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-              Finding a factory is only the beginning. We qualify them, develop them to your drawing, and support the supply relationship through landed UK delivery.
+              From initial discovery to in-person factory visits, first-article sign-off, and first-run production oversight, our 7-step framework ensures your supplier can deliver what is promised.
             </p>
           </div>
 
@@ -159,7 +159,7 @@ export default function InteractiveProcessSection() {
             href="/how-we-source"
             className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 group transition-colors"
           >
-            <span>Read full sourcing methodology</span>
+            <span>Explore full 7-step process in detail</span>
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

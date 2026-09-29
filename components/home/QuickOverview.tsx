@@ -2,34 +2,34 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Factory, ShieldCheck, Truck, ArrowRight } from 'lucide-react'
+import { Factory, ShieldCheck, ClipboardCheck, ArrowRight } from 'lucide-react'
 
 const pillars = [
   {
     icon: Factory,
-    title: 'Factory-Direct Matching',
+    title: 'Suitable Supplier Discovery',
     summary:
-      'We match your manufacturing drawings and volume requirements directly with specialized precision facilities across India’s core engineering clusters.',
-    highlights: ['Zero open directory catalogs', 'Tolerances down to ±0.01mm', 'Direct machine-capacity match'],
+      'We match your manufacturing drawings, materials, and batch volumes directly with verified precision facilities in India’s leading industrial hubs.',
+    highlights: ['Direct CAD & drawing review', 'Targeted cluster shortlisting', 'Machine-capacity verification'],
     linkText: 'Explore manufacturing capabilities',
     href: '/capabilities'
   },
   {
     icon: ShieldCheck,
-    title: 'Physical Shop-Floor Audits',
+    title: 'In-Factory Audits & Safety Checks',
     summary:
-      'No email-only vetting. Our resident technical engineers inspect running machinery, calibration logs, material storage, and management discipline in person.',
-    highlights: ['100% on-site physical audits', 'Process gap resolution', 'Material certificate traceability'],
-    linkText: 'See our 8-gate quality protocol',
+      'We visit the factory floor in person to check capability, quality, and safety standards. You can also join us on a live video call to see the shop floor firsthand.',
+    highlights: ['In-person shop-floor visits', 'Live video call access on request', 'Capability & safety verification'],
+    linkText: 'See our qualification standards',
     href: '/quality'
   },
   {
-    icon: Truck,
-    title: 'Governed UK Delivery',
+    icon: ClipboardCheck,
+    title: 'First-Run Setup & Full Dossier',
     summary:
-      'From first-article approval through production runs and customs clearance, we take full responsibility until goods arrive at your UK dock.',
-    highlights: ['First-Article Inspection (FAI)', 'Pre-shipment sign-off', 'Landed UK logistics handled'],
-    linkText: 'Read our 7-step sourcing process',
+      'We oversee the production of your initial materials, verify first articles, and document everything from start to finish, sharing full records directly with you.',
+    highlights: ['First-article inspection sign-off', 'Initial material run oversight', 'Complete client documentation pack'],
+    linkText: 'Read our 7-step qualification process',
     href: '/how-we-source'
   }
 ]
@@ -44,7 +44,7 @@ export default function QuickOverview() {
             How PROQRA works for UK manufacturers.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            We operate as your dedicated technical sourcing partner on the ground in India, bridging the gap between UK engineering standards and Indian production capacity.
+            We operate as your on-the-ground sourcing partner in India, visiting factories in person to verify supplier capability before you commit.
           </p>
         </div>
 

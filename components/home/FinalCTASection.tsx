@@ -62,10 +62,10 @@ export default function FinalCTASection() {
             {/* Ethos Mantra */}
             <div className="mt-8 pt-8 border-t border-slate-200 space-y-4">
               <div className="font-mono text-xs uppercase tracking-widest text-blue-600 font-bold">
-                Find. Qualify. Develop. Supply.
+                Find. Qualify. Launch. Document.
               </div>
               <p className="text-sm text-slate-600 italic leading-relaxed">
-                Finding the supplier is only the beginning. We qualify them, develop them to your requirements and support the supply relationship through production.
+                Finding the supplier is only the beginning. We conduct in-person factory visits, audit capability and safety, oversee initial production materials, and share the complete documentation dossier directly with you.
               </p>
               <div className="pt-2 text-xs font-mono text-slate-500">
                 Direct inquiry: <a href="mailto:hello@proqra.co.uk" className="text-slate-900 font-bold underline hover:text-blue-600">hello@proqra.co.uk</a>
@@ -106,7 +106,7 @@ export default function FinalCTASection() {
                     Talk to PROQRA
                   </h3>
                   <p className="text-xs text-slate-500 font-mono">
-                    Assess your requirement with our sourcing engineers
+                    Assess your requirement directly with us
                   </p>
                 </div>
 
@@ -134,7 +134,7 @@ export default function FinalCTASection() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="david@engineering.co.uk"
+                      placeholder="david@company.co.uk"
                       className="w-full text-sm bg-white border border-slate-300 rounded px-3.5 py-2.5 text-slate-900 focus:border-slate-900 transition-colors"
                     />
                   </div>

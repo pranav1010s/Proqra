@@ -155,7 +155,7 @@ export default function ClustersPreview() {
             </AnimatePresence>
 
             <div className="mt-8 pt-6 border-t border-slate-200/80 flex items-center justify-between text-xs font-mono text-slate-500">
-              <span>On-the-ground resident engineering presence</span>
+              <span>In-person factory visits & live video access</span>
               <Link href="/capabilities" className="text-blue-600 font-bold hover:underline">
                 Explore cluster specs →
               </Link>

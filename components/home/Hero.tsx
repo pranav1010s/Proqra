@@ -56,8 +56,8 @@ export default function Hero() {
               className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] max-w-2xl 3xl:text-7xl 4xl:text-8xl"
             >
               Find the right supplier.{' '}
-              <span className="text-blue-600">Build the relationship.</span>{' '}
-              Control the supply.
+              <span className="text-blue-600">Qualify on the shop floor.</span>{' '}
+              Launch production safely.
             </motion.h1>
 
             {/* Subhead & Agency Description */}
@@ -68,10 +68,10 @@ export default function Hero() {
               className="mt-6 sm:mt-8 space-y-4 max-w-xl text-slate-600 text-base sm:text-lg leading-relaxed 3xl:text-xl 3xl:max-w-2xl"
             >
               <p className="font-medium text-slate-800">
-                PROQRA helps UK manufacturers find, qualify and develop suppliers in India.
+                PROQRA helps UK engineering and manufacturing companies find, qualify, and establish production with trusted suppliers in India.
               </p>
               <p>
-                We work with suppliers from the first assessment through production, quality control and ongoing supply.
+                From on-site factory visits and safety audits to overseeing your first production materials, we verify capability and document everything from start to finish.
               </p>
             </motion.div>
 
@@ -90,10 +90,10 @@ export default function Hero() {
                 Talk to us
               </Link>
               <Link
-                href="#process"
+                href="/how-we-source"
                 className="inline-flex items-center justify-center border border-slate-300 hover:border-slate-900 text-slate-700 hover:text-slate-900 font-medium text-sm sm:text-base px-8 py-3.5 rounded transition-colors text-center"
               >
-                How we work (7 Steps) ↓
+                How we work (7 Steps) →
               </Link>
             </motion.div>
 
@@ -105,16 +105,16 @@ export default function Hero() {
               className="mt-10 pt-6 border-t border-slate-200 grid grid-cols-3 gap-4 text-left"
             >
               <div>
-                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Territory</p>
-                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">UK ⇄ India</p>
+                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Audits</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">In-Person Factory Visits</p>
               </div>
               <div>
-                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Engagement</p>
-                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">Shop Floor to Dock</p>
+                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Validation</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">First-Run Production</p>
               </div>
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Accountability</p>
-                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">Full Documentation</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">Complete Client Dossier</p>
               </div>
             </motion.div>
           </div>
@@ -123,7 +123,7 @@ export default function Hero() {
           <div className="hidden lg:flex lg:col-span-5 min-h-[460px] items-center justify-center" aria-hidden="true" />
         </div>
 
-        {/* The repeating ethos statement in clean, bold technical typography */}
+        {/* Ethos statement */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -131,11 +131,8 @@ export default function Hero() {
           className="mt-14 sm:mt-20 pt-8 sm:pt-10 border-t border-slate-200 relative z-10"
         >
           <div className="bg-slate-50/95 backdrop-blur-sm border-l-4 border-blue-600 p-6 sm:p-8 rounded-r">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-slate-400 mb-2">
-              The PROQRA Principle
-            </p>
             <p className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900 leading-snug">
-              &ldquo;Finding the supplier is only the beginning. We qualify them, develop them to your requirements and support the supply relationship through production.&rdquo;
+              &ldquo;We don&apos;t just locate a factory. We conduct in-person visits, verify capability and quality on the shop floor, and oversee initial production to ensure your supplier delivers exactly what is promised.&rdquo;
             </p>
           </div>
         </motion.div>

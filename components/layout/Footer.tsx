@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5"></span>
             </Link>
             <p className="text-sm text-slate-600 max-w-sm leading-relaxed 3xl:text-base 4xl:text-lg">
-              Find the right supplier. Build the relationship. Control the supply. PROQRA helps UK manufacturers find, qualify and develop suppliers in India.
+              PROQRA helps UK engineering and manufacturing companies find suitable suppliers in India, qualify them through in-factory visits and safety checks, and oversee initial production materials.
             </p>
             <p className="text-sm font-semibold text-slate-900 mt-1 3xl:text-base 4xl:text-lg">
               <a href="mailto:hello@proqra.co.uk" className="hover:text-blue-600 transition-colors">
@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
               <Link href="/#process" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">7-Step Process</Link>
               <Link href="/how-we-source" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">How We Source</Link>
-              <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Inspection</Link>
+              <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Standards</Link>
               <Link href="/capabilities" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Capabilities</Link>
               <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About</Link>
               <Link href="/#contact" className="text-sm font-semibold text-slate-900 hover:text-blue-600 font-medium transition-colors 3xl:text-base 4xl:text-lg">Talk to PROQRA</Link>
@@ -71,9 +71,18 @@ export default function Footer() {
               Registered in England and Wales.
             </p>
           </div>
-          <p className="text-slate-400 text-xs font-medium 3xl:text-sm 4xl:text-base">
-            © 2026 PROQRA
-          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-400 text-xs font-medium 3xl:text-sm 4xl:text-base">
+            <Link href="/legal-disclaimer" className="hover:text-slate-700 transition-colors underline-offset-4 hover:underline">
+              Legal disclaimer
+            </Link>
+            <Link href="/client-confidentiality" className="hover:text-slate-700 transition-colors underline-offset-4 hover:underline">
+              Client confidentiality
+            </Link>
+            <Link href="/privacy-policy" className="hover:text-slate-700 transition-colors underline-offset-4 hover:underline">
+              Privacy Policy
+            </Link>
+            <span>© 2026 PROQRA</span>
+          </div>
         </div>
       </div>
     </footer>
