@@ -11,15 +11,15 @@ const pillars = [
     summary:
       'We match your manufacturing drawings, materials, and batch volumes directly with verified precision facilities in India’s leading industrial hubs.',
     highlights: ['Direct CAD & drawing review', 'Targeted cluster shortlisting', 'Machine-capacity verification'],
-    linkText: 'Explore manufacturing capabilities',
-    href: '/capabilities'
+    linkText: 'Explore quality & capabilities',
+    href: '/quality'
   },
   {
     icon: ShieldCheck,
     title: 'In-Factory Audits & Safety Checks',
     summary:
-      'We visit the factory floor in person to check capability, quality, and safety standards. You can also join us on a live video call to see the shop floor firsthand.',
-    highlights: ['In-person shop-floor visits', 'Live video call access on request', 'Capability & safety verification'],
+      'We visit the factory floor in person to audit machine capability, metrology calibration, and safety systems before approving any supplier.',
+    highlights: ['In-person shop-floor audits', 'Spindle & calibration checks', 'Capability & safety verification'],
     linkText: 'See our qualification standards',
     href: '/quality'
   },

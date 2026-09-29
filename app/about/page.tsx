@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -30,6 +31,7 @@ export default function AboutPage() {
             src="/images/factory_warehouse.jpg"
             alt="Precision manufacturing facility in India"
             fill
+            sizes="(max-width: 1024px) 100vw, 55vw"
             className="object-cover object-center"
             priority
           />

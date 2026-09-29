@@ -31,7 +31,7 @@ const sevenStages = [
     icon: Eye,
     summary:
       'We visit the factory floor in person. We inspect active machines, operator setups, and raw material storage firsthand.',
-    highlight: 'Live video call available: You can join us on a video call to view the machines and shop floor in real time.',
+    highlight: 'On-site machine audit: We inspect the physical CNC beds, spindle runout, and calibration logs firsthand.',
     deliverables: [
       'Physical on-site inspection of running machines and setups',
       'Preventative maintenance and machine age review',
@@ -162,32 +162,32 @@ export default function HowWeSourcePage() {
               We help UK manufacturing and engineering companies find suitable suppliers in India, qualify them through in-person factory visits, supervise the production of the first few materials, and document everything from start to finish.
             </p>
 
-            {/* Two Reassurance Badges: UK Team + Live Video Calls */}
+            {/* Core Verification Badges: On-Site Audit & Supplier Approval */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-white/90 backdrop-blur-sm border border-slate-200/90 rounded-xl p-4 flex items-start gap-3 shadow-sm">
                 <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5">
-                  <PhoneCall size={18} />
+                  <ShieldCheck size={18} />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-900">
-                    UK-Based Team & Reassurance
+                    On-Site Factory Qualification
                   </p>
                   <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                    You always have a team based in the UK to contact directly at any time for continuous communication and peace of mind.
+                    We audit physical machinery, calibration, and safety systems in person before approving any supplier.
                   </p>
                 </div>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm border border-slate-200/90 rounded-xl p-4 flex items-start gap-3 shadow-sm">
                 <div className="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 mt-0.5">
-                  <Video size={18} />
+                  <FileCheck2 size={18} />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-900">
-                    Live Shop-Floor Video Calls
+                    Production Approval & Dossier
                   </p>
                   <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                    Join us live on a video call while we walk the factory floor in India to see the running machines and setups firsthand.
+                    We supervise the first production batch, verify 100% critical dimensions (FAIR), and hand over the complete proof.
                   </p>
                 </div>
               </div>
@@ -292,13 +292,13 @@ export default function HowWeSourcePage() {
               <p className="text-xs font-mono text-slate-500">
                 Are you an Indian precision manufacturing supplier?
               </p>
-              <a
-                href="mailto:suppliers@proqra.co.uk?subject=Supplier%20Registration"
+              <Link
+                href="/for-suppliers"
                 className="text-xs sm:text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors inline-flex items-center gap-1.5"
               >
-                <span>Submit factory profile</span>
+                <span>Submit factory profile & machine list</span>
                 <ArrowRight size={14} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

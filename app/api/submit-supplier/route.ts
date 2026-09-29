@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import { sendNotificationEmail } from '@/lib/sendEmail'
 
 export async function POST(req: Request) {
   try {
@@ -93,74 +93,50 @@ export async function POST(req: Request) {
       )
     }
 
-    const resendKey = process.env.RESEND_API_KEY
+    const html = `
+      <div style="font-family:sans-serif;max-width:640px;margin:0 auto;color:#111;line-height:1.6">
+        <h2 style="color:#2563eb;margin-bottom:8px">New Supplier Network Application</h2>
+        <p style="font-size:14px;color:#666">Submitted via proqra.co.uk/for-suppliers</p>
+        <hr style="border:none;border-top:1px solid #eee;margin:16px 0"/>
+        
+        <h3 style="font-size:16px;color:#0f172a;margin-bottom:8px">Company Profile</h3>
+        <p><strong>Company Name:</strong> ${companyName}</p>
+        <p><strong>Factory Location:</strong> ${location}</p>
+        <p><strong>Website:</strong> ${website ? `<a href="${website}">${website}</a>` : 'Not provided'}</p>
+        <p><strong>Year Established:</strong> ${yearEstablished || 'Not specified'}</p>
+        <p><strong>Monthly Capacity / Floor Area:</strong> ${monthlyCapacity || 'Not specified'}</p>
+        <p><strong>Export Experience:</strong> ${exportExperience || 'Not specified'}</p>
 
-    if (resendKey) {
-      const resend = new Resend(resendKey)
-      const to = process.env.CONTACT_EMAIL || 'hello@proqra.co.uk'
+        <h3 style="font-size:16px;color:#0f172a;margin-top:20px;margin-bottom:8px">Contact Information</h3>
+        <p><strong>Contact Person:</strong> ${contactName} (${role || 'Representative'})</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Phone / WhatsApp:</strong> ${phone}</p>
+        
+        <h3 style="font-size:16px;color:#0f172a;margin-top:20px;margin-bottom:8px">Capabilities & Machinery</h3>
+        <p><strong>Core Capabilities:</strong> ${capabilities.length > 0 ? capabilities.join(', ') : 'None selected'}</p>
+        <p><strong>Quality Certifications:</strong> ${certifications.length > 0 ? certifications.join(', ') : 'None specified'}</p>
+        <p><strong>Major Equipment:</strong></p>
+        <p style="background:#f8fafc;padding:10px;border-radius:6px;border:1px solid #e2e8f0">${machinerySummary ? machinerySummary.replace(/\n/g, '<br/>') : 'None provided'}</p>
 
-      const data = await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || 'PROQRA Supplier Network <hello@proqra.co.uk>',
-        to,
-        replyTo: email,
-        subject: `New Supplier Application: ${companyName} (${location})`,
-        attachments: fileAttachment ? [fileAttachment] : undefined,
-        html: `
-          <div style="font-family:sans-serif;max-width:640px;margin:0 auto;color:#111;line-height:1.6">
-            <h2 style="color:#2563eb;margin-bottom:8px">New Supplier Network Application</h2>
-            <p style="font-size:14px;color:#666">Submitted via proqra.co.uk/for-suppliers</p>
-            <hr style="border:none;border-top:1px solid #eee;margin:16px 0"/>
-            
-            <h3 style="font-size:16px;color:#0f172a;margin-bottom:8px">Company Profile</h3>
-            <p><strong>Company Name:</strong> ${companyName}</p>
-            <p><strong>Factory Location:</strong> ${location}</p>
-            <p><strong>Website:</strong> ${website ? `<a href="${website}">${website}</a>` : 'Not provided'}</p>
-            <p><strong>Year Established:</strong> ${yearEstablished || 'Not specified'}</p>
-            <p><strong>Monthly Capacity / Floor Area:</strong> ${monthlyCapacity || 'Not specified'}</p>
-            <p><strong>Export Experience:</strong> ${exportExperience || 'Not specified'}</p>
+        <p><strong>Machine List / Brochure:</strong> ${profileFileName || 'None'} ${profileFileSize ? `(${profileFileSize})` : ''} ${fileAttachment ? '<span style="color:#16a34a;font-weight:600">✓ Attached to this email</span>' : ''}</p>
+        
+        <h3 style="font-size:16px;color:#0f172a;margin-top:20px;margin-bottom:8px">Additional Notes</h3>
+        <p style="background:#f8fafc;padding:12px;border-radius:6px;border:1px solid #e2e8f0">${notes ? notes.replace(/\n/g, '<br/>') : 'None provided'}</p>
+      </div>
+    `
 
-            <h3 style="font-size:16px;color:#0f172a;margin-top:20px;margin-bottom:8px">Contact Information</h3>
-            <p><strong>Contact Person:</strong> ${contactName} (${role || 'Representative'})</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Phone / WhatsApp:</strong> ${phone}</p>
-            
-            <h3 style="font-size:16px;color:#0f172a;margin-top:20px;margin-bottom:8px">Capabilities & Machinery</h3>
-            <p><strong>Core Capabilities:</strong> ${capabilities.length > 0 ? capabilities.join(', ') : 'None selected'}</p>
-            <p><strong>Quality Certifications:</strong> ${certifications.length > 0 ? certifications.join(', ') : 'None specified'}</p>
-            <p><strong>Major Equipment:</strong></p>
-            <p style="background:#f8fafc;padding:10px;border-radius:6px;border:1px solid #e2e8f0">${machinerySummary ? machinerySummary.replace(/\n/g, '<br/>') : 'None provided'}</p>
+    const result = await sendNotificationEmail({
+      replyTo: email,
+      subject: `New Supplier Application: ${companyName} (${location})`,
+      html,
+      attachments: fileAttachment ? [fileAttachment] : undefined,
+    })
 
-            <p><strong>Machine List / Brochure:</strong> ${profileFileName || 'None'} ${profileFileSize ? `(${profileFileSize})` : ''} ${fileAttachment ? '<span style="color:#16a34a;font-weight:600">✓ Attached</span>' : ''}</p>
-            
-            <h3 style="font-size:16px;color:#0f172a;margin-top:20px;margin-bottom:8px">Additional Notes</h3>
-            <p style="background:#f8fafc;padding:12px;border-radius:6px;border:1px solid #e2e8f0">${notes ? notes.replace(/\n/g, '<br/>') : 'None provided'}</p>
-          </div>
-        `,
-      })
-
-      return NextResponse.json({ success: true, data })
-    } else {
-      console.log('[DEV MODE] RESEND_API_KEY is not set. Supplier application received:', {
-        companyName,
-        location,
-        website,
-        yearEstablished,
-        contactName,
-        role,
-        email,
-        phone,
-        capabilities,
-        certifications,
-        machinerySummary,
-        exportExperience,
-        monthlyCapacity,
-        profileFileName,
-        profileFileSize,
-        hasAttachment: !!fileAttachment,
-        notes,
-      })
-      return NextResponse.json({ success: true, devMode: true })
+    if (!result.success) {
+      return NextResponse.json({ error: result.error }, { status: 500 })
     }
+
+    return NextResponse.json({ success: true, id: result.id, routedViaBackup: result.routedViaBackup })
   } catch (error: any) {
     console.error('Error handling supplier application submission:', error)
     return NextResponse.json(

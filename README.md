@@ -1,75 +1,103 @@
 # PROQRA Website
 
-> **UK–India sourcing for fabricated metalwork, sold on quality assurance rather than price.**
-> Primary buyer: UK engineering and manufacturing SMEs.
+> **Precision Manufacturing Sourcing & Supplier Approval in India for UK Industry.**
+> Auditing shop floors, verifying CapEx and production lead times, and delivering technical sign-offs so UK manufacturers can procure directly with confidence.
 
 ---
 
-## What Is PROQRA?
-
-PROQRA helps UK engineering firms source sheet metal fabrication and welded assemblies from vetted Indian suppliers (principally in Pune, Coimbatore, and Rajkot). Every supplier is verified in person before they quote, and every order is inspected against the customer's drawing before dispatch.
-
----
-
-## Project Structure Guide
-
-Here is where everything lives in this project:
+## Architecture & Directory Structure
 
 ```
-├── app/                        # The pages and routes of the website
-│   ├── page.tsx               # Home page (/)
-│   ├── how-we-source/         # The 6-stage vetting process page (/how-we-source)
-│   ├── quality/               # Quality checks & defect policy page (/quality)
-│   ├── capabilities/          # Materials, processes & specs page (/capabilities)
-│   ├── about/                 # "Why PROQRA exists" company page (/about)
-│   ├── get-started/           # Drawing upload & quote enquiry page (/get-started)
-│   ├── api/submit-lead/       # Email & form submission handler
-│   ├── layout.tsx             # Global layout & metadata (title, meta description)
-│   ├── globals.css            # Styles and fonts
-│   ├── sitemap.ts             # Google search sitemap (all 6 pages)
-│   └── robots.ts              # Search engine crawler instructions
+├── app/                        # Next.js App Router (pages, layouts & API handlers)
+│   ├── about/                  # Company story & on-the-ground presence (/about)
+│   ├── api/                    # Server-side API endpoints
+│   │   ├── submit-contact/     # Client inquiry & drawing upload handler (/api/submit-contact)
+│   │   └── submit-supplier/    # Indian manufacturer application handler (/api/submit-supplier)
+│   ├── client-confidentiality/ # NDA, IP protection & CAD confidentiality (/client-confidentiality)
+│   ├── for-suppliers/          # Indian supplier onboarding & machine upload (/for-suppliers)
+│   ├── how-we-source/          # 7-Step qualification framework (/how-we-source)
+│   ├── legal-disclaimer/       # Trade terms & commercial disclosures (/legal-disclaimer)
+│   ├── privacy-policy/         # GDPR-compliant privacy policy (/privacy-policy)
+│   ├── quality/                # Quality & Capabilities: 4-pillar audit framework (/quality)
+│   ├── globals.css             # Tailwind base styles & custom typography utilities
+│   ├── layout.tsx              # Root HTML shell, font loader & global SEO metadata
+│   ├── page.tsx                # Homepage (/)
+│   ├── robots.ts               # Search engine crawler directives
+│   └── sitemap.ts              # XML sitemap generator
 │
-├── components/                 # Reusable visual building blocks
-│   ├── home/                  # Sections on the home page:
-│   │   ├── Hero.tsx           # Top headline & action buttons
-│   │   ├── ProblemSection.tsx # "The overseas sourcing dilemma"
-│   │   ├── WhatWeDo.tsx       # Vetting, inspection, logistics summary
-│   │   ├── WhyIndia.tsx       # 2026 tariff position & capability
-│   │   ├── HowItWorks.tsx     # 4-step drawing-to-delivery process
-│   │   └── ClosingCTA.tsx     # "Start with one part" pilot callout
-│   │
-│   └── layout/                # Global header & footer:
-│       ├── Navbar.tsx         # Top navigation bar
-│       └── Footer.tsx         # Bottom footer with contact & legal details
+├── components/                 # Modular React components
+│   ├── home/                   # Homepage sections (rendered in order on /)
+│   │   ├── Hero.tsx            # Hero section with shop-floor video & primary CTAs
+│   │   ├── QuickOverview.tsx   # Core value proposition & direct procurement model
+│   │   ├── InteractiveProcessSection.tsx # Interactive 7-step sourcing timeline
+│   │   ├── ClustersPreview.tsx # Indian manufacturing clusters (Pune, Rajkot, Coimbatore, Chennai)
+│   │   └── FinalCTASection.tsx # Client drawing upload form & technical inquiry box
+│   └── layout/                 # Global layout components
+│       ├── Navbar.tsx          # Top navigation bar with desktop & mobile drawer
+│       └── Footer.tsx          # Footer with site navigation, contact, and legal links
 │
-├── types/                     # Data definitions (form fields, leads)
-├── lib/                       # Helper functions
-└── public/                    # Static assets (favicons, brand icons)
+├── lib/                        # Core utilities & service helpers
+│   ├── sendEmail.ts            # Resend email dispatcher with backup failover support
+│   └── utils.ts                # Tailwind class merging utility (`cn`)
+│
+├── types/                      # Shared TypeScript interfaces
+│   └── index.ts                # ClientInquiry, SupplierSubmission, and Email interfaces
+│
+├── public/                     # Static media and assets
+│   ├── images/                 # High-resolution shop-floor, metrology & parts photography
+│   ├── videos/                 # Optimized background video loops (WebM)
+│   ├── favicon.ico             # Standard browser favicon
+│   └── icon.svg                # Vector brand favicon
+│
+├── next.config.js              # Server configuration with 308 redirects for legacy paths
+├── tailwind.config.js          # Design system color tokens & breakpoints
+└── tsconfig.json               # TypeScript configuration with `@/*` root alias
 ```
 
 ---
 
-## Running the Website Locally
+## Key Pages & Navigation
 
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+| Route | Page Name | Purpose |
+|---|---|---|
+| `/` | **Home** | Overview of PROQRA, video hero, 7-step interactive process, clusters, and drawing quote form |
+| `/how-we-source` | **How We Source** | In-depth breakdown of the 7-step supplier qualification framework |
+| `/quality` | **Quality & Capabilities** | 4-pillar audit framework (CapEx, Lead Times, Quality Systems, Safety), evaluated processes & baseline parameters |
+| `/for-suppliers` | **For Suppliers** | Onboarding portal for Indian machine shops and manufacturers to apply with machine lists |
+| `/about` | **About Us** | The story behind PROQRA, addressing the overseas sourcing dilemma for UK SMEs |
+| `/privacy-policy` | **Privacy Policy** | GDPR compliance, data retention, and contact rights |
+| `/client-confidentiality` | **Client Confidentiality** | NDA protection, drawing security, and intellectual property terms |
+| `/legal-disclaimer` | **Legal Disclaimer** | Operating disclosures and commercial terms |
 
-2. **Run locally**:
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-3. **Check for errors**:
-   ```bash
-   npm run build
-   ```
+*Note: Legacy routes (`/capabilities`, `/suppliers`, `/confidentiality`, `/disclaimer`, `/privacy`, `/get-started`) are automatically redirected via permanent HTTP 308 redirects configured in `next.config.js`.*
 
 ---
 
-## Contact
+## Form Submissions & Email Routing
 
-- **General Enquiries**: [hello@proqra.co.uk](mailto:hello@proqra.co.uk)
-- **Website**: [proqra.co.uk](https://proqra.co.uk)
+- **Client Inquiries** (`/api/submit-contact`):
+  - Accepts standard form data or `multipart/form-data` with attached engineering drawings (up to 25MB).
+  - Routes directly to `hello@proqra.co.uk` via Resend with client drawings attached.
+  - Automatically fails over to backup recipient (`pranavss1010@gmail.com`) if primary delivery encounters an issue.
+
+- **Supplier Applications** (`/api/submit-supplier`):
+  - Collects factory location, machine details, and equipment lists/brochures (up to 20MB).
+  - Routes notifications to `hello@proqra.co.uk` with backup failover.
+
+---
+
+## Development & Production
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Run local development server
+npm run dev
+
+# 3. Check TypeScript types
+npx tsc --noEmit
+
+# 4. Create optimized production build
+npm run build
+```

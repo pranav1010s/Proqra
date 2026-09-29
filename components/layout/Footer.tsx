@@ -27,9 +27,9 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
               <Link href="/#process" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">7-Step Process</Link>
               <Link href="/how-we-source" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">How We Source</Link>
-              <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Standards</Link>
-              <Link href="/capabilities" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Capabilities</Link>
-              <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About</Link>
+              <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Capabilities</Link>
+              <Link href="/for-suppliers" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">For Indian Suppliers</Link>
+              <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About Us</Link>
               <Link href="/#contact" className="text-sm font-semibold text-slate-900 hover:text-blue-600 font-medium transition-colors 3xl:text-base 4xl:text-lg">Talk to PROQRA</Link>
             </div>
           </div>

@@ -18,7 +18,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 3xl:gap-10 4xl:gap-12">
+        <div className="hidden md:flex items-center gap-7 3xl:gap-9 4xl:gap-11">
           <Link
             href="/how-we-source"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
@@ -29,19 +29,19 @@ export default function Navbar() {
             href="/quality"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
-            Quality
+            Quality & Capabilities
           </Link>
           <Link
-            href="/capabilities"
+            href="/for-suppliers"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
-            Capabilities
+            For Suppliers
           </Link>
           <Link
             href="/about"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
-            About
+            About Us
           </Link>
           <Link
             href="/#contact"
@@ -86,21 +86,21 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
-                Quality
+                Quality & Capabilities
               </Link>
               <Link
-                href="/capabilities"
+                href="/for-suppliers"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
-                Capabilities
+                For Suppliers
               </Link>
               <Link
                 href="/about"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
-                About
+                About Us
               </Link>
               <Link
                 href="/#contact"

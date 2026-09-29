@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { Upload, Paperclip, X } from 'lucide-react'
 
 export default function FinalCTASection() {
   const [formData, setFormData] = useState({
@@ -11,31 +11,56 @@ export default function FinalCTASection() {
     company: '',
     manufacturingRequirement: '',
   })
+  const [file, setFile] = useState<File | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0]
+    if (!selectedFile) {
+      setFile(null)
+      return
+    }
+    if (selectedFile.size > 25 * 1024 * 1024) {
+      setErrorMsg('File exceeds 25MB limit. Please upload a smaller file or send via email.')
+      setFile(null)
+      return
+    }
+    setErrorMsg('')
+    setFile(selectedFile)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    setErrorMsg('')
     try {
-      const res = await fetch('/api/submit-supplier', {
+      const fd = new FormData()
+      fd.append('name', formData.name)
+      fd.append('email', formData.email)
+      fd.append('company', formData.company)
+      fd.append('manufacturingRequirement', formData.manufacturingRequirement)
+      fd.append('source', 'Home Final CTA - Talk to PROQRA')
+      if (file) {
+        fd.append('drawing', file)
+      }
+
+      const res = await fetch('/api/submit-contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          notes: `Manufacturing requirement: ${formData.manufacturingRequirement}`,
-          source: 'Home Final CTA - Talk to PROQRA',
-        }),
+        body: fd,
       })
-      if (res.ok) {
+
+      const data = await res.json().catch(() => null)
+
+      if (res.ok && data?.success) {
         setSubmitted(true)
       } else {
-        window.location.href = `mailto:hello@proqra.co.uk?subject=Manufacturing%20Requirement%20from%20${encodeURIComponent(formData.company || formData.name)}&body=${encodeURIComponent(formData.manufacturingRequirement)}`
-        setSubmitted(true)
+        setErrorMsg(data?.error || 'Failed to submit requirement. Please email hello@proqra.co.uk directly.')
       }
     } catch {
-      window.location.href = `mailto:hello@proqra.co.uk?subject=Manufacturing%20Requirement&body=${encodeURIComponent(formData.manufacturingRequirement)}`
-      setSubmitted(true)
+      setErrorMsg('Network error. Please try again or email hello@proqra.co.uk directly.')
     } finally {
       setLoading(false)
     }
@@ -167,6 +192,54 @@ export default function FinalCTASection() {
                   />
                 </div>
 
+                <div>
+                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1">
+                    Upload Drawing / CAD / Spec (Optional)
+                  </label>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.png,.jpg,.jpeg"
+                    className="hidden"
+                    id="client-drawing-file"
+                  />
+                  {file ? (
+                    <div className="flex items-center justify-between p-3 bg-white border border-blue-200 rounded text-xs text-slate-800">
+                      <div className="flex items-center gap-2 truncate">
+                        <Paperclip size={14} className="text-blue-600 shrink-0" />
+                        <span className="truncate font-medium">{file.name}</span>
+                        <span className="text-slate-400 shrink-0">({(file.size / (1024 * 1024)).toFixed(2)} MB)</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setFile(null)
+                          if (fileInputRef.current) fileInputRef.current.value = ''
+                        }}
+                        className="text-slate-400 hover:text-red-600 ml-2"
+                        aria-label="Remove attached file"
+                      >
+                        <X size={14} />
+                      </button>
+                    </div>
+                  ) : (
+                    <label
+                      htmlFor="client-drawing-file"
+                      className="flex items-center justify-center gap-2 p-3 bg-white border border-dashed border-slate-300 hover:border-blue-400 cursor-pointer rounded text-xs text-slate-600 hover:text-blue-600 transition-colors"
+                    >
+                      <Upload size={14} className="text-slate-400" />
+                      <span>Attach 2D drawing, STEP, CAD model, or PDF (up to 25MB)</span>
+                    </label>
+                  )}
+                </div>
+
+                {errorMsg && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded text-xs text-red-700 font-medium">
+                    {errorMsg}
+                  </div>
+                )}
+
                 <div className="pt-2">
                   <button
                     type="submit"
@@ -177,11 +250,8 @@ export default function FinalCTASection() {
                   </button>
                 </div>
 
-                <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <div className="pt-2 text-center text-[11px] font-mono text-slate-400">
                   <span>NDA AVAILABLE ON REQUEST</span>
-                  <Link href="/get-started" className="underline hover:text-slate-700">
-                    Upload CAD / Drawings →
-                  </Link>
                 </div>
               </form>
             )}
