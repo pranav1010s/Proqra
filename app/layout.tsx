@@ -4,9 +4,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next" // Imported here
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'PROQRA | Fabricated Metalwork Sourcing from India for UK Manufacturers',
+  title: 'PROQRA | Find, Qualify & Develop Suppliers in India for UK Manufacturers',
   description:
-    'PROQRA helps UK engineering firms source sheet metal fabrication and welded assemblies from vetted Indian suppliers, with factory verification, inspection and full documentation on every order.',
+    'PROQRA helps UK manufacturers find, qualify and develop suppliers in India. We work with suppliers from the first assessment through production, quality control and ongoing supply.',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'PROQRA | Fabricated Metalwork Sourcing from India for UK Manufacturers',
+    title: 'PROQRA | Find, Qualify & Develop Suppliers in India for UK Manufacturers',
     description:
-      'PROQRA helps UK engineering firms source sheet metal fabrication and welded assemblies from vetted Indian suppliers, with factory verification, inspection and full documentation on every order.',
+      'PROQRA helps UK manufacturers find, qualify and develop suppliers in India. We work with suppliers from the first assessment through production, quality control and ongoing supply.',
     type: 'website',
   },
 }

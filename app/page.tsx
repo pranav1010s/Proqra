@@ -1,22 +1,20 @@
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/home/Hero'
-import ProblemSection from '@/components/home/ProblemSection'
-import WhatWeDo from '@/components/home/WhatWeDo'
-import WhyIndia from '@/components/home/WhyIndia'
-import HowItWorks from '@/components/home/HowItWorks'
-import ClosingCTA from '@/components/home/ClosingCTA'
+import QuickOverview from '@/components/home/QuickOverview'
+import InteractiveProcessSection from '@/components/home/InteractiveProcessSection'
+import ClustersPreview from '@/components/home/ClustersPreview'
+import FinalCTASection from '@/components/home/FinalCTASection'
 import Footer from '@/components/layout/Footer'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
       <Navbar />
       <Hero />
-      <ProblemSection />
-      <WhatWeDo />
-      <WhyIndia />
-      <HowItWorks />
-      <ClosingCTA />
+      <QuickOverview />
+      <InteractiveProcessSection />
+      <ClustersPreview />
+      <FinalCTASection />
       <Footer />
     </main>
   )

@@ -16,9 +16,6 @@ export default function AboutPage() {
 
       <section className="pt-32 sm:pt-40 pb-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:pt-52 3xl:pb-28 3xl:px-28 4xl:pt-60 4xl:pb-36 4xl:px-36">
         <div className="max-w-4xl mx-auto 3xl:max-w-5xl 4xl:max-w-6xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3 3xl:text-sm 4xl:text-base">
-            About PROQRA
-          </p>
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-8 3xl:text-6xl 3xl:mb-10 4xl:text-7xl 4xl:mb-14">
             Why PROQRA <span className="text-blue-600 font-normal italic-accent">exists.</span>
           </h1>
@@ -29,7 +26,7 @@ export default function AboutPage() {
             </p>
 
             <p>
-              Large manufacturers solve this with entire procurement functions dedicated to managing overseas supply — supplier audits, resident quality engineers, documented approval processes. Smaller manufacturers buy the same kinds of parts and carry the same risks, without the resources to manage them the same way.
+              Large manufacturers solve this with entire procurement functions dedicated to managing overseas supply: supplier audits, resident quality engineers, and documented approval processes. Smaller manufacturers buy the same kinds of parts and carry the same risks, without the resources to manage them the same way.
             </p>
 
             <div className="border-l-2 border-slate-900 pl-5 py-1 3xl:pl-7 4xl:pl-8">
@@ -45,10 +42,10 @@ export default function AboutPage() {
 
           <div className="mt-10 pt-6 border-t border-slate-200 flex items-center gap-4 3xl:mt-14 3xl:pt-8 3xl:gap-6 4xl:mt-18 4xl:pt-10">
             <Link
-              href="/get-started"
+              href="/#contact"
               className="bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors 3xl:text-base 3xl:px-8 3xl:py-4 4xl:text-lg 4xl:px-10 4xl:py-5"
             >
-              Request a Quote
+              Talk to our team
             </Link>
             <Link
               href="/how-we-source"

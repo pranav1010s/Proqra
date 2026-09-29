@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5"></span>
             </Link>
             <p className="text-sm text-slate-600 max-w-sm leading-relaxed 3xl:text-base 4xl:text-lg">
-              Sourcing fabricated metalwork from India for UK manufacturers.
+              Find the right supplier. Build the relationship. Control the supply. PROQRA helps UK manufacturers find, qualify and develop suppliers in India.
             </p>
             <p className="text-sm font-semibold text-slate-900 mt-1 3xl:text-base 4xl:text-lg">
               <a href="mailto:hello@proqra.co.uk" className="hover:text-blue-600 transition-colors">
@@ -25,12 +25,12 @@ export default function Footer() {
           <div className="md:col-span-3">
             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">Navigation</p>
             <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
+              <Link href="/#process" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">7-Step Process</Link>
               <Link href="/how-we-source" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">How We Source</Link>
               <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Inspection</Link>
               <Link href="/capabilities" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Capabilities</Link>
               <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About</Link>
-              <Link href="/for-suppliers" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">For Suppliers</Link>
-              <Link href="/get-started" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Request a Quote</Link>
+              <Link href="/#contact" className="text-sm font-semibold text-slate-900 hover:text-blue-600 font-medium transition-colors 3xl:text-base 4xl:text-lg">Talk to PROQRA</Link>
             </div>
           </div>
 

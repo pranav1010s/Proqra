@@ -58,9 +58,6 @@ export default function QualityPage() {
 
       <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:pt-52 3xl:pb-22 3xl:px-28 4xl:pt-60 4xl:pb-28 4xl:px-36">
         <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3 3xl:text-sm 4xl:text-base">
-            Quality Assurance
-          </p>
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6 3xl:text-6xl 3xl:mb-8 4xl:text-7xl 4xl:mb-10">
             The parts are checked before they ship, <br />
             <span className="text-blue-600 font-normal italic-accent">
@@ -136,13 +133,19 @@ export default function QualityPage() {
         </div>
       </section>
 
-      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center 3xl:py-24 3xl:px-28 4xl:py-28 4xl:px-36">
-        <div className="max-w-xl mx-auto 3xl:max-w-2xl 4xl:max-w-3xl">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+            Have a drawing with strict tolerances?
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 mb-8">
+            Speak directly with our technical team about your critical dimensions, required inspection sample sizes, and material traceability needs.
+          </p>
           <Link
-            href="/get-started"
-            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors 3xl:text-base 3xl:px-8 3xl:py-4 4xl:text-lg 4xl:px-10 4xl:py-5"
+            href="/#contact"
+            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded transition-colors shadow-sm"
           >
-            Request a Quote
+            Talk to our engineering team
           </Link>
         </div>
       </section>

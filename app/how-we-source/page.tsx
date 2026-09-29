@@ -2,50 +2,107 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { Check, ShieldCheck, Factory, FileText, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'How We Source | PROQRA',
   description:
-    'The 6-stage supplier vetting process every fabricator goes through before they are approved to quote your work.',
+    'The end-to-end 7-step sourcing and technical development process every supplier undergoes for UK manufacturers.',
 }
 
-const stages = [
+const sevenStages = [
   {
     num: '01',
-    title: 'Cluster shortlisting',
-    summary: 'Sourcing is focused within established industrial clusters: Pune, Coimbatore, and Rajkot. Working inside clusters ensures alternatives are nearby when a supplier is at capacity or unsuitable.',
-    detail: 'Shortlists are built from trade bodies, export council records, and direct referral rather than open web directories.',
+    name: 'Find',
+    title: 'Requirements-led supplier discovery',
+    summary:
+      'We do not search generic B2B web directories. Sourcing is concentrated directly within specialized engineering clusters (Pune, Rajkot, Coimbatore, and Chennai), matching your exact 2D drawing, material grades, and batch volumes.',
+    deliverables: [
+      'Drawing and tolerance analysis (2D & 3D CAD)',
+      'Direct machine-capacity pre-match',
+      'Local cluster shortlisting based on verified historical output'
+    ]
   },
   {
     num: '02',
-    title: 'Documentation check',
-    summary: 'Before discussing your parts, registrations are verified against official records.',
-    detail: 'ISO 9001 checked against the issuing body (not accepted as an unverified PDF), plus GST, Import Export Code, and directors verified.',
+    name: 'Qualify',
+    title: 'In-person shop-floor evaluation',
+    summary:
+      'We walk the physical factory floor unannounced. Not a boardroom presentation, but an active inspection of running machines, calibration logs, material storage racks, and housekeeping.',
+    deliverables: [
+      'Unannounced physical factory walk',
+      'Inspection instrument calibration validity check',
+      'Material storage and segregation audit'
+    ]
   },
   {
     num: '03',
-    title: 'Capability review',
-    summary: 'An audit of machinery age, in-house vs subcontracted processes, routine materials, and realistic capacity.',
-    detail: 'Inspection equipment is verified on site, including calibration validity and environmental controls.',
+    name: 'Develop',
+    title: 'Closing capability and procedural gaps',
+    summary:
+      'Capable machinery often lacks UK-spec procedural controls. We embed directly with the supplier’s engineering team to implement standard operating procedures, custom tooling setups, and traceability systems.',
+    deliverables: [
+      'Standard Operating Procedure (SOP) formalization',
+      'Inspection record standardization',
+      'Material mill test certificate (MTC 3.1) traceability setup'
+    ]
   },
   {
     num: '04',
-    title: 'Physical verification',
-    summary: 'Someone walks the factory floor unannounced. Not a showcase visit, but a check on active work in progress, material storage, housekeeping, and whether inspection is actually happening.',
-    detail: 'A factory tells you the truth in twenty minutes if you are standing in it.',
+    name: 'Validate',
+    title: 'First-article & specification sign-off',
+    summary:
+      'Suppliers produce first articles checked against your exact tolerance callouts. We inspect dimensional reports, verify material mill certificates, and authorise production only after written sign-off.',
+    deliverables: [
+      '100% Critical dimension metrology report',
+      'Direct mill test composition verification',
+      'Written First Article Inspection (FAI) approval'
+    ]
   },
   {
     num: '05',
-    title: 'Sample against a real drawing',
-    summary: 'Suppliers quote and produce a sample against an actual drawing with real tolerances.',
-    detail: 'We evaluate technical queries raised, dimensional accuracy, and how the supplier responds if something requires adjustment.',
+    name: 'Produce',
+    title: 'Governed transition to regular production',
+    summary:
+      'Once authorized, we maintain milestone oversight on the active production line to ensure tooling setups, cycle times, and operator discipline remain consistent.',
+    deliverables: [
+      'Milestone production tracking',
+      'In-process visual and dimensional checkpoints',
+      'Tool wear monitoring and maintenance protocols'
+    ]
   },
   {
     num: '06',
-    title: 'Ongoing performance',
-    summary: 'Continuous review on on-time delivery, first-pass quality, and communication transparency.',
-    detail: 'A supplier that flags schedule slips early is kept; one that conceals delays is removed.',
+    name: 'Control',
+    title: 'Active oversight on every batch',
+    summary:
+      'Quality is managed at the machine, not at the UK port. Random pre-dispatch sampling according to AQL standards ensures dimensional deviations are caught and corrected before container sealing.',
+    deliverables: [
+      'Pre-dispatch random batch inspection',
+      'Non-conformance root cause corrective actions',
+      'Quarterly supplier performance scorecards'
+    ]
   },
+  {
+    num: '07',
+    name: 'Deliver',
+    title: 'Coordinated export to your UK facility',
+    summary:
+      'We manage the full commercial and export logistics chain: VCI moisture-barrier export crating, customs clearance, duty management, and landed delivery directly to your facility door.',
+    deliverables: [
+      'Export-grade crating and rust protection',
+      'Customs clearance and preferential duty handling',
+      'Fully documented delivery to your UK dock'
+    ]
+  }
+]
+
+const supplierStandards = [
+  'ISO 9001 certified or auditable quality management system',
+  'Traceable material test certificates (MTC 3.1) from verified mills',
+  'Documented calibration logs for digital metrology and gauges',
+  'Transparent production scheduling and open communication on delays',
+  'Willingness to accommodate unannounced on-site resident engineers'
 ]
 
 export default function HowWeSourcePage() {
@@ -53,57 +110,115 @@ export default function HowWeSourcePage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:pt-52 3xl:pb-22 3xl:px-28 4xl:pt-60 4xl:pb-28 4xl:px-36">
-        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3 3xl:text-sm 4xl:text-base">
-            Vetting Process
-          </p>
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6 3xl:text-6xl 3xl:mb-8 4xl:text-7xl 4xl:mb-10">
+      {/* Hero Section */}
+      <section className="pt-32 sm:pt-40 pb-16 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6">
             Anyone can find a factory. <br />
             <span className="text-blue-600 font-normal italic-accent">
               The work is proving it can do your job.
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed 3xl:text-xl 3xl:max-w-3xl 4xl:text-2xl 4xl:max-w-4xl">
-            There are thousands of fabricators in India. A directory listing or an ISO logo tells you almost nothing about whether a shop can hold your tolerances or hit your date. This is the process every supplier undergoes before quoting your work.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            There are thousands of machine shops in India. A website or an unverified certificate tells you nothing about whether a facility can hold your tolerances. This is our end-to-end execution framework.
           </p>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-b border-slate-200 3xl:py-32 3xl:px-28 4xl:py-40 4xl:px-36">
-        <div className="max-w-6xl mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
-          <div className="divide-y divide-slate-200">
-            {stages.map((stage) => (
-              <div key={stage.num} className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline 3xl:py-14 3xl:gap-6 4xl:py-16 4xl:gap-8">
-                <div className="md:col-span-2">
-                  <span className="text-xs font-mono text-slate-400 3xl:text-sm 4xl:text-base">Stage {stage.num}</span>
-                </div>
-                <div className="md:col-span-4">
-                  <h2 className="text-lg font-bold text-slate-900 3xl:text-xl 4xl:text-2xl">{stage.title}</h2>
-                </div>
-                <div className="md:col-span-6 space-y-2 3xl:space-y-3">
-                  <p className="text-sm text-slate-700 leading-relaxed 3xl:text-base 4xl:text-lg">{stage.summary}</p>
-                  <p className="text-xs text-slate-500 leading-relaxed 3xl:text-sm 4xl:text-base">{stage.detail}</p>
+      {/* 7 Sourcing Stages Breakdown */}
+      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 border-b border-slate-200">
+        <div className="max-w-4xl mx-auto space-y-12">
+          {sevenStages.map((stage) => (
+            <div
+              key={stage.num}
+              className="bg-slate-50 border border-slate-200/90 rounded-2xl p-7 sm:p-10 transition-all hover:border-slate-300"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-slate-200/80 pb-4 mb-6">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-mono text-xs font-bold text-blue-600">
+                    STAGE {stage.num}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+                    {stage.name}: {stage.title}
+                  </h2>
                 </div>
               </div>
-            ))}
+
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-6 font-medium">
+                {stage.summary}
+              </p>
+
+              <div>
+                <p className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold mb-3">
+                  Key Verification Deliverables:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {stage.deliverables.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white border border-slate-200/80 rounded-lg p-3 text-xs sm:text-sm text-slate-700 flex items-start gap-2"
+                    >
+                      <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="leading-snug">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Supplier Quality Standards & Onboarding */}
+      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 border-b border-slate-200 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-12 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+              What we require from Indian suppliers.
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
+              We work with serious, export-ready precision engineering firms. Our commercial arrangements reward high-discipline fabricators with recurring UK manufacturing contracts.
+            </p>
+
+            <div className="space-y-3 mb-8">
+              {supplierStandards.map((std, idx) => (
+                <div key={idx} className="flex items-start gap-3 text-sm text-slate-800">
+                  <Check size={16} className="text-blue-600 shrink-0 mt-0.5" />
+                  <span>{std}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <p className="text-xs font-mono text-slate-500">
+                Are you an Indian precision engineering supplier?
+              </p>
+              <a
+                href="mailto:suppliers@proqra.co.uk?subject=Supplier%20Registration"
+                className="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>Submit factory profile</span>
+                <ArrowRight size={14} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-5 sm:px-8 lg:px-12 text-center 3xl:py-24 3xl:px-28 4xl:py-28 4xl:px-36">
-        <div className="max-w-xl mx-auto 3xl:max-w-2xl 4xl:max-w-3xl">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 3xl:text-3xl 3xl:mb-5 4xl:text-4xl 4xl:mb-6">
-            Test our vetting on a single drawing
+      {/* CTA Row */}
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+            Test our process on a single drawing.
           </h2>
-          <p className="text-sm text-slate-600 mb-6 3xl:text-base 3xl:mb-8 4xl:text-lg 4xl:mb-10">
-            Send a drawing and we will assess fit and provide a landed quote with full inspection scope.
+          <p className="text-sm sm:text-base text-slate-600 mb-8">
+            Send us a manufacturing drawing with tolerances and batch quantities. We will assess factory match and return a landed quote with full inspection scope.
           </p>
           <Link
-            href="/get-started"
-            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-6 py-3 rounded transition-colors 3xl:text-base 3xl:px-8 3xl:py-4 4xl:text-lg 4xl:px-10 4xl:py-5"
+            href="/#contact"
+            className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded transition-colors shadow-sm"
           >
-            Request a Quote
+            Talk to our engineering team
           </Link>
         </div>
       </section>

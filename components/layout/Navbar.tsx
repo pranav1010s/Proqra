@@ -18,7 +18,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-7 3xl:gap-9 4xl:gap-11">
+        <div className="hidden md:flex items-center gap-8 3xl:gap-10 4xl:gap-12">
           <Link
             href="/how-we-source"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
@@ -44,17 +44,11 @@ export default function Navbar() {
             About
           </Link>
           <Link
-            href="/for-suppliers"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
-          >
-            For Suppliers
-          </Link>
-          <Link
-            href="/get-started"
+            href="/#contact"
             id="nav-cta"
-            className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-2.5 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20 3xl:text-base 3xl:px-7 3xl:py-3 4xl:text-lg 4xl:px-8 4xl:py-3.5"
+            className="text-sm font-semibold bg-slate-900 text-white rounded px-5 py-2.5 hover:bg-slate-800 transition-all duration-300 shadow-sm 3xl:text-base 3xl:px-7 3xl:py-3 4xl:text-lg 4xl:px-8 4xl:py-3.5"
           >
-            Request a Quote
+            Talk to us
           </Link>
         </div>
 
@@ -109,19 +103,12 @@ export default function Navbar() {
                 About
               </Link>
               <Link
-                href="/for-suppliers"
-                onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-              >
-                For Suppliers
-              </Link>
-              <Link
-                href="/get-started"
+                href="/#contact"
                 id="mobile-nav-cta"
                 onClick={() => setOpen(false)}
-                className="text-sm font-semibold bg-blue-600 text-white rounded-lg px-5 py-3 text-center mt-2 hover:bg-blue-700 transition-all duration-300 shadow-sm shadow-blue-500/20"
+                className="text-sm font-semibold bg-slate-900 text-white rounded px-5 py-3 text-center mt-2 hover:bg-slate-800 transition-all duration-300 shadow-sm"
               >
-                Request a Quote
+                Talk to us
               </Link>
             </div>
           </motion.div>

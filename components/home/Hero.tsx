@@ -2,100 +2,141 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, ShieldCheck, FileCheck, Percent } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex flex-col justify-between items-center bg-white pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-8 lg:pb-10 3xl:pt-36 3xl:pb-16 4xl:pt-44 4xl:pb-20 overflow-hidden select-none">
-      {/* Soft Ambient Background Glow */}
-      <div className="absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 bg-blue-500/5 blur-[140px] w-[70vw] h-[40vw] max-w-[800px] max-h-[400px] 3xl:max-w-[1100px] 3xl:max-h-[550px] rounded-full pointer-events-none z-0" />
+    <section className="relative bg-white pt-28 sm:pt-36 pb-16 sm:pb-24 border-b border-slate-200 overflow-hidden">
+      {/* Crisp Machining Video Blended with Layout */}
+      <div 
+        className="absolute top-0 right-0 w-full lg:w-[60%] xl:w-[56%] h-full overflow-hidden pointer-events-none select-none z-0"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.6) 30%, black 48%, black 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.6) 30%, black 48%, black 100%)'
+        }}
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center"
+        >
+          <source src="/videos/cnc_lathe.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
 
-      {/* Centered Hero Content & Trust Pillars */}
-      <div className="w-full relative z-10 flex-1 flex flex-col justify-between items-center px-5 sm:px-8 lg:px-12 max-w-6xl mx-auto 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
-        <div className="my-auto flex flex-col items-center text-center w-full">
-          {/* Space to add eyebrow text here in the future if needed */}
-        
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold tracking-tight text-slate-900 leading-[1.08] text-balance max-w-5xl mx-auto 3xl:text-[96px] 3xl:max-w-[1400px] 4xl:text-[112px] 4xl:max-w-[1700px]"
-          >
-            Fabricated metalwork from India,{' '}
-            <span className="italic-accent text-blue-600 font-normal tracking-normal">
-              without the risk of finding out too late.
-            </span>
-          </motion.h1>
+        {/* Soft bottom dissolve so it transitions neatly above the ethos statement */}
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/60 to-transparent" />
+      </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 sm:mt-6 text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed max-w-4xl mx-auto text-balance 3xl:text-2xl 3xl:mt-10 3xl:max-w-[1200px] 4xl:text-[1.75rem] 4xl:mt-12 4xl:max-w-[1500px]"
-          >
-            PROQRA sources sheet metal fabrication and welded assemblies from India. Every supplier is verified in person before they're approved to quote your work, and every order is inspected against your drawing before it ships.
-          </motion.p>
+      {/* Light color shade in the back behind the text on the left, spreading to the right */}
+      <div 
+        className="absolute top-0 left-0 w-full lg:w-[72%] h-full pointer-events-none select-none z-0"
+        style={{
+          background: 'radial-gradient(ellipse 95% 80% at 15% 35%, rgba(219, 234, 254, 0.75) 0%, rgba(224, 238, 255, 0.45) 35%, rgba(239, 246, 255, 0.15) 60%, transparent 85%)',
+        }}
+      />
+      <div 
+        className="absolute top-0 left-0 w-full lg:w-[65%] h-full pointer-events-none select-none z-0"
+        style={{
+          background: 'linear-gradient(105deg, rgba(219, 234, 254, 0.5) 0%, rgba(239, 246, 255, 0.3) 35%, transparent 72%)',
+        }}
+      />
 
-          {/* Dual CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 3xl:mt-12 3xl:gap-5 4xl:mt-14"
-          >
-            <Link
-              href="/get-started"
-              id="hero-request-quote-cta"
-              className="group inline-flex items-center gap-2.5 bg-blue-600 text-white font-bold text-xs tracking-wider uppercase px-8 py-3.5 sm:py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md shadow-blue-500/20 w-full sm:w-auto justify-center 3xl:text-sm 3xl:px-10 3xl:py-5 4xl:text-base 4xl:px-12 4xl:py-6"
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36 relative z-10">
+        {/* Main Grid: Headline & Agency Positioning on Left, Blended Machining Backdrop on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Core Agency Message */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] max-w-2xl 3xl:text-7xl 4xl:text-8xl"
             >
-              Request a Quote
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-            </Link>
-            <Link
-              href="/how-we-source"
-              id="hero-see-vetting-cta"
-              className="inline-flex items-center justify-center font-bold text-xs tracking-wider uppercase text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 px-8 py-3.5 sm:py-4 rounded-lg transition-all duration-200 border border-slate-200 w-full sm:w-auto 3xl:text-sm 3xl:px-10 3xl:py-5 4xl:text-base 4xl:px-12 4xl:py-6"
+              Find the right supplier.{' '}
+              <span className="text-blue-600">Build the relationship.</span>{' '}
+              Control the supply.
+            </motion.h1>
+
+            {/* Subhead & Agency Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 sm:mt-8 space-y-4 max-w-xl text-slate-600 text-base sm:text-lg leading-relaxed 3xl:text-xl 3xl:max-w-2xl"
             >
-              See how we vet suppliers
-            </Link>
-          </motion.div>
+              <p className="font-medium text-slate-800">
+                PROQRA helps UK manufacturers find, qualify and develop suppliers in India.
+              </p>
+              <p>
+                We work with suppliers from the first assessment through production, quality control and ongoing supply.
+              </p>
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+            >
+              <Link
+                href="#contact"
+                id="hero-talk-to-us"
+                className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded transition-colors text-center shadow-sm"
+              >
+                Talk to us
+              </Link>
+              <Link
+                href="#process"
+                className="inline-flex items-center justify-center border border-slate-300 hover:border-slate-900 text-slate-700 hover:text-slate-900 font-medium text-sm sm:text-base px-8 py-3.5 rounded transition-colors text-center"
+              >
+                How we work (7 Steps) ↓
+              </Link>
+            </motion.div>
+
+            {/* Micro spec row */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-10 pt-6 border-t border-slate-200 grid grid-cols-3 gap-4 text-left"
+            >
+              <div>
+                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Territory</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">UK ⇄ India</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Engagement</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">Shop Floor to Dock</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Accountability</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">Full Documentation</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Open visual window for the blended video */}
+          <div className="hidden lg:flex lg:col-span-5 min-h-[460px] items-center justify-center" aria-hidden="true" />
         </div>
 
-        {/* Understated Trust Pillars Strip */}
+        {/* The repeating ethos statement in clean, bold technical typography */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mt-8 sm:mt-10 lg:mt-12 pt-6 sm:pt-7 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-left max-w-4xl mx-auto 3xl:mt-20 3xl:pt-9 3xl:gap-14 3xl:max-w-[1300px] 4xl:mt-24 4xl:gap-20 4xl:max-w-[1600px]"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-14 sm:mt-20 pt-8 sm:pt-10 border-t border-slate-200 relative z-10"
         >
-          <div className="flex items-start gap-3 3xl:gap-4">
-            <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 3xl:w-11 3xl:h-11 4xl:w-12 4xl:h-12">
-              <ShieldCheck className="w-4 h-4 3xl:w-5 3xl:h-5 4xl:w-6 4xl:h-6" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-slate-900 3xl:text-sm 4xl:text-base">Verified in Person</p>
-              <p className="text-xs text-slate-500 mt-0.5 leading-relaxed 3xl:text-sm 4xl:text-base">Shop floor audit before any quote is issued</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 3xl:gap-4">
-            <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 3xl:w-11 3xl:h-11 4xl:w-12 4xl:h-12">
-              <FileCheck className="w-4 h-4 3xl:w-5 3xl:h-5 4xl:w-6 4xl:h-6" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-slate-900 3xl:text-sm 4xl:text-base">Inspected to Drawing</p>
-              <p className="text-xs text-slate-500 mt-0.5 leading-relaxed 3xl:text-sm 4xl:text-base">Dimensional & mill test certs with every crate</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 3xl:gap-4">
-            <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 3xl:w-11 3xl:h-11 4xl:w-12 4xl:h-12">
-              <Percent className="w-4 h-4 3xl:w-5 3xl:h-5 4xl:w-6 4xl:h-6" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-slate-900 3xl:text-sm 4xl:text-base">Preferential Tariffs</p>
-              <p className="text-xs text-slate-500 mt-0.5 leading-relaxed 3xl:text-sm 4xl:text-base">Duty-free or reduced duty under UK–India CETA</p>
-            </div>
+          <div className="bg-slate-50/95 backdrop-blur-sm border-l-4 border-blue-600 p-6 sm:p-8 rounded-r">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-slate-400 mb-2">
+              The PROQRA Principle
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900 leading-snug">
+              &ldquo;Finding the supplier is only the beginning. We qualify them, develop them to your requirements and support the supply relationship through production.&rdquo;
+            </p>
           </div>
         </motion.div>
       </div>
