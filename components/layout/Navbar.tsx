@@ -20,10 +20,10 @@ export default function Navbar() {
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-7 3xl:gap-9 4xl:gap-11">
           <Link
-            href="/how-we-source"
+            href="/how-we-work"
             className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
           >
-            How We Source
+            How We Work
           </Link>
           <Link
             href="/quality"
@@ -75,11 +75,11 @@ export default function Navbar() {
           >
             <div className="py-6 flex flex-col gap-4">
               <Link
-                href="/how-we-source"
+                href="/how-we-work"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
-                How We Source
+                How We Work
               </Link>
               <Link
                 href="/quality"

@@ -84,10 +84,10 @@ export default function AboutPage() {
                 Talk to our UK team
               </Link>
               <Link
-                href="/how-we-source"
+                href="/how-we-work"
                 className="text-sm font-semibold text-blue-600 hover:text-blue-700 underline"
               >
-                How we qualify suppliers →
+                How we work →
               </Link>
             </div>
           </div>

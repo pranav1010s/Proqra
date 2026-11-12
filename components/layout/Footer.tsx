@@ -25,8 +25,8 @@ export default function Footer() {
           <div className="md:col-span-3">
             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">Navigation</p>
             <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
-              <Link href="/#process" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">7-Step Process</Link>
-              <Link href="/how-we-source" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">How We Source</Link>
+              <Link href="/#what-we-do" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">What We Do</Link>
+              <Link href="/how-we-work" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">How We Work</Link>
               <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Capabilities</Link>
               <Link href="/for-suppliers" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">For Indian Suppliers</Link>
               <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About Us</Link>
