@@ -2,53 +2,59 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 
+const navLinks = [
+  { href: '/platform', label: 'Platform' },
+  { href: '/work-with-us', label: 'Work With Us' },
+  { href: '/about', label: 'About' },
+]
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 py-4 px-5 sm:px-8 lg:px-12 transition-all duration-300 3xl:py-5 3xl:px-28 4xl:py-6 4xl:px-36">
-      <nav className="max-w-[1440px] mx-auto flex items-center justify-between 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/80 py-4 px-5 sm:px-8 lg:px-12 transition-all duration-300 3xl:py-5 3xl:px-28 4xl:py-6 4xl:px-36">
+      <nav
+        aria-label="Main navigation"
+        className="max-w-[1440px] mx-auto flex items-center justify-between 3xl:max-w-[1900px] 4xl:max-w-[2200px]"
+      >
         {/* Typographic logo - PROQRA in all-caps, tracking-tighter */}
-        <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 3xl:text-2xl 4xl:text-3xl">
+        <Link
+          href="/"
+          className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 3xl:text-2xl 4xl:text-3xl"
+        >
           PROQRA
-          <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5"></span>
+          <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5" aria-hidden="true" />
         </Link>
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-7 3xl:gap-9 4xl:gap-11">
-          <Link
-            href="/how-we-work"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
-          >
-            How We Work
-          </Link>
-          <Link
-            href="/quality"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
-          >
-            Quality & Capabilities
-          </Link>
-          <Link
-            href="/for-suppliers"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
-          >
-            For Suppliers
-          </Link>
-          <Link
-            href="/about"
-            className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 3xl:text-base 4xl:text-lg"
-          >
-            About Us
-          </Link>
+          {navLinks.map((item) => {
+            const active = pathname === item.href
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-semibold transition-colors duration-200 3xl:text-base 4xl:text-lg ${
+                  active
+                    ? 'text-blue-600'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          })}
           <Link
             href="/#contact"
             id="nav-cta"
             className="text-sm font-semibold bg-slate-900 text-white rounded px-5 py-2.5 hover:bg-slate-800 transition-all duration-300 shadow-sm 3xl:text-base 3xl:px-7 3xl:py-3 4xl:text-lg 4xl:px-8 4xl:py-3.5"
           >
-            Talk to us
+            Become an early partner
           </Link>
         </div>
 
@@ -57,6 +63,7 @@ export default function Navbar() {
           className="md:hidden p-1.5 text-slate-700 hover:text-slate-900 transition-colors duration-300"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
+          aria-expanded={open}
           id="mobile-menu-toggle"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -74,41 +81,30 @@ export default function Navbar() {
             className="md:hidden overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-lg mt-4 -mx-6 px-6 shadow-lg"
           >
             <div className="py-6 flex flex-col gap-4">
-              <Link
-                href="/how-we-work"
-                onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-              >
-                How We Work
-              </Link>
-              <Link
-                href="/quality"
-                onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-              >
-                Quality & Capabilities
-              </Link>
-              <Link
-                href="/for-suppliers"
-                onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-              >
-                For Suppliers
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
-              >
-                About Us
-              </Link>
+              {navLinks.map((item) => {
+                const active = pathname === item.href
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={`text-sm font-semibold transition-colors duration-200 ${
+                      active
+                        ? 'text-blue-600'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
               <Link
                 href="/#contact"
                 id="mobile-nav-cta"
                 onClick={() => setOpen(false)}
                 className="text-sm font-semibold bg-slate-900 text-white rounded px-5 py-3 text-center mt-2 hover:bg-slate-800 transition-all duration-300 shadow-sm"
               >
-                Talk to us
+                Become an early partner
               </Link>
             </div>
           </motion.div>

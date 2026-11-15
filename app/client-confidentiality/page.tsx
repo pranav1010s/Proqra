@@ -19,7 +19,7 @@ export default function ClientConfidentialityPage() {
 
       {/* Header Banner */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="max-w-3xl">
             <Link
               href="/"
@@ -59,7 +59,7 @@ export default function ClientConfidentialityPage() {
               At PROQRA, we understand that sharing component drawings, tolerances, material grades, and CAD models requires absolute trust. Your engineering designs and manufacturing drawings represent proprietary intellectual property and commercial advantage.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              We treat all client technical documentation, CAD files, commercial targets, and project communications with strict confidentiality from the moment you initiate contact with our UK team.
+              We treat all client technical documentation, CAD files, commercial targets, and project communications with strict confidentiality from the moment you initiate contact with PROQRA.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function ClientConfidentialityPage() {
               We gladly execute standard mutual or client-specific Non-Disclosure Agreements before receiving any drawings or proprietary technical information.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              If you have your own standard corporate NDA, our UK directors will review and sign it promptly. Alternatively, we can provide our standard mutual NDA governed by English law.
+              If you have your own standard corporate NDA, PROQRA’s founder will review and sign it promptly. Alternatively, we can provide our standard mutual NDA governed by English law.
             </p>
           </div>
 
@@ -86,10 +86,10 @@ export default function ClientConfidentialityPage() {
             </p>
             <ul className="space-y-2.5 pl-4 text-sm sm:text-base text-slate-700 list-disc">
               <li>
-                <strong className="text-slate-900">Need-to-Know Basis:</strong> Drawings and specifications are shared only with specific Indian manufacturers that have already passed our preliminary vetting and possess the required machine capability.
+                <strong className="text-slate-900">Need-to-Know Basis:</strong> Drawings and specifications are shared only with specific Indian manufacturers that we have reviewed and matched to the required process capability.
               </li>
               <li>
-                <strong className="text-slate-900">Binding Supplier Agreements:</strong> Suppliers receiving drawings must sign strict confidentiality terms prohibiting them from copying, redistributing, or manufacturing parts for unauthorized third parties.
+                <strong className="text-slate-900">Supplier Confidentiality Commitments:</strong> Before sensitive drawings are shared with a shortlisted supplier, we require written confidentiality commitments restricting use strictly to preparing a quotation or fulfilling the requirement.
               </li>
               <li>
                 <strong className="text-slate-900">Redaction Upon Request:</strong> If preferred, we can work with anonymised drawings where title blocks, end-customer brand names, or project codes have been removed prior to factory review.
@@ -116,7 +116,7 @@ export default function ClientConfidentialityPage() {
               5. Secure Handling & Data Purging
             </h2>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              Technical files are stored in access-restricted, encrypted cloud environments accessible only by authorized team members directly managing your project.
+              Technical files are stored in access-restricted, encrypted cloud environments accessible only to PROQRA’s founder and the team members directly assisting with your task.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
               If an inquiry does not progress to qualification or production, or upon your written request at any time, we will permanently delete all local and cloud copies of your drawings and CAD models.
@@ -130,7 +130,7 @@ export default function ClientConfidentialityPage() {
                 Request an NDA before sharing drawings
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Speak directly with our UK-based team to put an agreement in place.
+                Speak directly with PROQRA to put an NDA in place before sharing drawings.
               </p>
             </div>
             <a

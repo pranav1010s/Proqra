@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
 
       {/* Header Banner */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="max-w-3xl">
             <Link
               href="/"
@@ -56,10 +56,10 @@ export default function PrivacyPolicyPage() {
               1. Who We Are
             </h2>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              PROQRA (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) provides manufacturing supplier qualification, on-site audits, and initial production oversight for UK engineering and manufacturing companies looking for verified suppliers in India.
+              PROQRA (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is building a platform to take the manual work out of direct procurement and works with UK manufacturers on supplier tasks, starting with sourcing from India.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              PROQRA is registered in England and Wales. For all matters concerning data protection and your privacy rights under the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018, the data controller is PROQRA.
+              We are committed to protecting and respecting your privacy in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. For all matters concerning data protection and your privacy rights, the data controller is PROQRA.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
               Direct all privacy queries to:{' '}
@@ -125,10 +125,10 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="space-y-2.5 pl-4 text-sm sm:text-base text-slate-700 list-disc">
               <li>Reviewing drawing feasibility and matching suitable Indian engineering facilities.</li>
-              <li>Conducting in-person factory audits, capability checks, and safety evaluations.</li>
-              <li>Supervising the production of pilot batches and sharing stage documentation.</li>
-              <li>Arranging live shop-floor video walk-throughs with verified suppliers.</li>
-              <li>Communicating project updates directly via our UK-based team.</li>
+              <li>Checking supplier certificates, organizing supplier records, and arranging visual site checks or independent inspections.</li>
+              <li>Following up on open orders, documentation, and quality updates.</li>
+              <li>Arranging live shop-floor video walk-throughs with shortlisted suppliers.</li>
+              <li>Communicating task and order updates directly with your team.</li>
               <li>Ensuring network security and fulfilling statutory accounting and compliance requirements.</li>
             </ul>
           </div>
@@ -164,7 +164,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="space-y-2.5 pl-4 text-sm sm:text-base text-slate-700 list-disc">
               <li>
-                <strong className="text-slate-900">Audited Indian Suppliers:</strong> Technical drawings and manufacturing parameters are shared under strict confidentiality with vetted Indian facilities for quoting and manufacturing feasibility.
+                <strong className="text-slate-900">Shortlisted Suppliers:</strong> Technical drawings and manufacturing parameters are shared under strict confidentiality commitments with prospective Indian facilities for quoting and manufacturing feasibility.
               </li>
               <li>
                 <strong className="text-slate-900">Service Providers:</strong> Trusted third-party cloud infrastructure, email delivery, and secure hosting providers operating under standard data processing agreements.
@@ -223,7 +223,7 @@ export default function PrivacyPolicyPage() {
                 Have questions regarding our privacy policy?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Reach out to our UK team directly at any time.
+                Reach out to PROQRA directly at any time.
               </p>
             </div>
             <a

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from "@vercel/speed-insights/next" // Imported here
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'PROQRA | Find, Qualify & Develop Suppliers in India for UK Manufacturers',
+  title: 'PROQRA | Taking the manual work out of direct procurement',
   description:
-    'PROQRA helps UK manufacturers find, qualify and develop suppliers in India. We work with suppliers from the first assessment through production, quality control and ongoing supply.',
+    'PROQRA is building a platform to automate the documents, supplier chasing and data work in direct procurement. We work with early partners on real supplier tasks, starting with sourcing from India.',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'PROQRA | Find, Qualify & Develop Suppliers in India for UK Manufacturers',
+    title: 'PROQRA | Taking the manual work out of direct procurement',
     description:
-      'PROQRA helps UK manufacturers find, qualify and develop suppliers in India. We work with suppliers from the first assessment through production, quality control and ongoing supply.',
+      'PROQRA is building a platform to automate the documents, supplier chasing and data work in direct procurement. We work with early partners on real supplier tasks, starting with sourcing from India.',
     type: 'website',
   },
 }
@@ -37,7 +37,7 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
-        <SpeedInsights /> {/* Added this line right here! */}
+        <SpeedInsights />
       </body>
     </html>
   )

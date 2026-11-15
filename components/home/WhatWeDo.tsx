@@ -4,85 +4,120 @@ import Link from 'next/link'
 import { motion, MotionConfig } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
-const services = [
+const buildingStages = [
   {
-    title: 'Finding suppliers',
-    description:
-      'Send us a drawing, the material and how many you need. We’ll look for Indian suppliers that make that kind of part, check their certificates and references, and give you a short list.',
+    stage: 'Now',
+    badge: 'Current stage',
+    highlight: true,
+    description: 'Done by hand with early partners, using trackers and templates.',
   },
   {
-    title: 'Getting them approved',
-    description:
-      'Approving a supplier means a lot of documents: quality certificates, material certificates, first-article reports. We collect them, check nothing is missing, and put them in one pack. If you want someone to inspect on site, we book an independent inspector.',
+    stage: 'Next',
+    badge: 'Planned',
+    highlight: false,
+    description: 'A shared tracker for documents and supplier status, with expiry reminders.',
   },
   {
-    title: 'Following up',
-    description:
-      'Once you’re ordering, we chase open orders and missing paperwork, log quality problems as they come up, and send you an update so you don’t have to do it yourself.',
+    stage: 'Later',
+    badge: 'Later',
+    highlight: false,
+    description: 'A portal with automated chasing and supplier scorecards.',
   },
 ]
 
 export default function WhatWeDo() {
   return (
     <MotionConfig reducedMotion="user">
-      <section id="what-we-do" className="py-20 sm:py-28 bg-slate-50/70 border-b border-slate-200 scroll-mt-20">
+      {/* Where the time goes */}
+      <section
+        id="where-the-time-goes"
+        className="py-20 sm:py-24 bg-slate-50/70 border-b border-slate-200 scroll-mt-20"
+      >
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
-          <div className="max-w-2xl mb-12 sm:mb-14">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight text-balance">
-              What we do
-            </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.45 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
+          >
+            <div className="lg:col-span-5">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight text-balance">
+                Where the time goes
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed text-pretty max-w-3xl">
+                Direct procurement runs on documents: certificates, test reports, drawings, order updates, complaint logs. They sit in inboxes and spreadsheets, someone has to chase them, and the data never quite matches. Buyers and supply chain teams end up spending their days on admin when they should be on the decisions that matter.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* What we’re building */}
+      <section
+        id="what-were-building"
+        className="py-20 sm:py-28 bg-white border-b border-slate-200 scroll-mt-20"
+      >
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-14">
+            <div className="max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-4 text-balance">
+                What we’re building
+              </h2>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed text-pretty">
+                A platform that handles most of that work: collecting documents from suppliers, chasing what’s missing, keeping supplier data consistent and flagging problems early.
+              </p>
+            </div>
+
+            <Link
+              href="/platform"
+              className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 transition-colors shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <span>See the platform</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {services.map((service, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {buildingStages.map((item, idx) => (
               <motion.div
-                key={service.title}
+                key={item.stage}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
-                className="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-9 shadow-sm"
+                className={`rounded-2xl p-7 sm:p-9 border transition-colors ${
+                  item.highlight
+                    ? 'border-blue-200 bg-blue-50/35 shadow-sm'
+                    : 'border-slate-200/90 bg-slate-50/70'
+                }`}
               >
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 tracking-tight">
-                  {service.title}
-                </h3>
-                <p className="text-base text-slate-600 leading-relaxed text-pretty max-w-prose">
-                  {service.description}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                    {item.stage}
+                  </span>
+                  <span
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
+                      item.highlight
+                        ? 'bg-blue-50 text-blue-700 border-blue-200'
+                        : 'bg-white text-slate-600 border-slate-200'
+                    }`}
+                  >
+                    {item.badge}
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-pretty">
+                  {item.description}
                 </p>
               </motion.div>
             ))}
-
-            {/* Fourth service: Light background with clean blue accent */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.45, delay: 0.18 }}
-              className="relative bg-gradient-to-br from-blue-50/50 via-white to-white border-2 border-blue-600/40 hover:border-blue-600 rounded-2xl p-7 sm:p-9 flex flex-col justify-between shadow-md shadow-blue-500/5 transition-all duration-300"
-            >
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 tracking-tight">
-                  Sorting out your supplier data
-                </h3>
-                <p className="text-base text-slate-700 leading-relaxed text-pretty max-w-prose mb-3">
-                  Supplier lists in three different spreadsheets. Certificates nobody knows the expiry date of. Complaints sitting in someone’s inbox. We pull it into one place you can actually use.
-                </p>
-                <p className="text-base text-slate-900 font-medium leading-relaxed text-pretty max-w-prose mb-7">
-                  You get one clean spreadsheet of your suppliers, with certificate dates, open issues and a simple score for each, and we keep it up to date if you want.
-                </p>
-              </div>
-
-              <div>
-                <Link
-                  href="#contact"
-                  className="inline-flex items-center justify-center gap-2 min-h-[48px] bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm sm:text-base px-6 py-3 rounded transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
-                  <span>Tell us about your supplier data</span>
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              </div>
-            </motion.div>
           </div>
+
+          <p className="mt-8 text-sm sm:text-base text-slate-600">
+            We’re early. Most of this is still done by hand, and we’ll say so when that changes.
+          </p>
         </div>
       </section>
     </MotionConfig>

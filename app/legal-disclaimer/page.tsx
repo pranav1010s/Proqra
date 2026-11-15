@@ -19,7 +19,7 @@ export default function LegalDisclaimerPage() {
 
       {/* Header Banner */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="max-w-3xl">
             <Link
               href="/"
@@ -56,10 +56,10 @@ export default function LegalDisclaimerPage() {
               1. Nature of Our Services
             </h2>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              PROQRA helps UK manufacturing and engineering companies identify, vet, and qualify precision manufacturing suppliers in India. Our services include in-person factory visits, machine capability audits, safety and compliance reviews, supervision of initial pilot production runs, and comprehensive stage documentation.
+              PROQRA is building a procurement platform and works with UK manufacturing companies on supplier tasks, starting with sourcing from India. Our services include supplier discovery, document and certificate checks, supplier follow-up, supplier data organisation, visual site checks, and coordinating independent third-party inspections.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              We act as an independent qualification, audit, and procurement facilitation partner. We are not a broker taking arbitrary margins on anonymous suppliers, nor do we operate internal fabrication plants. All audits and assessments reflect conditions observed on-site at the time of inspection.
+              PROQRA acts as a coordination and procurement support partner. Any third-party technical inspection, laboratory testing, or freight service is carried out by independent specialists.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function LegalDisclaimerPage() {
               All recommended factories, machine shops, foundries, and fabrication plants in India are legally and operationally independent third-party commercial entities.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              While PROQRA conducts rigorous on-site qualification, machine capability checks, and oversees first-article production, long-term commercial supply contracts, warranty obligations, credit terms, and high-volume delivery agreements are governed by the specific commercial contracts entered into between the client and the selected manufacturing entity.
+              While PROQRA checks supplier paperwork, coordinates visual site checks, and arranges independent third-party inspections where requested, commercial supply contracts, warranty obligations, credit terms, and delivery agreements are governed by the specific commercial contracts entered into between the client and the selected manufacturing entity.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function LegalDisclaimerPage() {
               4. Supplier Certifications & Standards
             </h2>
             <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-              Mentions of third-party quality standards (such as ISO 9001, IATF 16949, AS9100, or ISO 13485) refer to certifications held by audited partner facilities. PROQRA verifies the active registration, scope, and accreditation body of supplier certificates during on-site audits, but does not itself issue certification credentials.
+              Mentions of third-party quality standards (such as ISO 9001, IATF 16949, AS9100, or ISO 13485) refer to certifications held by independent partner facilities. PROQRA checks the active registration, scope, and issuing body of supplier certificates where possible, but does not certify suppliers, sign off engineering, or issue accreditation credentials.
             </p>
           </div>
 
@@ -129,7 +129,7 @@ export default function LegalDisclaimerPage() {
                 Questions regarding our legal terms?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Our UK-based team is happy to discuss our qualification framework and service agreements.
+                Contact PROQRA directly to discuss our procurement framework and service scope.
               </p>
             </div>
             <a

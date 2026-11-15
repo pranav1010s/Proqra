@@ -1,3 +1,4 @@
+
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,13 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/how-we-work`,
+      url: `${baseUrl}/platform`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/quality`,
+      url: `${baseUrl}/work-with-us`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -29,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/for-suppliers`,
+      url: `${baseUrl}/supplier-network`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,

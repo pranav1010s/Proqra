@@ -96,7 +96,7 @@ export async function POST(req: Request) {
     const html = `
       <div style="font-family:sans-serif;max-width:640px;margin:0 auto;color:#111;line-height:1.6">
         <h2 style="color:#2563eb;margin-bottom:8px">New Supplier Network Application</h2>
-        <p style="font-size:14px;color:#666">Submitted via proqra.co.uk/for-suppliers</p>
+        <p style="font-size:14px;color:#666">Submitted via proqra.co.uk/supplier-network</p>
         <hr style="border:none;border-top:1px solid #eee;margin:16px 0"/>
         
         <h3 style="font-size:16px;color:#0f172a;margin-bottom:8px">Company Profile</h3>

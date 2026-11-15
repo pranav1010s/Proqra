@@ -7,13 +7,16 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
         {/* Top Info & Links Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 pb-12 border-b border-slate-100 3xl:gap-16 3xl:mb-20 3xl:pb-16 4xl:gap-20 4xl:mb-24 4xl:pb-20">
-          <div className="md:col-span-6 flex flex-col gap-3 3xl:gap-4">
-            <Link href="/" className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 3xl:text-2xl 4xl:text-3xl">
+          <div className="md:col-span-5 flex flex-col gap-3 3xl:gap-4">
+            <Link
+              href="/"
+              className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 3xl:text-2xl 4xl:text-3xl"
+            >
               PROQRA
-              <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5"></span>
+              <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5" aria-hidden="true" />
             </Link>
             <p className="text-sm text-slate-600 max-w-sm leading-relaxed 3xl:text-base 4xl:text-lg">
-              PROQRA helps UK engineering and manufacturing companies find suitable suppliers in India, qualify them through in-factory visits and safety checks, and oversee initial production materials.
+              PROQRA is building a platform to take the manual work out of direct procurement. We’re starting with UK manufacturers who buy from India.
             </p>
             <p className="text-sm font-semibold text-slate-900 mt-1 3xl:text-base 4xl:text-lg">
               <a href="mailto:hello@proqra.co.uk" className="hover:text-blue-600 transition-colors">
@@ -23,19 +26,49 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">Navigation</p>
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
+              Navigation
+            </p>
             <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
-              <Link href="/#what-we-do" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">What We Do</Link>
-              <Link href="/how-we-work" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">How We Work</Link>
-              <Link href="/quality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">Quality & Capabilities</Link>
-              <Link href="/for-suppliers" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">For Indian Suppliers</Link>
-              <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">About Us</Link>
-              <Link href="/#contact" className="text-sm font-semibold text-slate-900 hover:text-blue-600 font-medium transition-colors 3xl:text-base 4xl:text-lg">Talk to PROQRA</Link>
+              <Link href="/platform" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                Platform
+              </Link>
+              <Link href="/work-with-us" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                Work With Us
+              </Link>
+              <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                About
+              </Link>
+              <Link href="/supplier-network" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                Supplier Network
+              </Link>
+              <Link href="/#contact" className="text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors 3xl:text-base 4xl:text-lg">
+                Become an early partner
+              </Link>
             </div>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">Connect</p>
+          <div className="md:col-span-2">
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
+              Legal
+            </p>
+            <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
+              <Link href="/privacy-policy" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                Privacy Policy
+              </Link>
+              <Link href="/client-confidentiality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                Client confidentiality
+              </Link>
+              <Link href="/legal-disclaimer" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+                Legal disclaimer
+              </Link>
+            </div>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
+              Connect
+            </p>
             <div className="flex items-center gap-3 3xl:gap-4">
               <a
                 href="https://www.linkedin.com/company/proqra/"
@@ -67,18 +100,16 @@ export default function Footer() {
             <p className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tighter text-slate-200/70 leading-none select-none uppercase 3xl:text-[7rem] 4xl:text-[8.5rem]">
               proqra
             </p>
-            <p className="text-xs text-slate-400 font-medium 3xl:text-sm 4xl:text-base">
-              Registered in England and Wales.
-            </p>
+            {/* Registered in England and Wales — Company no. [when registered] */}
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-400 text-xs font-medium 3xl:text-sm 4xl:text-base">
-            <Link href="/legal-disclaimer" className="hover:text-slate-700 transition-colors underline-offset-4 hover:underline">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-500 text-xs font-medium 3xl:text-sm 4xl:text-base">
+            <Link href="/legal-disclaimer" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
               Legal disclaimer
             </Link>
-            <Link href="/client-confidentiality" className="hover:text-slate-700 transition-colors underline-offset-4 hover:underline">
+            <Link href="/client-confidentiality" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
               Client confidentiality
             </Link>
-            <Link href="/privacy-policy" className="hover:text-slate-700 transition-colors underline-offset-4 hover:underline">
+            <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
               Privacy Policy
             </Link>
             <span>© 2026 PROQRA</span>

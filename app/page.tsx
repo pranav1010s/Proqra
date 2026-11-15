@@ -8,9 +8,9 @@ import FinalCTASection from '@/components/home/FinalCTASection'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'PROQRA | Supplier Approvals for UK Manufacturers Buying from India',
+  title: 'PROQRA | Taking the manual work out of direct procurement',
   description:
-    'If you buy parts from India, or want to, PROQRA handles supplier vetting, approval paperwork, ongoing follow-up, and organising your supplier quality data.',
+    'PROQRA is building a platform to automate the documents, supplier chasing and data work in direct procurement. We work with early partners on real supplier tasks, starting with sourcing from India.',
 }
 
 export default function HomePage() {

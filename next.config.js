@@ -4,18 +4,38 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/how-we-work',
+        destination: '/work-with-us',
+        permanent: true,
+      },
+      {
         source: '/how-we-source',
-        destination: '/how-we-work',
+        destination: '/work-with-us',
+        permanent: true,
+      },
+      {
+        source: '/services',
+        destination: '/work-with-us',
+        permanent: true,
+      },
+      {
+        source: '/quality',
+        destination: '/work-with-us',
         permanent: true,
       },
       {
         source: '/capabilities',
-        destination: '/quality',
+        destination: '/work-with-us',
+        permanent: true,
+      },
+      {
+        source: '/for-suppliers',
+        destination: '/supplier-network',
         permanent: true,
       },
       {
         source: '/suppliers',
-        destination: '/for-suppliers',
+        destination: '/supplier-network',
         permanent: true,
       },
       {

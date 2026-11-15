@@ -1,160 +1,159 @@
-
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import { Video, ShieldCheck, Eye, FileText, PhoneCall } from 'lucide-react'
+import StageTimeline from '@/components/shared/StageTimeline'
+import { ArrowRight, User } from 'lucide-react'
+
+// Set founder's name here when ready (e.g. 'Sanju') so intro reads "I'm <Name>, the founder."
+const FOUNDER_NAME = ''
 
 export const metadata: Metadata = {
-  title: 'Why PROQRA Exists | PROQRA',
+  title: 'About | PROQRA',
   description:
-    'Helping UK manufacturing and engineering companies find, qualify, and launch production with verified precision suppliers in India. UK-based team for continuous reassurance.',
+    'PROQRA is a small Portsmouth company building a platform to take the manual work out of direct procurement.',
+  openGraph: {
+    title: 'About | PROQRA',
+    description:
+      'PROQRA is a small Portsmouth company building a platform to take the manual work out of direct procurement.',
+    type: 'website',
+  },
 }
 
 export default function AboutPage() {
+  const founderOpening = FOUNDER_NAME
+    ? `I’m ${FOUNDER_NAME}, the founder.`
+    : 'I’m the founder.'
+
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
       <Navbar />
 
-      {/* Hero & Story Section - Blended Visual with Text & Ambient Dissolve */}
-      <section className="relative bg-white pt-28 sm:pt-36 pb-20 border-b border-slate-200 overflow-hidden">
-        {/* Blended Facility Visual on the Right (No box, no captions, soft dissolve) */}
-        <div 
-          className="absolute top-0 right-0 w-full lg:w-[60%] xl:w-[54%] h-full overflow-hidden pointer-events-none select-none z-0"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.6) 30%, black 48%, black 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.6) 30%, black 48%, black 100%)'
-          }}
-        >
-          <Image
-            src="/images/factory_warehouse.jpg"
-            alt="Precision manufacturing facility in India"
-            fill
-            sizes="(max-width: 1024px) 100vw, 55vw"
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/60 to-transparent" />
-        </div>
-
-        {/* Light color shade in the back behind the text on the left, spreading to the right */}
-        <div 
-          className="absolute top-0 left-0 w-full lg:w-[72%] h-full pointer-events-none select-none z-0"
-          style={{
-            background: 'radial-gradient(ellipse 95% 80% at 15% 35%, rgba(219, 234, 254, 0.75) 0%, rgba(224, 238, 255, 0.45) 35%, rgba(239, 246, 255, 0.15) 60%, transparent 85%)',
-          }}
-        />
-
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24 relative z-10">
-          <div className="max-w-2xl space-y-6">
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-              Why PROQRA <span className="text-blue-600 font-normal italic-accent">exists.</span>
-            </h1>
-
-            <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed">
-              <p>
-                Most UK manufacturing companies face the same dilemma when considering overseas suppliers: pay high domestic prices, or take an unverified gamble on overseas directories, hoping certificates are genuine and factory promises are real.
-              </p>
-
-              <p>
-                Large corporations solve this by maintaining permanent offices in overseas manufacturing hubs. Smaller and mid-sized manufacturing firms require the same precision and reliability, but cannot justify full-time overseas audit branches.
-              </p>
-
-              <div className="border-l-4 border-blue-600 pl-5 py-3 bg-white/90 backdrop-blur-sm rounded-r-xl my-6 shadow-sm">
-                <p className="font-semibold text-slate-900 text-base sm:text-lg leading-snug">
-                  PROQRA provides that on-the-ground presence. We visit the factory in person, conduct full capability and safety checks, oversee initial production materials, and share the complete dossier directly with you.
-                </p>
-              </div>
-
-              <p>
-                Crucially, our clients always have a team based in the UK to contact directly at any time. You get local accountability, constant reassurance, and transparent communication, while we physically inspect the factory floor in India.
-              </p>
-
-              <p className="text-sm text-slate-600">
-                We believe in ground-truth reality over sales promises. If a factory fails our capability checks, we tell you immediately with full documentation.
+      {/* Top Section: 2 columns (Heading + Intro on left, Founder portrait frame on right) */}
+      <section className="pt-28 sm:pt-36 pb-14 sm:pb-18 border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-7">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-5 text-balance">
+                About PROQRA
+              </h1>
+              <p className="text-lg sm:text-xl text-slate-700 leading-relaxed text-pretty max-w-2xl">
+                A small company building a platform to take the manual work out of direct procurement.
               </p>
             </div>
 
-            <div className="pt-6 border-t border-slate-200 flex items-center gap-4">
-              <Link
-                href="/#contact"
-                className="bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-7 py-3.5 rounded transition-colors shadow-sm"
+            <div className="lg:col-span-5 flex lg:justify-end">
+              {/* Founder photo slot — replace interior with <Image src="/images/founder.jpg" ... /> when photo is ready */}
+              <div
+                aria-label="Founder portrait slot"
+                className="w-full max-w-[320px] aspect-[4/5] rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col items-center justify-center gap-3 text-slate-400 shadow-sm"
               >
-                Talk to our UK team
-              </Link>
-              <Link
-                href="/how-we-work"
-                className="text-sm font-semibold text-blue-600 hover:text-blue-700 underline"
-              >
-                How we work →
-              </Link>
+                <div className="w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center">
+                  <User size={28} strokeWidth={1.6} aria-hidden="true" />
+                </div>
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
+                  Founder portrait
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Highlights Grid */}
-      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24 border-b border-slate-200 bg-slate-50">
-        <div className="max-w-[1440px] mx-auto 3xl:max-w-[1800px]">
-          <div className="max-w-3xl mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-              What makes our approach different:
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Local UK presence combined with direct physical verification in India.
-            </p>
+      {/* Main Story Section: Letter-style typography (~650px column, no cards) */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
+          <div className="max-w-[650px] space-y-12 text-base sm:text-lg text-slate-700 leading-relaxed">
+            {/* Why I started this */}
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                Why I started this
+              </h2>
+              <p>
+                {founderOpening} I’m originally from India and now based in Portsmouth.
+              </p>
+              <p>
+                I spent a year in supplier development and quality at a large industrial manufacturer. What stayed with me was how much time went on documents, chasing suppliers and fixing data that didn’t match. Almost none of it was about the real decisions.
+              </p>
+              {/* Note for founder: add 1-2 sentences here about a specific moment or project from that year (without naming the employer if you prefer not to). */}
+              <p>
+                I think most of that work can be automated. I also think nobody can build the right tool without doing the work first.
+              </p>
+            </div>
+
+            {/* Pull-quote */}
+            <blockquote className="border-l-2 border-blue-600 pl-6 py-2">
+              <p className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-snug">
+                “Most of that work can be automated.”
+              </p>
+            </blockquote>
+
+            {/* Why we do it by hand first */}
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                Why we do it by hand first
+              </h2>
+              <p>
+                So we work with a small number of UK manufacturers on real supplier tasks. We do them manually, write down what takes the time and build from what we learn. It means you get paid-for, hands-on help while the product takes shape. It also means we build from real work, not guesses.
+              </p>
+            </div>
+
+            {/* Where we are */}
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                Where we are
+              </h2>
+              <p>
+                PROQRA started in 2026. It’s me, contacts in India for site visits and independent partners for inspection, testing and freight. Most of the work is still manual. I’d rather say that plainly than pretend we’re bigger.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                <PhoneCall size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">UK-Based Team</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Always available to speak with you directly for continuous reassurance and regular status updates.
+          {/* Same 3-step timeline as Platform page */}
+          <div className="max-w-4xl my-10 sm:my-12">
+            <StageTimeline compact />
+          </div>
+
+          <div className="max-w-[650px] space-y-12 text-base sm:text-lg text-slate-700 leading-relaxed">
+            {/* How I work */}
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                How I work
+              </h2>
+              <p>
+                I’ll tell you honestly if we can’t help. You’ll know the price before we start. If something goes wrong with a supplier, you’ll hear it from us first.
               </p>
             </div>
 
-            <div className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                <Eye size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">In-Person Factory Visits</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                We physically walk the shop floor to inspect running machines, calibration records, and tooling setups.
-              </p>
+            {/* At a glance box */}
+            <div className="border-t border-b border-slate-200 py-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-slate-900">
+              <span>Portsmouth</span>
+              <span aria-hidden="true" className="text-slate-300">·</span>
+              <span>Founded 2026</span>
+              {/* · Company no. [when registered] */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing Dark Navy Band */}
+      <section className="pb-20 sm:pb-28 bg-white">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
+          <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white text-balance">
+                Got a supplier problem? I read every message myself.
+              </h2>
             </div>
 
-            <div className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                <Video size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Live Shop-Floor Video Calls</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Join us virtually while we inspect the factory in India to see the machines and operations firsthand.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                <ShieldCheck size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Capability & Safety Audits</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Rigorously checking whether the factory can deliver what is promised before you make any commitment.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                <FileText size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Complete Client Dossier</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Full audit scorecards, calibration certs, and first-article metrology shared transparently from start to finish.
-              </p>
+            <div className="shrink-0">
+              <Link
+                href="/#contact"
+                className="inline-flex items-center justify-center gap-2.5 min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-8 py-3.5 rounded transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+              >
+                <span>Become an early partner</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>

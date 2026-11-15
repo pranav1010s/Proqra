@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, MotionConfig } from 'framer-motion'
 import { Upload, Paperclip, X } from 'lucide-react'
 
@@ -11,11 +11,30 @@ export default function FinalCTASection() {
     company: '',
     manufacturingRequirement: '',
   })
+  const [selectedService, setSelectedService] = useState<string>('')
   const [file, setFile] = useState<File | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
+
+  useEffect(() => {
+    const syncServiceFromUrl = () => {
+      const params = new URLSearchParams(window.location.search)
+      const serviceParam = params.get('service')
+      if (serviceParam) {
+        setSelectedService(serviceParam.trim())
+      }
+    }
+
+    syncServiceFromUrl()
+    window.addEventListener('popstate', syncServiceFromUrl)
+    window.addEventListener('hashchange', syncServiceFromUrl)
+    return () => {
+      window.removeEventListener('popstate', syncServiceFromUrl)
+      window.removeEventListener('hashchange', syncServiceFromUrl)
+    }
+  }, [])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0]
@@ -41,8 +60,20 @@ export default function FinalCTASection() {
       fd.append('name', formData.name)
       fd.append('email', formData.email)
       fd.append('company', formData.company)
-      fd.append('manufacturingRequirement', formData.manufacturingRequirement)
-      fd.append('source', 'Home Final CTA - Work with us early')
+
+      const requirementBody =
+        selectedService &&
+        !formData.manufacturingRequirement.toLowerCase().includes(selectedService.toLowerCase())
+          ? `Service: ${selectedService}\n\n${formData.manufacturingRequirement}`
+          : formData.manufacturingRequirement
+
+      fd.append('manufacturingRequirement', requirementBody)
+      fd.append(
+        'source',
+        selectedService
+          ? `Home Early Partner CTA - ${selectedService}`
+          : 'Home Early Partner CTA'
+      )
       if (file) {
         fd.append('drawing', file)
       }
@@ -71,18 +102,20 @@ export default function FinalCTASection() {
       <section id="contact" className="bg-white py-20 sm:py-28 scroll-mt-20">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Column: Work with us early */}
+            {/* Left Column: Who’s behind this */}
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight text-balance">
-                Work with us early
+                Who’s behind this
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed text-pretty max-w-prose">
-                We’re new, so we want to work closely with a few UK manufacturers. If you’ve got a supplier backlog, a pile of unorganised quality data or an approval that’s dragging on, tell us. We’ll quote a fixed price after a short call, so you know the cost before we start.
-              </p>
+              <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-7">
+                <p className="text-base sm:text-lg text-slate-700 leading-relaxed text-pretty">
+                  We’re a new company, built after working in purchasing and seeing first-hand how much time and productivity are lost to manual processes and a lack of automation in direct procurement. With recent advances in AI and large language models, we’re able to complete these tasks much faster and with far greater efficiency.
+                </p>
+              </div>
 
               <div className="pt-4 border-t border-slate-200 text-sm text-slate-600">
-                Or email us directly at{' '}
+                Email directly at{' '}
                 <a
                   href="mailto:hello@proqra.co.uk"
                   className="text-slate-900 font-semibold underline underline-offset-4 hover:text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
@@ -109,7 +142,7 @@ export default function FinalCTASection() {
                     Got it, thank you.
                   </h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    We’ll reply within one working day, and we’ll talk about what you need before anything is quoted.
+                    We’ll reply within one working day. NDA available on request.
                   </p>
                   <div className="pt-4">
                     <button
@@ -131,6 +164,26 @@ export default function FinalCTASection() {
                     <h3 id="contact-form-heading" className="text-xl sm:text-2xl font-bold text-slate-900">
                       What’s the problem?
                     </h3>
+                    {selectedService && (
+                      <div className="mt-3 inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-900 rounded-full px-3.5 py-1.5 text-xs font-semibold">
+                        <span>Asking about: {selectedService}</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedService('')
+                            const url = new URL(window.location.href)
+                            if (url.searchParams.has('service')) {
+                              url.searchParams.delete('service')
+                              window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`)
+                            }
+                          }}
+                          aria-label={`Remove ${selectedService} service selection`}
+                          className="text-blue-700 hover:text-blue-950 rounded-full p-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+                        >
+                          <X size={13} aria-hidden="true" />
+                        </button>
+                      </div>
+                    )}
                   </div>
 
                   <div>
@@ -149,7 +202,7 @@ export default function FinalCTASection() {
                       onChange={(e) =>
                         setFormData({ ...formData, manufacturingRequirement: e.target.value })
                       }
-                      placeholder="A supplier approval dragging on, spreadsheets that need sorting out, or a part you need sourced in India..."
+                      placeholder="A supplier approval dragging on, chasing missing certificates, messy supplier spreadsheets, or a part you need sourced in India..."
                       className="w-full text-base sm:text-sm bg-white border border-slate-300 rounded px-3.5 py-2.5 text-slate-900 focus:border-slate-900 focus-visible:ring-2 focus-visible:ring-blue-600/30 focus-visible:border-blue-600 transition-colors resize-y"
                     />
                   </div>
@@ -223,7 +276,7 @@ export default function FinalCTASection() {
                       htmlFor="client-drawing-file"
                       className="block text-sm font-medium text-slate-700 mb-1.5"
                     >
-                      Attach a drawing or spec (optional)
+                      Attach a drawing or spec, optional
                     </label>
                     <input
                       type="file"
@@ -286,14 +339,9 @@ export default function FinalCTASection() {
                     </button>
                   </div>
 
-                  <div className="pt-2 text-center space-y-1.5">
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      We’ll reply within one working day, and we’ll talk about what you need before anything is quoted.
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      NDA available on request.
-                    </p>
-                  </div>
+                  <p className="pt-2 text-center text-xs text-slate-600 leading-relaxed">
+                    We’ll reply within one working day. NDA available on request.
+                  </p>
                 </form>
               )}
             </div>
