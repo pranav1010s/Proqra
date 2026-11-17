@@ -165,7 +165,7 @@ export default function FinalCTASection() {
                       What’s the problem?
                     </h3>
                     {selectedService && (
-                      <div className="mt-3 inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-900 rounded-full px-3.5 py-1.5 text-xs font-semibold">
+                      <div className="mt-3 inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-900 rounded-md px-3.5 py-1.5 text-xs font-semibold">
                         <span>Asking about: {selectedService}</span>
                         <button
                           type="button"
@@ -178,7 +178,7 @@ export default function FinalCTASection() {
                             }
                           }}
                           aria-label={`Remove ${selectedService} service selection`}
-                          className="text-blue-700 hover:text-blue-950 rounded-full p-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+                          className="text-blue-700 hover:text-blue-950 rounded-md p-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
                         >
                           <X size={13} aria-hidden="true" />
                         </button>

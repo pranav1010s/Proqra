@@ -62,7 +62,7 @@ const services: ServiceItem[] = [
     owner: 'PROQRA',
     description:
       'Send us a drawing, the material and the quantity. We find Indian suppliers that make that kind of part, check their certificates and references, and give you a short list with notes on each.',
-    youGet: 'a shortlist of 3–5 suppliers, with certificate checks and notes.',
+    youGet: 'a shortlist of 3 to 5 suppliers, with certificate checks and notes.',
     // price: 'from £[X] per part.',
   },
   {
@@ -366,7 +366,7 @@ export default function WorkWithUsContent() {
                           </div>
 
                           <p className="relative z-0 text-[10px] font-mono text-slate-400 mt-2.5 pt-2 border-t border-slate-200/80 text-right">
-                            Sample layout — fictional supplier
+                            Sample layout, fictional supplier
                           </p>
                         </div>
                       </div>
@@ -524,14 +524,14 @@ export default function WorkWithUsContent() {
                 Parts we work with
               </h2>
 
-              <div className="flex flex-wrap gap-2.5 mb-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
                 {partPills.map((pill) => (
-                  <span
+                  <div
                     key={pill}
-                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-slate-100 text-slate-800 border border-slate-200/80"
+                    className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900"
                   >
                     {pill}
-                  </span>
+                  </div>
                 ))}
               </div>
 

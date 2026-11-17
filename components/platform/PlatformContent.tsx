@@ -141,9 +141,8 @@ export default function PlatformContent() {
                     <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
                       The procurement workflow
                     </span>
-                    <span className="inline-flex items-center gap-2 text-xs font-medium text-orange-900 bg-orange-50 border border-orange-200 rounded-full px-3 py-1">
-                      <span className="w-2 h-2 rounded-full bg-orange-500" aria-hidden="true" />
-                      <span>Where time is lost today</span>
+                    <span className="text-xs font-medium text-orange-800">
+                      Highlighted steps show where time is lost today
                     </span>
                   </div>
 
@@ -300,7 +299,7 @@ export default function PlatformContent() {
               Early prototype: not ready yet. Early partners see it first.
             </p>
             {/*
-              Prototype screenshot container — uncomment when a real screenshot is ready:
+              Prototype screenshot container: uncomment when a real screenshot is ready:
               <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                 ...
               </div>
@@ -321,7 +320,7 @@ export default function PlatformContent() {
             </div>
 
             {/*
-              What we've learned — enable when 2–3 real findings exist from early partner work.
+              What we've learned: enable when 2 to 3 real findings exist from early partner work.
               <div className="mt-12 bg-slate-50 border border-slate-200 rounded-2xl p-8">
                 <h3 className="text-xl font-bold text-slate-900 mb-4">What we’ve learned</h3>
                 <ul className="space-y-3 text-sm sm:text-base text-slate-700">
@@ -372,7 +371,7 @@ export default function PlatformContent() {
                       <CheckCircle2 size={20} className="text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
                       <div>
                         <p className="text-sm sm:text-base font-semibold text-white">
-                          You’re on the list — we’ll send an update when something new is ready.
+                          You’re on the list. We’ll send an update when something new is ready.
                         </p>
                       </div>
                     </div>

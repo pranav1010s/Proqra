@@ -100,7 +100,7 @@ export default function Footer() {
             <p className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tighter text-slate-200/70 leading-none select-none uppercase 3xl:text-[7rem] 4xl:text-[8.5rem]">
               proqra
             </p>
-            {/* Registered in England and Wales — Company no. [when registered] */}
+            {/* Registered in England and Wales, Company no. [when registered] */}
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-500 text-xs font-medium 3xl:text-sm 4xl:text-base">
             <Link href="/legal-disclaimer" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">

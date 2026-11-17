@@ -94,20 +94,9 @@ export default function WhatWeDo() {
                     : 'border-slate-200/90 bg-slate-50/70'
                 }`}
               >
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <span className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                    {item.stage}
-                  </span>
-                  <span
-                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
-                      item.highlight
-                        ? 'bg-blue-50 text-blue-700 border-blue-200'
-                        : 'bg-white text-slate-600 border-slate-200'
-                    }`}
-                  >
-                    {item.badge}
-                  </span>
-                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-3">
+                  {item.stage}
+                </h3>
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-pretty">
                   {item.description}
                 </p>

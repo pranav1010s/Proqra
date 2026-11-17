@@ -111,8 +111,8 @@ export default function SupplierNetworkPage() {
                   key={step.number}
                   className="bg-white border border-slate-200/90 rounded-xl p-5 flex items-start gap-3"
                 >
-                  <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                    {step.number}
+                  <span className="text-xs font-mono font-bold text-blue-600 pt-0.5 shrink-0">
+                    0{step.number}
                   </span>
                   <p className="text-sm font-semibold text-slate-800 leading-snug">
                     {step.text}
