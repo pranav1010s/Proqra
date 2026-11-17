@@ -48,8 +48,9 @@ const platformCapabilities = [
   },
   {
     number: '02',
-    title: 'Document tracking',
-    description: 'What’s received, what’s missing, what’s about to expire.',
+    title: 'Document tracking and checks',
+    description:
+      'What’s received, what’s missing, what’s about to expire, and what needs a person to look at.',
   },
   {
     number: '03',
@@ -124,7 +125,7 @@ export default function PlatformContent() {
                   What we’re building
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed text-pretty max-w-2xl">
-                  A platform that handles the repetitive work in direct procurement, so buyers can focus on the decisions that matter. It’s early. This page tells you exactly where we are.
+                  We’re building a system that automates the repetitive tasks in direct procurement, with quality kept front and centre, so buyers and supply chain teams can spend their time on the decisions that matter. It’s early. This page tells you where we are.
                 </p>
               </motion.div>
 
@@ -256,6 +257,31 @@ export default function PlatformContent() {
                   </li>
                 ))}
               </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* Quality stays with people + A growing supplier database */}
+        <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-9 shadow-sm">
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-3">
+                  Quality stays with people
+                </h2>
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-pretty">
+                  Automation handles the chasing, filing and reminders. It doesn’t decide whether a supplier is good enough. Checks that need judgement stay with people: your team, our reviewers and, where it matters, independent inspectors. The system makes sure those checks happen sooner and with the full picture.
+                </p>
+              </div>
+
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-9 shadow-sm">
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-3">
+                  A growing supplier database
+                </h2>
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-pretty">
+                  Every supplier we work with adds to a database of vetted suppliers: documents, certificates, response times and quality history, each marked with who checked it and when. Over time that helps buyers find suppliers with a track record and spot where a supplier needs support to improve. We only record what we’ve checked, and one client’s information is never shown to another.
+                </p>
+              </div>
             </div>
           </div>
         </section>

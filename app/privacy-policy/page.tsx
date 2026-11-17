@@ -93,6 +93,9 @@ export default function PrivacyPolicyPage() {
               <li>
                 <strong className="text-slate-900">Technical Usage Data:</strong> Basic standard web server logs including IP address, browser type, device information, and pages accessed to ensure the security, reliability, and proper functioning of our website.
               </li>
+              <li>
+                <strong className="text-slate-900">Supplier Profiles & Vetted Database Records:</strong> Company details, locations, contact details, manufacturing capabilities, machinery lists, quality and calibration certificates, uploaded profile documents, response times, and quality history recorded when suppliers register or work with us (each marked with who checked it and when).
+              </li>
             </ul>
           </div>
 
@@ -127,6 +130,7 @@ export default function PrivacyPolicyPage() {
               <li>Reviewing drawing feasibility and matching suitable Indian engineering facilities.</li>
               <li>Checking supplier certificates, organizing supplier records, and arranging visual site checks or independent inspections.</li>
               <li>Following up on open orders, documentation, and quality updates.</li>
+              <li>Maintaining a database of vetted suppliers (documents, certificates, response times, and quality history) to help UK buyers find suppliers with a verified track record. We only record what we have checked, and one client&apos;s information is never shown to another.</li>
               <li>Arranging live shop-floor video walk-throughs with shortlisted suppliers.</li>
               <li>Communicating task and order updates directly with your team.</li>
               <li>Ensuring network security and fulfilling statutory accounting and compliance requirements.</li>
@@ -165,6 +169,9 @@ export default function PrivacyPolicyPage() {
             <ul className="space-y-2.5 pl-4 text-sm sm:text-base text-slate-700 list-disc">
               <li>
                 <strong className="text-slate-900">Shortlisted Suppliers:</strong> Technical drawings and manufacturing parameters are shared under strict confidentiality commitments with prospective Indian facilities for quoting and manufacturing feasibility.
+              </li>
+              <li>
+                <strong className="text-slate-900">UK Buyers (When a Requirement Matches):</strong> Where a supplier submits company details and documents to our Supplier Network or during qualification, we store that information and share relevant supplier profiles and checked documents with UK buyers when a requirement matches. One client&apos;s proprietary information is never shown to another client.
               </li>
               <li>
                 <strong className="text-slate-900">Service Providers:</strong> Trusted third-party cloud infrastructure, email delivery, and secure hosting providers operating under standard data processing agreements.

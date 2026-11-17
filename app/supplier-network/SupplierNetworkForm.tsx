@@ -655,6 +655,10 @@ export default function SupplierNetworkForm() {
         </div>
       )}
 
+      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+        By submitting, you agree PROQRA can store this information and share your documents with UK buyers when a requirement matches.
+      </p>
+
       <button
         type="submit"
         disabled={status === 'loading'}

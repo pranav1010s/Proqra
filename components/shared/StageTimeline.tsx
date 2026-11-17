@@ -10,19 +10,20 @@ const defaultStages: TimelineStage[] = [
     stage: 'Now',
     chip: 'In progress',
     chipTone: 'active',
-    description: 'The work is done by hand with early partners.',
+    description:
+      'The work is done by hand with early partners, and each supplier’s details are recorded as we go.',
   },
   {
     stage: 'Next',
     chip: 'Planned',
     chipTone: 'planned',
-    description: 'A shared tracker for documents and supplier status.',
+    description: 'A shared tracker for documents and supplier status, with supplier records.',
   },
   {
     stage: 'Later',
     chip: 'Later',
     chipTone: 'later',
-    description: 'A portal with automated chasing and scorecards.',
+    description: 'Automated chasing, scorecards, and a supplier database buyers can search.',
   },
 ]
 
