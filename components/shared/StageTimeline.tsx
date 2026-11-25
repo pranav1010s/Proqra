@@ -1,6 +1,5 @@
 export interface TimelineStage {
   stage: string
-  chip: string
   chipTone: 'active' | 'planned' | 'later'
   description: string
 }
@@ -8,20 +7,17 @@ export interface TimelineStage {
 const defaultStages: TimelineStage[] = [
   {
     stage: 'Now',
-    chip: 'In progress',
     chipTone: 'active',
     description:
       'The work is done by hand with early partners, and each supplier’s details are recorded as we go.',
   },
   {
     stage: 'Next',
-    chip: 'Planned',
     chipTone: 'planned',
     description: 'A shared tracker for documents and supplier status, with supplier records.',
   },
   {
     stage: 'Later',
-    chip: 'Later',
     chipTone: 'later',
     description: 'Automated chasing, scorecards, and a supplier database buyers can search.',
   },
@@ -39,9 +35,9 @@ export default function StageTimeline({
       {stages.map((item) => (
         <div
           key={item.stage}
-          className={`rounded-2xl border p-6 sm:p-7 ${
+          className={`rounded-xl border p-6 sm:p-7 ${
             item.chipTone === 'active'
-              ? 'border-blue-200 bg-blue-50/30 shadow-sm'
+              ? 'border-blue-200 bg-blue-50/30'
               : 'border-slate-200/90 bg-white'
           }`}
         >

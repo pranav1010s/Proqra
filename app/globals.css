@@ -1,12 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+@layer base {
+  a[href],
+  button:not(:disabled),
+  summary,
+  select:not(:disabled),
+  label[for],
+  input[type='checkbox']:not(:disabled),
+  input[type='radio']:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  [role='tab']:not([aria-disabled='true']),
+  [role='switch']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  select:disabled,
+  input:disabled,
+  textarea:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
 }
 
 * {
@@ -22,7 +38,7 @@ html {
 body {
   background-color: #ffffff;
   color: #0f172a;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -30,7 +46,7 @@ body {
 
 /* Custom Serif Italic class for emphasis */
 .italic-accent {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif, Georgia, serif);
   font-style: italic;
   font-weight: 400;
 }
@@ -38,7 +54,7 @@ body {
 /* Minimalist Scrollbar for Light Theme */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
-::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
 /* High-Contrast Selection */

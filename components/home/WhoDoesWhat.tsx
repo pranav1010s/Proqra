@@ -19,7 +19,7 @@ export default function WhoDoesWhat() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45 }}
-              className="lg:col-span-6 bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-sm flex flex-col justify-between"
+              className="lg:col-span-6 bg-white border border-slate-200/90 rounded-xl p-8 sm:p-10 flex flex-col justify-between"
             >
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-tight mb-4 text-balance">
@@ -37,7 +37,7 @@ export default function WhoDoesWhat() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45, delay: 0.08 }}
-              className="lg:col-span-6 relative bg-gradient-to-br from-blue-50/50 via-white to-white border-2 border-blue-600/40 hover:border-blue-600 rounded-2xl p-8 sm:p-10 shadow-md shadow-blue-500/5 flex flex-col justify-between transition-colors"
+              className="lg:col-span-6 relative bg-gradient-to-br from-blue-50/50 via-white to-white border-2 border-blue-600/40 hover:border-blue-600 rounded-xl p-8 sm:p-10 flex flex-col justify-between transition-colors"
             >
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-tight mb-4 text-balance">

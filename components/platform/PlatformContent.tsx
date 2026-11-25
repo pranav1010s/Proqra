@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, MotionConfig } from 'framer-motion'
-import { ArrowRight, FileCheck2, Clock, Table2, Eye, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import StageTimeline from '@/components/shared/StageTimeline'
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -21,22 +21,18 @@ const problemCards = [
   {
     title: 'Documents',
     description: 'Collecting, checking and filing certificates and reports from suppliers.',
-    Icon: FileCheck2,
   },
   {
     title: 'Chasing',
     description: 'Following up open orders, missing paperwork and late replies.',
-    Icon: Clock,
   },
   {
     title: 'Data',
     description: 'Supplier details in several spreadsheets that never match.',
-    Icon: Table2,
   },
   {
     title: 'Visibility',
     description: 'No single place to see where each supplier or order stands.',
-    Icon: Eye,
   },
 ]
 
@@ -111,74 +107,65 @@ export default function PlatformContent() {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative bg-white">
-        {/* Top Section (2 columns: Intro + Workflow Diagram) */}
         <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
-                className="lg:col-span-6"
-              >
+              <div className="lg:col-span-6">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-5 text-balance">
                   What we’re building
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed text-pretty max-w-2xl">
                   We’re building a system that automates the repetitive tasks in direct procurement, with quality kept front and centre, so buyers and supply chain teams can spend their time on the decisions that matter. It’s early. This page tells you where we are.
                 </p>
-              </motion.div>
+              </div>
 
-              {/* Flow Diagram */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.08, ease: EASE_OUT_EXPO }}
-                className="lg:col-span-6"
-              >
-                <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-8">
+              <div className="lg:col-span-6">
+                <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-6 sm:p-8">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600">
                       The procurement workflow
                     </span>
-                    <span className="text-xs font-medium text-orange-800">
-                      Highlighted steps show where time is lost today
+                    <span className="text-xs font-medium text-amber-800">
+                      Marked steps show where manual time is lost today
                     </span>
                   </div>
 
-                  <div
-                    role="list"
+                  <ol
                     aria-label="Direct procurement steps highlighting manual bottlenecks"
-                    className="flex flex-wrap sm:flex-nowrap items-center gap-2"
+                    className="flex flex-wrap sm:flex-nowrap items-stretch gap-2"
                   >
                     {flowSteps.map((step, index) => (
-                      <div key={step.label} role="listitem" className="flex items-center gap-2 flex-1 min-w-[100px] sm:min-w-0">
+                      <li key={step.label} className="flex items-center gap-2 flex-1 min-w-[104px] sm:min-w-0">
                         <div
-                          className={`w-full rounded-xl px-3 py-3.5 text-center border text-xs sm:text-sm font-semibold transition-colors ${
+                          className={`w-full h-full rounded-lg px-3 py-3 text-center border flex flex-col items-center justify-center transition-colors ${
                             step.highlighted
-                              ? 'bg-orange-50 border-orange-200 text-orange-900 shadow-sm'
+                              ? 'bg-amber-50 border-amber-300 text-amber-900'
                               : 'bg-white border-slate-200 text-slate-800'
                           }`}
                         >
-                          {step.label}
+                          <span className="text-xs sm:text-sm font-semibold">{step.label}</span>
+                          {step.highlighted && (
+                            <span className="mt-1 text-[10px] font-mono font-semibold uppercase tracking-wider text-amber-800">
+                              Manual
+                            </span>
+                          )}
                         </div>
                         {index < flowSteps.length - 1 && (
                           <ArrowRight
                             size={14}
-                            className="text-slate-400 shrink-0 hidden sm:block"
+                            className="text-slate-500 shrink-0 hidden sm:block"
                             aria-hidden="true"
                           />
                         )}
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ol>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* The problem (4 small cards in a single row) */}
         <section className="py-16 sm:py-20 bg-slate-50/70 border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 mb-8 sm:mb-10">
@@ -186,18 +173,15 @@ export default function PlatformContent() {
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-              {problemCards.map(({ title, description, Icon }, idx) => (
+              {problemCards.map(({ title, description }, idx) => (
                 <motion.div
                   key={title}
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.4, delay: idx * 0.05, ease: EASE_OUT_EXPO }}
-                  className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm"
+                  className="bg-white border border-slate-200/90 rounded-xl p-6"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center mb-4">
-                    <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
-                  </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2 tracking-tight">
                     {title}
                   </h3>
@@ -210,11 +194,10 @@ export default function PlatformContent() {
           </div>
         </section>
 
-        {/* What the platform will do (Single-column numbered list + fading right-side warehouse image) */}
         <section className="relative py-16 sm:py-24 bg-white border-b border-slate-200 overflow-hidden">
           <div
             aria-hidden="true"
-            className="hidden md:block absolute inset-y-0 right-0 w-full lg:w-[68%] xl:w-[64%] h-full overflow-hidden pointer-events-none select-none z-0"
+            className="hidden lg:block absolute inset-y-0 right-0 lg:w-[46%] xl:w-[48%] h-full overflow-hidden pointer-events-none select-none z-0"
             style={{
               maskImage:
                 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.35) 42%, rgba(0,0,0,0.85) 70%, black 100%)',
@@ -226,7 +209,7 @@ export default function PlatformContent() {
               src="/images/platform_warehouse.jpg"
               alt=""
               fill
-              sizes="(max-width: 1024px) 100vw, 68vw"
+              sizes="(max-width: 1024px) 0px, 48vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white via-white/50 to-transparent" />
@@ -234,7 +217,7 @@ export default function PlatformContent() {
           </div>
 
           <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
-            <div className="max-w-3xl">
+            <div className="max-w-2xl lg:max-w-[54%]">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 mb-8 sm:mb-10">
                 What the platform will do
               </h2>
@@ -260,11 +243,10 @@ export default function PlatformContent() {
           </div>
         </section>
 
-        {/* Quality stays with people + A growing supplier database */}
         <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-9 shadow-sm">
+              <div className="bg-white border border-slate-200/90 rounded-xl p-7 sm:p-9">
                 <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-3">
                   Quality stays with people
                 </h2>
@@ -273,7 +255,7 @@ export default function PlatformContent() {
                 </p>
               </div>
 
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-9 shadow-sm">
+              <div className="bg-white border border-slate-200/90 rounded-xl p-7 sm:p-9">
                 <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-3">
                   A growing supplier database
                 </h2>
@@ -285,7 +267,6 @@ export default function PlatformContent() {
           </div>
         </section>
 
-        {/* Where we are + Early prototype slot */}
         <section className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36 space-y-12">
             <div>
@@ -298,16 +279,9 @@ export default function PlatformContent() {
             <p className="text-sm font-medium text-slate-600">
               Early prototype: not ready yet. Early partners see it first.
             </p>
-            {/*
-              Prototype screenshot container: uncomment when a real screenshot is ready:
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-                ...
-              </div>
-            */}
           </div>
         </section>
 
-        {/* How we’re learning */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="max-w-3xl">
@@ -318,21 +292,9 @@ export default function PlatformContent() {
                 Every early partner task gets written up: what was needed, how long each part took, what went wrong. The tasks that repeat across partners are the ones we build first.
               </p>
             </div>
-
-            {/*
-              What we've learned: enable when 2 to 3 real findings exist from early partner work.
-              <div className="mt-12 bg-slate-50 border border-slate-200 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">What we’ve learned</h3>
-                <ul className="space-y-3 text-sm sm:text-base text-slate-700">
-                  <li>Finding 1...</li>
-                  <li>Finding 2...</li>
-                </ul>
-              </div>
-            */}
           </div>
         </section>
 
-        {/* Help shape it (Dark navy closing band) */}
         <section className="pt-4 pb-20 sm:pb-28 bg-white">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <motion.div
@@ -340,7 +302,7 @@ export default function PlatformContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, ease: EASE_OUT_EXPO }}
-              className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-14"
+              className="bg-slate-900 text-white rounded-xl p-8 sm:p-12 lg:p-14"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <div className="lg:col-span-6 space-y-4">
@@ -353,10 +315,9 @@ export default function PlatformContent() {
                   <div className="pt-2">
                     <Link
                       href="/#contact"
-                      className="inline-flex items-center justify-center gap-2 min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-7 py-3 rounded transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                      className="inline-flex items-center justify-center min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-7 py-3 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                     >
-                      <span>Become an early partner</span>
-                      <ArrowRight size={16} aria-hidden="true" />
+                      Become an early partner
                     </Link>
                   </div>
                 </div>
@@ -366,7 +327,7 @@ export default function PlatformContent() {
                     <div
                       role="status"
                       aria-live="polite"
-                      className="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 flex items-start gap-3"
+                      className="bg-slate-800/80 border border-slate-700 rounded-xl p-6 flex items-start gap-3"
                     >
                       <CheckCircle2 size={20} className="text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
                       <div>
@@ -378,7 +339,7 @@ export default function PlatformContent() {
                   ) : (
                     <form
                       onSubmit={handleNotifySubmit}
-                      className="bg-slate-800/70 border border-slate-700/80 rounded-2xl p-5 sm:p-6 space-y-3"
+                      className="bg-slate-800/70 border border-slate-700/80 rounded-xl p-5 sm:p-6 space-y-3"
                     >
                       <label htmlFor="platform-notify-email" className="block text-sm font-medium text-slate-200">
                         Get platform progress updates
@@ -392,7 +353,7 @@ export default function PlatformContent() {
                           onChange={(e) => setNotifyEmail(e.target.value)}
                           placeholder="Work email"
                           autoComplete="email"
-                          className="flex-1 min-h-[48px] bg-slate-900 border border-slate-600 rounded px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:border-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-400"
+                          className="flex-1 min-h-[48px] bg-slate-900 border border-slate-500 rounded px-4 py-2.5 text-base sm:text-sm text-white placeholder-slate-400 focus:border-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-400"
                         />
                         <button
                           type="submit"

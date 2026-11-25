@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
-import { ArrowRight, CheckCircle2, FileText, ChevronDown } from 'lucide-react'
+import { CheckCircle2, FileText, ChevronDown } from 'lucide-react'
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -198,19 +198,14 @@ export default function WorkWithUsContent() {
         {/* Top Section (No hero photo) + How it works 4-step row */}
         <section className="pt-28 sm:pt-36 pb-14 sm:pb-18 border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
-              className="max-w-3xl mb-12 sm:mb-14"
-            >
+            <div className="max-w-3xl mb-12 sm:mb-14">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-5 text-balance">
                 Work with us early
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed text-pretty">
                 We take on a small number of UK manufacturers at a time, do real supplier work for them and learn from it. You get the job done. We get to build something useful.
               </p>
-            </motion.div>
+            </div>
 
             {/* How it works (4 steps in a row, vertical on mobile) */}
             <div>
@@ -221,7 +216,7 @@ export default function WorkWithUsContent() {
                 {howItWorksSteps.map((step) => (
                   <div
                     key={step.number}
-                    className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6"
+                    className="bg-slate-50 border border-slate-200/90 rounded-xl p-6"
                   >
                     <span className="text-xs font-mono font-bold text-blue-600 block mb-2.5">
                       {step.number}
@@ -261,7 +256,7 @@ export default function WorkWithUsContent() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: '-40px' }}
                       transition={{ duration: 0.45, delay: idx * 0.05, ease: EASE_OUT_EXPO }}
-                      className="scroll-mt-28 rounded-2xl border-2 border-blue-600 bg-gradient-to-br from-blue-50/35 via-white to-white p-7 sm:p-9 shadow-[0_8px_28px_rgba(37,99,235,0.08)] flex flex-col justify-between gap-6"
+                      className="scroll-mt-28 rounded-xl border-2 border-blue-600 bg-white p-7 sm:p-9 flex flex-col justify-between gap-6"
                     >
                       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
                         {/* Left side: Service Copy, Deliverables, CTA */}
@@ -305,10 +300,9 @@ export default function WorkWithUsContent() {
                               )}
                               <Link
                                 href={contactHref}
-                                className="inline-flex items-center gap-1.5 min-h-[44px] bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded-lg transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                                className="inline-flex items-center justify-center min-h-[44px] bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                               >
-                                <span>Ask about this</span>
-                                <ArrowRight size={14} aria-hidden="true" />
+                                Ask about this
                               </Link>
                             </div>
                           </div>
@@ -324,7 +318,7 @@ export default function WorkWithUsContent() {
                             aria-hidden="true"
                             className="pointer-events-none select-none absolute inset-0 flex items-center justify-center z-10"
                           >
-                            <span className="border-2 border-blue-600/35 text-blue-700/35 font-black text-2xl tracking-[0.26em] uppercase px-4 py-1.5 rounded -rotate-12 bg-white/45 backdrop-blur-[1px]">
+                            <span className="border-2 border-blue-600/35 text-blue-700/35 font-black text-2xl tracking-[0.26em] uppercase px-4 py-1.5 rounded -rotate-12 bg-white/80">
                               SAMPLE
                             </span>
                           </div>
@@ -365,7 +359,7 @@ export default function WorkWithUsContent() {
                             </ul>
                           </div>
 
-                          <p className="relative z-0 text-[10px] font-mono text-slate-400 mt-2.5 pt-2 border-t border-slate-200/80 text-right">
+                          <p className="relative z-0 text-[10px] font-mono text-slate-600 mt-2.5 pt-2 border-t border-slate-200/80 text-right">
                             Sample layout, fictional supplier
                           </p>
                         </div>
@@ -378,7 +372,7 @@ export default function WorkWithUsContent() {
                           onClick={() => setApprovalOpen((prev) => !prev)}
                           aria-expanded={approvalOpen}
                           aria-controls="approval-step-by-step"
-                          className="w-full flex items-center justify-between gap-3 text-left text-sm font-semibold text-blue-900 hover:text-blue-700 py-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                          className="w-full min-h-[44px] flex items-center justify-between gap-3 text-left text-sm font-semibold text-blue-900 hover:text-blue-700 py-2 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                         >
                           <span>How an approval works, step by step</span>
                           <ChevronDown
@@ -423,7 +417,7 @@ export default function WorkWithUsContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-40px' }}
                     transition={{ duration: 0.45, delay: idx * 0.05, ease: EASE_OUT_EXPO }}
-                    className="scroll-mt-28 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between transition-colors"
+                    className="scroll-mt-28 rounded-xl border border-slate-200/90 bg-white hover:border-slate-300 p-7 sm:p-9 flex flex-col justify-between transition-colors"
                   >
                     <div>
                       <div className="mb-4">
@@ -461,10 +455,9 @@ export default function WorkWithUsContent() {
                         )}
                         <Link
                           href={contactHref}
-                          className="inline-flex items-center gap-1.5 min-h-[44px] bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-900 text-slate-800 font-medium text-xs sm:text-sm px-4 py-2 rounded-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                          className="inline-flex items-center justify-center min-h-[44px] bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-900 text-slate-800 font-medium text-xs sm:text-sm px-4 py-2 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                         >
-                          <span>Ask about this</span>
-                          <ArrowRight size={14} aria-hidden="true" />
+                          Ask about this
                         </Link>
                       </div>
                     </div>
@@ -483,7 +476,7 @@ export default function WorkWithUsContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
-              className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-9"
+              className="bg-slate-50 border border-slate-200/90 rounded-xl p-6 sm:p-9"
             >
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-5">
                 Which one do I need?
@@ -494,14 +487,13 @@ export default function WorkWithUsContent() {
                   <a
                     key={row.situation}
                     href={row.href}
-                    className="flex items-center justify-between gap-3 bg-white border border-slate-200/90 hover:border-blue-400 hover:bg-blue-50/30 rounded-xl px-5 py-4 transition-colors group"
+                    className="min-h-[48px] flex items-center justify-between gap-3 bg-white border border-slate-200/90 hover:border-blue-400 hover:bg-blue-50/30 rounded-lg px-5 py-4 transition-colors group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                   >
                     <span className="text-sm text-slate-600 font-medium">
                       {row.situation}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-900 group-hover:text-blue-600 shrink-0">
-                      <span aria-hidden="true">→</span>
-                      <span>{row.service}</span>
+                    <span className="text-sm font-bold text-slate-900 group-hover:text-blue-600 shrink-0">
+                      {row.service}
                     </span>
                   </a>
                 ))}
@@ -518,7 +510,7 @@ export default function WorkWithUsContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
-              className="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-10 shadow-sm"
+              className="bg-white border border-slate-200/90 rounded-xl p-7 sm:p-10"
             >
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-4">
                 Parts we work with
@@ -553,7 +545,7 @@ export default function WorkWithUsContent() {
               {whoColumns.map((col) => (
                 <div
                   key={col.role}
-                  className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-8"
+                  className="bg-slate-50 border border-slate-200/90 rounded-xl p-6 sm:p-8"
                 >
                   <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 block mb-2.5">
                     {col.role}
@@ -570,7 +562,7 @@ export default function WorkWithUsContent() {
         {/* What we don’t do (plain grey box) */}
         <section className="py-6 sm:py-10">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
-            <div className="bg-slate-100 border border-slate-200/90 rounded-2xl p-7 sm:p-10">
+            <div className="bg-slate-100 border border-slate-200/90 rounded-xl p-7 sm:p-10">
               <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-2.5">
                 What we don’t do
               </h2>
@@ -641,7 +633,7 @@ export default function WorkWithUsContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, ease: EASE_OUT_EXPO }}
-              className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
+              className="bg-slate-900 text-white rounded-xl p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
             >
               <div className="max-w-2xl">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-2 text-balance">
@@ -652,10 +644,9 @@ export default function WorkWithUsContent() {
               <div className="shrink-0">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center justify-center gap-2.5 min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-8 py-3.5 rounded transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                  className="inline-flex items-center justify-center min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-8 py-3.5 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                 >
-                  <span>Become an early partner</span>
-                  <ArrowRight size={16} aria-hidden="true" />
+                  Become an early partner
                 </Link>
               </div>
             </motion.div>

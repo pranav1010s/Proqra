@@ -10,63 +10,66 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col gap-3 3xl:gap-4">
             <Link
               href="/"
-              className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 3xl:text-2xl 4xl:text-3xl"
+              className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 w-fit rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-2xl 4xl:text-3xl"
             >
               PROQRA
-              <span className="inline-block w-2 h-2 rounded-full bg-blue-600 3xl:w-2.5 3xl:h-2.5" aria-hidden="true" />
+              <span className="inline-block w-2 h-2 rounded-sm bg-blue-600 3xl:w-2.5 3xl:h-2.5" aria-hidden="true" />
             </Link>
             <p className="text-sm text-slate-600 max-w-sm leading-relaxed 3xl:text-base 4xl:text-lg">
               PROQRA is building a platform to take the manual work out of direct procurement. We’re starting with UK manufacturers who buy from India.
             </p>
             <p className="text-sm font-semibold text-slate-900 mt-1 3xl:text-base 4xl:text-lg">
-              <a href="mailto:hello@proqra.co.uk" className="hover:text-blue-600 transition-colors">
+              <a
+                href="mailto:hello@proqra.co.uk"
+                className="min-h-[44px] sm:min-h-0 inline-flex items-center hover:text-blue-600 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              >
                 hello@proqra.co.uk
               </a>
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
+            <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
               Navigation
             </p>
-            <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
-              <Link href="/platform" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+            <div className="flex flex-col gap-1 sm:gap-2.5 3xl:gap-3 4xl:gap-4">
+              <Link href="/platform" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Platform
               </Link>
-              <Link href="/work-with-us" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+              <Link href="/work-with-us" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Work With Us
               </Link>
-              <Link href="/about" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+              <Link href="/about" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 About
               </Link>
-              <Link href="/supplier-network" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+              <Link href="/supplier-network" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Supplier Network
               </Link>
-              <Link href="/#contact" className="text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors 3xl:text-base 4xl:text-lg">
+              <Link href="/#contact" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Become an early partner
               </Link>
             </div>
           </div>
 
           <div className="md:col-span-2">
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
+            <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
               Legal
             </p>
-            <div className="flex flex-col gap-2.5 3xl:gap-3 4xl:gap-4">
-              <Link href="/privacy-policy" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+            <div className="flex flex-col gap-1 sm:gap-2.5 3xl:gap-3 4xl:gap-4">
+              <Link href="/privacy-policy" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Privacy Policy
               </Link>
-              <Link href="/client-confidentiality" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+              <Link href="/client-confidentiality" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Client confidentiality
               </Link>
-              <Link href="/legal-disclaimer" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors 3xl:text-base 4xl:text-lg">
+              <Link href="/legal-disclaimer" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Legal disclaimer
               </Link>
             </div>
           </div>
 
           <div className="md:col-span-2">
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
+            <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.25em] mb-4 3xl:text-xs 3xl:mb-5">
               Connect
             </p>
             <div className="flex items-center gap-3 3xl:gap-4">
@@ -74,16 +77,16 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/proqra/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 hover:text-white hover:bg-blue-600 border border-slate-200/80 hover:border-blue-600 transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md hover:shadow-blue-500/20 3xl:w-11 3xl:h-11 4xl:w-12 4xl:h-12"
+                className="w-11 h-11 rounded-lg bg-slate-100 text-slate-700 hover:text-white hover:bg-blue-600 border border-slate-200/80 hover:border-blue-600 transition-colors duration-200 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:w-12 3xl:h-12"
                 aria-label="Proqra LinkedIn"
               >
-                <Linkedin size={18} />
+                <Linkedin size={18} aria-hidden="true" />
               </a>
               <a
                 href="https://x.com/Proqra"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 hover:text-white hover:bg-slate-900 border border-slate-200/80 hover:border-slate-900 transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md hover:shadow-slate-900/20 3xl:w-11 3xl:h-11 4xl:w-12 4xl:h-12"
+                className="w-11 h-11 rounded-lg bg-slate-100 text-slate-700 hover:text-white hover:bg-slate-900 border border-slate-200/80 hover:border-slate-900 transition-colors duration-200 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:w-12 3xl:h-12"
                 aria-label="Proqra X / Twitter"
               >
                 <svg className="w-4 h-4 fill-current 3xl:w-5 3xl:h-5" viewBox="0 0 24 24" aria-hidden="true">
@@ -102,14 +105,14 @@ export default function Footer() {
             </p>
             {/* Registered in England and Wales, Company no. [when registered] */}
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-500 text-xs font-medium 3xl:text-sm 4xl:text-base">
-            <Link href="/legal-disclaimer" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-600 text-xs font-medium 3xl:text-sm 4xl:text-base">
+            <Link href="/legal-disclaimer" className="min-h-[44px] sm:min-h-0 inline-flex items-center hover:text-slate-900 transition-colors underline-offset-4 hover:underline rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
               Legal disclaimer
             </Link>
-            <Link href="/client-confidentiality" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
+            <Link href="/client-confidentiality" className="min-h-[44px] sm:min-h-0 inline-flex items-center hover:text-slate-900 transition-colors underline-offset-4 hover:underline rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
               Client confidentiality
             </Link>
-            <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
+            <Link href="/privacy-policy" className="min-h-[44px] sm:min-h-0 inline-flex items-center hover:text-slate-900 transition-colors underline-offset-4 hover:underline rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
               Privacy Policy
             </Link>
             <span>© 2026 PROQRA</span>

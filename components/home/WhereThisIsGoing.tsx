@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion, MotionConfig } from 'framer-motion'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const todayTasks = [
   'Finding and shortlisting suppliers',
@@ -44,13 +44,8 @@ export default function WhereThisIsGoing() {
               {todayTasks.map((task) => (
                 <div
                   key={task}
-                  className="bg-slate-50 border border-slate-200/90 rounded-xl p-5 sm:p-6 flex items-start gap-3"
+                  className="bg-slate-50 border border-slate-200/90 rounded-xl p-5 sm:p-6 flex items-center"
                 >
-                  <CheckCircle2
-                    size={18}
-                    className="text-blue-600 shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
                   <span className="text-sm sm:text-base font-semibold text-slate-900 leading-snug">
                     {task}
                   </span>
@@ -65,7 +60,7 @@ export default function WhereThisIsGoing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.45, delay: 0.06 }}
-            className="bg-slate-50 border border-slate-200/90 rounded-2xl p-8 sm:p-10 lg:p-12"
+            className="bg-slate-50 border border-slate-200/90 rounded-xl p-8 sm:p-10 lg:p-12"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
               <div className="lg:col-span-4">

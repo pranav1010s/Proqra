@@ -6,15 +6,15 @@ import { ChevronDown, Upload, Paperclip, X, CheckCircle2 } from 'lucide-react'
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
 const CAPABILITY_OPTIONS = [
-  'CNC Turning & Milling',
-  'Sheet Metal & Laser Cutting',
-  'Fabrication & Welding',
-  'Stamping & Deep Drawing',
-  'Castings (Sand, Investment, Die)',
+  'CNC turning and milling',
+  'Sheet metal and laser cutting',
+  'Fabrication and welding',
+  'Stamping and deep drawing',
+  'Castings (sand, investment, die)',
   'Forgings',
-  'Tube Cutting & Bending',
-  'Surface Treatment & Coating',
-  'Tool & Die Making',
+  'Tube cutting and bending',
+  'Surface treatment and coating',
+  'Tool and die making',
   'Assemblies',
 ]
 
@@ -186,7 +186,7 @@ export default function SupplierNetworkForm() {
   }
 
   const inputClass =
-    'w-full min-h-[48px] bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus-visible:ring-2 focus-visible:ring-blue-600/30 transition-colors'
+    'w-full min-h-[48px] bg-white border border-slate-300 rounded-md px-3.5 py-2.5 text-base sm:text-sm text-slate-900 placeholder-slate-500 focus:border-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-blue-600 transition-colors'
 
   const labelClass = 'block text-sm font-medium text-slate-800 mb-1.5'
 
@@ -195,9 +195,9 @@ export default function SupplierNetworkForm() {
       <div
         role="status"
         aria-live="polite"
-        className="max-w-3xl py-12 px-6 bg-slate-50 border border-slate-200 rounded-2xl text-center"
+        className="max-w-3xl py-12 px-6 bg-slate-50 border border-slate-200 rounded-xl text-center"
       >
-        <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 size={24} aria-hidden="true" />
         </div>
         <h3 className="text-xl font-bold text-slate-900 mb-2">Profile submitted</h3>
@@ -205,7 +205,7 @@ export default function SupplierNetworkForm() {
           Thank you, {form.contactName}. We have received the details for{' '}
           <strong className="text-slate-800">{form.companyName}</strong>.
         </p>
-        <p className="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto">
+        <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
           We review submissions as part of our supplier network and will reach out to{' '}
           <strong className="text-slate-700">{form.email}</strong> when we need photos, a short video call, or have a matching UK requirement.
         </p>
@@ -217,7 +217,7 @@ export default function SupplierNetworkForm() {
     <form
       id="supplier-network-form"
       onSubmit={handleSubmit}
-      className="max-w-3xl bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-8 space-y-5"
+      className="max-w-3xl bg-slate-50 border border-slate-200 rounded-xl p-5 sm:p-8 space-y-5"
     >
       {/* Progress indicator */}
       <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5">
@@ -225,11 +225,18 @@ export default function SupplierNetworkForm() {
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600">
             Progress ({requiredCompleted}/3 required sections ready)
           </span>
-          <span className="text-xs text-slate-500">
+          <span className="text-xs text-slate-600">
             {completedSteps} of 4 sections filled
           </span>
         </div>
-        <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+        <div
+          role="progressbar"
+          aria-label="Registration form progress"
+          aria-valuenow={completedSteps}
+          aria-valuemin={0}
+          aria-valuemax={4}
+          className="h-2 w-full bg-slate-100 rounded-sm overflow-hidden"
+        >
           <div
             className="h-full bg-blue-600 transition-all duration-300"
             style={{ width: `${Math.max(12, (completedSteps / 4) * 100)}%` }}
@@ -243,7 +250,8 @@ export default function SupplierNetworkForm() {
           type="button"
           onClick={() => toggleSection('company')}
           aria-expanded={openSections.company}
-          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors"
+          aria-controls="section-company-panel"
+          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
         >
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono font-bold text-blue-600">01</span>
@@ -255,14 +263,14 @@ export default function SupplierNetworkForm() {
           <ChevronDown
             size={18}
             aria-hidden="true"
-            className={`text-slate-500 transition-transform duration-200 ${
+            className={`text-slate-600 transition-transform duration-200 ${
               openSections.company ? 'rotate-180' : ''
             }`}
           />
         </button>
 
         {openSections.company && (
-          <div className="px-5 pb-6 pt-2 border-t border-slate-100 space-y-4">
+          <div id="section-company-panel" className="px-5 pb-6 pt-2 border-t border-slate-100 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="companyName" className={labelClass}>
@@ -273,7 +281,7 @@ export default function SupplierNetworkForm() {
                   id="companyName"
                   name="companyName"
                   required
-                  placeholder="e.g. Precision Components Pvt Ltd"
+                  placeholder="Your company name"
                   value={form.companyName}
                   onChange={update}
                   className={inputClass}
@@ -288,7 +296,7 @@ export default function SupplierNetworkForm() {
                   id="location"
                   name="location"
                   required
-                  placeholder="e.g. Pune, Maharashtra"
+                  placeholder="City, State"
                   value={form.location}
                   onChange={update}
                   className={inputClass}
@@ -299,13 +307,13 @@ export default function SupplierNetworkForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="website" className={labelClass}>
-                  Website <span className="text-slate-400 font-normal">(optional)</span>
+                  Website <span className="text-slate-600 font-normal">(optional)</span>
                 </label>
                 <input
                   type="url"
                   id="website"
                   name="website"
-                  placeholder="https://example.com"
+                  placeholder="https://yourcompany.com"
                   value={form.website}
                   onChange={update}
                   className={inputClass}
@@ -313,13 +321,13 @@ export default function SupplierNetworkForm() {
               </div>
               <div>
                 <label htmlFor="yearEstablished" className={labelClass}>
-                  Year established <span className="text-slate-400 font-normal">(optional)</span>
+                  Year established <span className="text-slate-600 font-normal">(optional)</span>
                 </label>
                 <input
                   type="text"
                   id="yearEstablished"
                   name="yearEstablished"
-                  placeholder="e.g. 2012"
+                  placeholder="YYYY"
                   value={form.yearEstablished}
                   onChange={update}
                   className={inputClass}
@@ -336,7 +344,8 @@ export default function SupplierNetworkForm() {
           type="button"
           onClick={() => toggleSection('contact')}
           aria-expanded={openSections.contact}
-          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors"
+          aria-controls="section-contact-panel"
+          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
         >
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono font-bold text-blue-600">02</span>
@@ -348,14 +357,14 @@ export default function SupplierNetworkForm() {
           <ChevronDown
             size={18}
             aria-hidden="true"
-            className={`text-slate-500 transition-transform duration-200 ${
+            className={`text-slate-600 transition-transform duration-200 ${
               openSections.contact ? 'rotate-180' : ''
             }`}
           />
         </button>
 
         {openSections.contact && (
-          <div className="px-5 pb-6 pt-2 border-t border-slate-100 space-y-4">
+          <div id="section-contact-panel" className="px-5 pb-6 pt-2 border-t border-slate-100 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="contactName" className={labelClass}>
@@ -366,7 +375,7 @@ export default function SupplierNetworkForm() {
                   id="contactName"
                   name="contactName"
                   required
-                  placeholder="e.g. Rajesh Sharma"
+                  placeholder="Your full name"
                   value={form.contactName}
                   onChange={update}
                   className={inputClass}
@@ -374,13 +383,13 @@ export default function SupplierNetworkForm() {
               </div>
               <div>
                 <label htmlFor="role" className={labelClass}>
-                  Role / Title <span className="text-slate-400 font-normal">(optional)</span>
+                  Role / Title <span className="text-slate-600 font-normal">(optional)</span>
                 </label>
                 <input
                   type="text"
                   id="role"
                   name="role"
-                  placeholder="e.g. Director / Plant Head"
+                  placeholder="Your role or title"
                   value={form.role}
                   onChange={update}
                   className={inputClass}
@@ -398,7 +407,7 @@ export default function SupplierNetworkForm() {
                   id="email"
                   name="email"
                   required
-                  placeholder="rajesh@company.in"
+                  placeholder="you@company.com"
                   value={form.email}
                   onChange={update}
                   className={inputClass}
@@ -413,7 +422,7 @@ export default function SupplierNetworkForm() {
                   id="phone"
                   name="phone"
                   required
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 ..."
                   value={form.phone}
                   onChange={update}
                   className={inputClass}
@@ -430,7 +439,8 @@ export default function SupplierNetworkForm() {
           type="button"
           onClick={() => toggleSection('processes')}
           aria-expanded={openSections.processes}
-          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors"
+          aria-controls="section-processes-panel"
+          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
         >
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono font-bold text-blue-600">03</span>
@@ -442,25 +452,25 @@ export default function SupplierNetworkForm() {
           <ChevronDown
             size={18}
             aria-hidden="true"
-            className={`text-slate-500 transition-transform duration-200 ${
+            className={`text-slate-600 transition-transform duration-200 ${
               openSections.processes ? 'rotate-180' : ''
             }`}
           />
         </button>
 
         {openSections.processes && (
-          <div className="px-5 pb-6 pt-3 border-t border-slate-100 space-y-5">
-            <div>
-              <p className="text-sm font-medium text-slate-800 mb-2.5">
+          <div id="section-processes-panel" className="px-5 pb-6 pt-3 border-t border-slate-100 space-y-5">
+            <fieldset>
+              <legend className="text-sm font-medium text-slate-800 mb-2.5">
                 Processes done in-house <span aria-hidden="true">*</span>
-              </p>
+              </legend>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {CAPABILITY_OPTIONS.map((cap) => {
                   const checked = selectedCapabilities.includes(cap)
                   return (
                     <label
                       key={cap}
-                      className={`min-h-[48px] flex items-center gap-3 px-3.5 py-2 rounded-lg border text-sm cursor-pointer select-none transition-colors ${
+                      className={`min-h-[48px] flex items-center gap-3 px-3.5 py-2 rounded-md border text-sm cursor-pointer select-none transition-colors ${
                         checked
                           ? 'bg-blue-50/70 border-blue-300 text-slate-900 font-medium'
                           : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700'
@@ -470,18 +480,18 @@ export default function SupplierNetworkForm() {
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleCapability(cap)}
-                        className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-600"
+                        className="w-4 h-4 rounded border-slate-300 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                       />
                       <span>{cap}</span>
                     </label>
                   )
                 })}
               </div>
-            </div>
+            </fieldset>
 
             <div>
               <label htmlFor="machinerySummary" className={labelClass}>
-                Key machinery <span className="text-slate-400 font-normal">(optional)</span>
+                Key machinery <span className="text-slate-600 font-normal">(optional)</span>
               </label>
               <textarea
                 id="machinerySummary"
@@ -497,13 +507,13 @@ export default function SupplierNetworkForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="monthlyCapacity" className={labelClass}>
-                  Monthly capacity <span className="text-slate-400 font-normal">(optional)</span>
+                  Monthly capacity <span className="text-slate-600 font-normal">(optional)</span>
                 </label>
                 <input
                   type="text"
                   id="monthlyCapacity"
                   name="monthlyCapacity"
-                  placeholder="e.g. 40 tons/month or 12,000 sq ft"
+                  placeholder="Monthly output or plant capacity"
                   value={form.monthlyCapacity}
                   onChange={update}
                   className={inputClass}
@@ -511,7 +521,7 @@ export default function SupplierNetworkForm() {
               </div>
               <div>
                 <label htmlFor="exportExperience" className={labelClass}>
-                  Export experience <span className="text-slate-400 font-normal">(optional)</span>
+                  Export experience <span className="text-slate-600 font-normal">(optional)</span>
                 </label>
                 <select
                   id="exportExperience"
@@ -538,34 +548,35 @@ export default function SupplierNetworkForm() {
           type="button"
           onClick={() => toggleSection('certificates')}
           aria-expanded={openSections.certificates}
-          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors"
+          aria-controls="section-certificates-panel"
+          className="w-full min-h-[56px] px-5 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
         >
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-bold text-slate-400">04</span>
+            <span className="text-xs font-mono font-bold text-slate-600">04</span>
             <span className="text-base font-bold text-slate-900">
-              Certificates & brochure <span className="text-slate-400 font-normal text-sm">(optional)</span>
+              Certificates & brochure <span className="text-slate-600 font-normal text-sm">(optional)</span>
             </span>
           </div>
           <ChevronDown
             size={18}
             aria-hidden="true"
-            className={`text-slate-500 transition-transform duration-200 ${
+            className={`text-slate-600 transition-transform duration-200 ${
               openSections.certificates ? 'rotate-180' : ''
             }`}
           />
         </button>
 
         {openSections.certificates && (
-          <div className="px-5 pb-6 pt-3 border-t border-slate-100 space-y-5">
-            <div>
-              <p className={labelClass}>Certifications held</p>
+          <div id="section-certificates-panel" className="px-5 pb-6 pt-3 border-t border-slate-100 space-y-5">
+            <fieldset>
+              <legend className={labelClass}>Certifications held</legend>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {CERTIFICATION_OPTIONS.map((cert) => {
                   const checked = selectedCertifications.includes(cert)
                   return (
                     <label
                       key={cert}
-                      className={`min-h-[48px] flex items-center gap-3 px-3.5 py-2 rounded-lg border text-sm cursor-pointer select-none transition-colors ${
+                      className={`min-h-[48px] flex items-center gap-3 px-3.5 py-2 rounded-md border text-sm cursor-pointer select-none transition-colors ${
                         checked
                           ? 'bg-blue-50/70 border-blue-300 text-slate-900 font-medium'
                           : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700'
@@ -575,14 +586,14 @@ export default function SupplierNetworkForm() {
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleCertification(cert)}
-                        className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-600"
+                        className="w-4 h-4 rounded border-slate-300 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                       />
                       <span>{cert}</span>
                     </label>
                   )
                 })}
               </div>
-            </div>
+            </fieldset>
 
             <div>
               <label htmlFor="supplier-brochure-upload" className={labelClass}>
@@ -597,7 +608,7 @@ export default function SupplierNetworkForm() {
                 className="hidden"
               />
               {fileName ? (
-                <div className="flex items-center justify-between min-h-[48px] px-4 py-2.5 bg-slate-50 border border-blue-200 rounded-lg text-sm text-slate-800">
+                <div className="flex items-center justify-between min-h-[48px] px-4 py-2.5 bg-slate-50 border border-blue-200 rounded-md text-sm text-slate-800">
                   <span className="flex items-center gap-2 truncate">
                     <Paperclip size={15} className="text-blue-600 shrink-0" aria-hidden="true" />
                     <span className="truncate font-medium">{fileName}</span>
@@ -610,7 +621,7 @@ export default function SupplierNetworkForm() {
                       if (fileInputRef.current) fileInputRef.current.value = ''
                     }}
                     aria-label="Remove uploaded file"
-                    className="p-2 text-slate-500 hover:text-red-600"
+                    className="min-w-[44px] min-h-[44px] -my-2 -mr-2 flex items-center justify-center rounded text-slate-600 hover:text-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                   >
                     <X size={16} aria-hidden="true" />
                   </button>
@@ -619,7 +630,7 @@ export default function SupplierNetworkForm() {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="w-full min-h-[52px] flex items-center justify-center gap-2 bg-slate-50 border border-dashed border-slate-300 hover:border-blue-400 rounded-lg text-sm text-slate-600 hover:text-blue-600 transition-colors"
+                  className="w-full min-h-[52px] flex items-center justify-center gap-2 bg-slate-50 border border-dashed border-slate-300 hover:border-blue-400 rounded-md text-sm text-slate-600 hover:text-blue-600 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   <Upload size={16} aria-hidden="true" />
                   <span>Upload PDF, Word, ZIP, or image</span>
@@ -649,7 +660,7 @@ export default function SupplierNetworkForm() {
         <div
           role="alert"
           aria-live="polite"
-          className="p-3.5 bg-red-50 border border-red-200 rounded-lg text-xs sm:text-sm text-red-700 font-medium"
+          className="p-3.5 bg-red-50 border border-red-200 rounded-md text-xs sm:text-sm text-red-700 font-medium"
         >
           {errorMsg}
         </div>
@@ -662,12 +673,12 @@ export default function SupplierNetworkForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full min-h-[52px] bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm sm:text-base py-3.5 px-6 rounded-lg transition-colors shadow-sm disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+        className="w-full min-h-[52px] bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm sm:text-base py-3.5 px-6 rounded transition-colors disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
       >
         {status === 'loading' ? 'Submitting profile...' : 'Submit profile'}
       </button>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-slate-600">
         No registration fees. Required fields: company name, location, contact name, work email, phone/WhatsApp, and processes.
       </p>
     </form>

@@ -108,9 +108,9 @@ export default function FinalCTASection() {
                 Who’s behind this
               </h2>
 
-              <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-7">
+              <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-6 sm:p-7">
                 <p className="text-base sm:text-lg text-slate-700 leading-relaxed text-pretty">
-                  We’re a new company, built after working in purchasing and seeing first-hand how much time and productivity are lost to manual processes and a lack of automation in direct procurement. With recent advances in AI and large language models, we’re able to complete these tasks much faster and with far greater efficiency.
+                  We’re a new company, built after working in purchasing and seeing first-hand how much time is lost to manual document checks, supplier chasing and spreadsheet admin in direct procurement. We’re building software to automate that repetitive work, starting by doing it alongside UK manufacturers.
                 </p>
               </div>
 
@@ -126,7 +126,7 @@ export default function FinalCTASection() {
             </div>
 
             {/* Right Column: Inquiry Form */}
-            <div className="lg:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-10">
+            <div className="lg:col-span-6 bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-10">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -178,7 +178,7 @@ export default function FinalCTASection() {
                             }
                           }}
                           aria-label={`Remove ${selectedService} service selection`}
-                          className="text-blue-700 hover:text-blue-950 rounded-md p-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+                          className="min-w-[44px] min-h-[44px] -my-2 -mr-2.5 flex items-center justify-center text-blue-700 hover:text-blue-950 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
                         >
                           <X size={13} aria-hidden="true" />
                         </button>
@@ -223,7 +223,7 @@ export default function FinalCTASection() {
                         autoComplete="name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. David Campbell"
+                        placeholder="Your name"
                         className="w-full min-h-[48px] text-base sm:text-sm bg-white border border-slate-300 rounded px-3.5 py-2.5 text-slate-900 focus:border-slate-900 focus-visible:ring-2 focus-visible:ring-blue-600/30 focus-visible:border-blue-600 transition-colors"
                       />
                     </div>
@@ -246,7 +246,7 @@ export default function FinalCTASection() {
                         spellCheck={false}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="david@company.co.uk"
+                        placeholder="you@company.com"
                         className="w-full min-h-[48px] text-base sm:text-sm bg-white border border-slate-300 rounded px-3.5 py-2.5 text-slate-900 focus:border-slate-900 focus-visible:ring-2 focus-visible:ring-blue-600/30 focus-visible:border-blue-600 transition-colors"
                       />
                     </div>
@@ -266,7 +266,7 @@ export default function FinalCTASection() {
                       autoComplete="organization"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="e.g. Apex Precision Ltd"
+                      placeholder="Your company"
                       className="w-full min-h-[48px] text-base sm:text-sm bg-white border border-slate-300 rounded px-3.5 py-2.5 text-slate-900 focus:border-slate-900 focus-visible:ring-2 focus-visible:ring-blue-600/30 focus-visible:border-blue-600 transition-colors"
                     />
                   </div>
@@ -291,7 +291,7 @@ export default function FinalCTASection() {
                         <div className="flex items-center gap-2 truncate">
                           <Paperclip size={14} className="text-blue-600 shrink-0" aria-hidden="true" />
                           <span className="truncate font-medium">{file.name}</span>
-                          <span className="text-slate-400 shrink-0">
+                          <span className="text-slate-600 shrink-0">
                             ({(file.size / (1024 * 1024)).toFixed(2)} MB)
                           </span>
                         </div>
@@ -301,7 +301,7 @@ export default function FinalCTASection() {
                             setFile(null)
                             if (fileInputRef.current) fileInputRef.current.value = ''
                           }}
-                          className="text-slate-500 hover:text-red-600 ml-2 p-1.5 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+                          className="min-w-[44px] min-h-[44px] -my-2 -mr-2 flex items-center justify-center text-slate-600 hover:text-red-600 ml-2 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
                           aria-label="Remove attached file"
                         >
                           <X size={14} aria-hidden="true" />

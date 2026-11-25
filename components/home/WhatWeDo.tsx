@@ -7,19 +7,16 @@ import { ArrowRight } from 'lucide-react'
 const buildingStages = [
   {
     stage: 'Now',
-    badge: 'Current stage',
     highlight: true,
     description: 'Done by hand with early partners, using trackers and templates.',
   },
   {
     stage: 'Next',
-    badge: 'Planned',
     highlight: false,
     description: 'A shared tracker for documents and supplier status, with expiry reminders.',
   },
   {
     stage: 'Later',
-    badge: 'Later',
     highlight: false,
     description: 'A portal with automated chasing and supplier scorecards.',
   },
@@ -88,9 +85,9 @@ export default function WhatWeDo() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
-                className={`rounded-2xl p-7 sm:p-9 border transition-colors ${
+                className={`rounded-xl p-7 sm:p-9 border transition-colors ${
                   item.highlight
-                    ? 'border-blue-200 bg-blue-50/35 shadow-sm'
+                    ? 'border-blue-200 bg-blue-50/35'
                     : 'border-slate-200/90 bg-slate-50/70'
                 }`}
               >

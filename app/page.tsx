@@ -15,14 +15,16 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
       <Navbar />
-      <Hero />
-      <WhatWeDo />
-      <WhoDoesWhat />
-      <WhereThisIsGoing />
-      <FinalCTASection />
+      <main>
+        <Hero />
+        <WhatWeDo />
+        <WhoDoesWhat />
+        <WhereThisIsGoing />
+        <FinalCTASection />
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }

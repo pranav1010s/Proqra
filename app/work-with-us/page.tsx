@@ -17,11 +17,13 @@ export const metadata: Metadata = {
 
 export default function WorkWithUsPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
       <Navbar />
-      <WorkWithUsContent />
+      <main>
+        <WorkWithUsContent />
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }
 
