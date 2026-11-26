@@ -18,7 +18,6 @@ export async function sendNotificationEmail(params: SendEmailParams): Promise<Se
       : 'PROQRA <hello@proqra.co.uk>')
 
   try {
-    // 1. Attempt sending to primary recipient
     const res = await resend.emails.send({
       from,
       to: primaryRecipient,
@@ -31,7 +30,6 @@ export async function sendNotificationEmail(params: SendEmailParams): Promise<Se
     if (res.error) {
       console.warn(`Primary send to ${primaryRecipient} failed:`, res.error)
 
-      // 2. If primary failed, use personal backup email
       if (backupRecipient && backupRecipient !== primaryRecipient) {
         console.log(`Routing to backup email: ${backupRecipient}`)
         const backupRes = await resend.emails.send({

@@ -55,7 +55,12 @@ const nextConfig = {
       },
       {
         source: '/get-started',
-        destination: '/#contact',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/early-partner',
+        destination: '/contact',
         permanent: true,
       },
     ]

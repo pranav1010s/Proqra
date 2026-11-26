@@ -17,7 +17,6 @@ export default function LegalDisclaimerPage() {
     <main className="min-h-screen bg-white text-slate-800">
       <Navbar />
 
-      {/* Header Banner */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="max-w-3xl">
@@ -47,10 +46,8 @@ export default function LegalDisclaimerPage() {
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-12 sm:py-20 px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24">
         <div className="max-w-3xl mx-auto space-y-12">
-          {/* Section 1: Nature of Services */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               1. Nature of Our Services
@@ -63,7 +60,6 @@ export default function LegalDisclaimerPage() {
             </p>
           </div>
 
-          {/* Section 2: Independent Third-Party Facilities */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               2. Independent Manufacturing Facilities
@@ -76,7 +72,6 @@ export default function LegalDisclaimerPage() {
             </p>
           </div>
 
-          {/* Section 3: Website Information & Technical Quotations */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               3. Website Information & Technical Quotations
@@ -89,7 +84,6 @@ export default function LegalDisclaimerPage() {
             </p>
           </div>
 
-          {/* Section 4: Certifications & Industry Standards */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               4. Supplier Certifications & Standards
@@ -99,7 +93,6 @@ export default function LegalDisclaimerPage() {
             </p>
           </div>
 
-          {/* Section 5: Limitation of Liability */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               5. Limitation of Liability
@@ -112,7 +105,6 @@ export default function LegalDisclaimerPage() {
             </p>
           </div>
 
-          {/* Section 6: Governing Law */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               6. Governing Law & Jurisdiction
@@ -122,7 +114,6 @@ export default function LegalDisclaimerPage() {
             </p>
           </div>
 
-          {/* Contact */}
           <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-base font-bold text-slate-900">

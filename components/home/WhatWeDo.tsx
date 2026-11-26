@@ -25,7 +25,6 @@ const buildingStages = [
 export default function WhatWeDo() {
   return (
     <MotionConfig reducedMotion="user">
-      {/* Where the time goes */}
       <section
         id="where-the-time-goes"
         className="py-20 sm:py-24 bg-slate-50/70 border-b border-slate-200 scroll-mt-20"
@@ -52,7 +51,6 @@ export default function WhatWeDo() {
         </div>
       </section>
 
-      {/* What we’re building */}
       <section
         id="what-were-building"
         className="py-20 sm:py-28 bg-white border-b border-slate-200 scroll-mt-20"

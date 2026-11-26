@@ -53,6 +53,7 @@ export default function SupplierNetworkForm() {
 
   const [selectedCapabilities, setSelectedCapabilities] = useState<string[]>([])
   const [selectedCertifications, setSelectedCertifications] = useState<string[]>([])
+  const [honeypot, setHoneypot] = useState('')
   const [file, setFile] = useState<File | null>(null)
   const [fileName, setFileName] = useState<string | null>(null)
   const [status, setStatus] = useState<FormState>('idle')
@@ -92,10 +93,11 @@ export default function SupplierNetworkForm() {
       setFileName(null)
       return
     }
-    if (selectedFile.size > 20 * 1024 * 1024) {
-      setErrorMsg('File exceeds 20MB limit. Please upload a smaller file or add a link in notes.')
+    if (selectedFile.size > 4 * 1024 * 1024) {
+      setErrorMsg('File exceeds the 4MB limit. Please upload a smaller file or add a link in notes.')
       setFile(null)
       setFileName(null)
+      if (fileInputRef.current) fileInputRef.current.value = ''
       return
     }
     setErrorMsg('')
@@ -103,7 +105,6 @@ export default function SupplierNetworkForm() {
     setFileName(selectedFile.name)
   }
 
-  // Progress calculation across required + optional sections
   const companyComplete = Boolean(form.companyName.trim() && form.location.trim())
   const contactComplete = Boolean(form.contactName.trim() && form.email.trim() && form.phone.trim())
   const processesComplete = selectedCapabilities.length > 0
@@ -163,6 +164,7 @@ export default function SupplierNetworkForm() {
       )
       formData.append('monthlyCapacity', form.monthlyCapacity.trim())
       formData.append('notes', form.notes.trim())
+      formData.append('faxNumber', honeypot)
 
       if (file) {
         formData.append('profileFile', file)
@@ -217,9 +219,24 @@ export default function SupplierNetworkForm() {
     <form
       id="supplier-network-form"
       onSubmit={handleSubmit}
-      className="max-w-3xl bg-slate-50 border border-slate-200 rounded-xl p-5 sm:p-8 space-y-5"
+      className="max-w-3xl bg-slate-50 border border-slate-200 rounded-xl p-5 sm:p-8 space-y-5 relative"
     >
-      {/* Progress indicator */}
+      <div
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden"
+      >
+        <label htmlFor="supplier-fax-number">Fax number</label>
+        <input
+          id="supplier-fax-number"
+          name="faxNumber"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
+      </div>
+
       <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600">
@@ -244,7 +261,6 @@ export default function SupplierNetworkForm() {
         </div>
       </div>
 
-      {/* Section 1: Company Details */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
         <button
           type="button"
@@ -338,7 +354,6 @@ export default function SupplierNetworkForm() {
         )}
       </div>
 
-      {/* Section 2: Primary Contact */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
         <button
           type="button"
@@ -433,7 +448,6 @@ export default function SupplierNetworkForm() {
         )}
       </div>
 
-      {/* Section 3: Processes & Capacity */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
         <button
           type="button"
@@ -542,7 +556,6 @@ export default function SupplierNetworkForm() {
         )}
       </div>
 
-      {/* Section 4: Certificates & Brochure (All Optional) */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
         <button
           type="button"
@@ -597,14 +610,14 @@ export default function SupplierNetworkForm() {
 
             <div>
               <label htmlFor="supplier-brochure-upload" className={labelClass}>
-                Company brochure, machine list, or ISO certificates (up to 20MB)
+                Company brochure, machine list, or ISO certificates (up to 4MB)
               </label>
               <input
                 id="supplier-brochure-upload"
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileChange}
-                accept=".pdf,.doc,.docx,.zip,.rar,.png,.jpg,.jpeg"
+                accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.xls,.xlsx,.csv,.step,.stp,.dxf"
                 className="hidden"
               />
               {fileName ? (
@@ -633,7 +646,7 @@ export default function SupplierNetworkForm() {
                   className="w-full min-h-[52px] flex items-center justify-center gap-2 bg-slate-50 border border-dashed border-slate-300 hover:border-blue-400 rounded-md text-sm text-slate-600 hover:text-blue-600 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   <Upload size={16} aria-hidden="true" />
-                  <span>Upload PDF, Word, ZIP, or image</span>
+                  <span>Upload PDF, PNG, JPG, Word, Excel, CSV, STEP, or DXF</span>
                 </button>
               )}
             </div>

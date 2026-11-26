@@ -1,8 +1,3 @@
-/**
- * PROQRA Type Definitions
- * Shared types for client inquiries, supplier onboarding applications, and email notifications.
- */
-
 export interface ClientInquiry {
   name: string
   email: string

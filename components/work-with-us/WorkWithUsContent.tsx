@@ -63,7 +63,6 @@ const services: ServiceItem[] = [
     description:
       'Send us a drawing, the material and the quantity. We find Indian suppliers that make that kind of part, check their certificates and references, and give you a short list with notes on each.',
     youGet: 'a shortlist of 3 to 5 suppliers, with certificate checks and notes.',
-    // price: 'from £[X] per part.',
   },
   {
     id: 'service-approval-pack',
@@ -72,7 +71,6 @@ const services: ServiceItem[] = [
     description:
       'We collect and review everything needed to approve a supplier: quality certificates, material certificates, calibration records, first-article report and photos. We check nothing is missing or out of date and put it in one pack.',
     youGet: 'one pack and a short summary of any concerns.',
-    // price: 'from £[X] per supplier.',
     featured: true,
   },
   {
@@ -82,7 +80,6 @@ const services: ServiceItem[] = [
     description:
       'Our team in India visits the factory, takes photos and video, and does a live video walkthrough with you. It’s a look around, not a technical audit.',
     youGet: 'a photo and video report and the live call.',
-    // price: 'from £[X] per visit.',
   },
   {
     id: 'service-independent-inspection',
@@ -100,7 +97,6 @@ const services: ServiceItem[] = [
     description:
       'Once you’re ordering, we chase open orders and missing paperwork, log quality issues and send you a regular update.',
     youGet: 'a weekly or monthly status report.',
-    // price: 'from £[X] a month.',
   },
   {
     id: 'service-data-cleanup',
@@ -109,7 +105,6 @@ const services: ServiceItem[] = [
     description:
       'Supplier lists in three spreadsheets, certificates nobody knows the expiry date of, complaints in someone’s inbox. We pull it into one place with simple scorecards.',
     youGet: 'an organised spreadsheet, kept up to date if you want.',
-    // price: 'from £[X] per project.',
   },
 ]
 
@@ -195,7 +190,6 @@ export default function WorkWithUsContent() {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative bg-white">
-        {/* Top Section (No hero photo) + How it works 4-step row */}
         <section className="pt-28 sm:pt-36 pb-14 sm:pb-18 border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="max-w-3xl mb-12 sm:mb-14">
@@ -207,7 +201,6 @@ export default function WorkWithUsContent() {
               </p>
             </div>
 
-            {/* How it works (4 steps in a row, vertical on mobile) */}
             <div>
               <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mb-5">
                 How it works
@@ -234,7 +227,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* What you can hand us (2 columns x 3 rows = 6 cards) */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="max-w-2xl mb-10 sm:mb-12">
@@ -245,7 +237,7 @@ export default function WorkWithUsContent() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {services.map((service, idx) => {
-                const contactHref = `/?service=${encodeURIComponent(service.title)}#contact`
+                const contactHref = `/contact?service=${encodeURIComponent(service.title)}`
 
                 if (service.featured) {
                   return (
@@ -259,7 +251,6 @@ export default function WorkWithUsContent() {
                       className="scroll-mt-28 rounded-xl border-2 border-blue-600 bg-white p-7 sm:p-9 flex flex-col justify-between gap-6"
                     >
                       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
-                        {/* Left side: Service Copy, Deliverables, CTA */}
                         <div className="xl:col-span-7 flex flex-col justify-between">
                           <div>
                             <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -308,12 +299,10 @@ export default function WorkWithUsContent() {
                           </div>
                         </div>
 
-                        {/* Right side: Sample Approval Pack Mock-up */}
                         <div
                           aria-label="Sample approval pack contents preview"
                           className="xl:col-span-5 relative bg-slate-50 border border-slate-200/90 rounded-xl p-4 shadow-inner flex flex-col justify-between overflow-hidden"
                         >
-                          {/* Large diagonal SAMPLE watermark */}
                           <div
                             aria-hidden="true"
                             className="pointer-events-none select-none absolute inset-0 flex items-center justify-center z-10"
@@ -365,7 +354,6 @@ export default function WorkWithUsContent() {
                         </div>
                       </div>
 
-                      {/* Expandable step-by-step approval workflow inside card */}
                       <div className="border-t border-blue-200/70 pt-4">
                         <button
                           type="button"
@@ -468,7 +456,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* Which one do I need? (Jump strip) */}
         <section className="py-8 sm:py-12">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <motion.div
@@ -502,7 +489,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* Parts we work with */}
         <section className="py-8 sm:py-12">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <motion.div
@@ -534,7 +520,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* Who does what (3 columns) */}
         <section className="py-8 sm:py-12">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-5">
@@ -559,7 +544,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* What we don’t do (plain grey box) */}
         <section className="py-6 sm:py-10">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="bg-slate-100 border border-slate-200/90 rounded-xl p-7 sm:p-10">
@@ -573,7 +557,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* Questions (Interactive accordion) */}
         <section className="py-10 sm:py-14">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-6">
@@ -625,7 +608,6 @@ export default function WorkWithUsContent() {
           </div>
         </section>
 
-        {/* Closing (Dark navy band) */}
         <section className="pt-8 pb-20 sm:pb-28">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <motion.div
@@ -643,10 +625,10 @@ export default function WorkWithUsContent() {
 
               <div className="shrink-0">
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-8 py-3.5 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                 >
-                  Become an early partner
+                  Talk to us
                 </Link>
               </div>
             </motion.div>

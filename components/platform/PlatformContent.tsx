@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, MotionConfig } from 'framer-motion'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import StageTimeline from '@/components/shared/StageTimeline'
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -66,44 +65,6 @@ const platformCapabilities = [
 ]
 
 export default function PlatformContent() {
-  const [notifyEmail, setNotifyEmail] = useState('')
-  const [notifyLoading, setNotifyLoading] = useState(false)
-  const [notifyDone, setNotifyDone] = useState(false)
-  const [notifyError, setNotifyError] = useState('')
-
-  const handleNotifySubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!notifyEmail.trim()) return
-
-    setNotifyLoading(true)
-    setNotifyError('')
-
-    try {
-      const res = await fetch('/api/submit-contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: 'Platform Update Subscriber',
-          email: notifyEmail.trim(),
-          requirement: 'Requested platform progress updates via /platform.',
-          source: 'Platform Page - Notify Me',
-        }),
-      })
-
-      const data = await res.json().catch(() => null)
-      if (res.ok && data?.success) {
-        setNotifyDone(true)
-        setNotifyEmail('')
-      } else {
-        setNotifyError(data?.error || 'Could not subscribe. Please try again or email hello@proqra.co.uk.')
-      }
-    } catch {
-      setNotifyError('Network error. Please try again or email hello@proqra.co.uk.')
-    } finally {
-      setNotifyLoading(false)
-    }
-  }
-
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative bg-white">
@@ -302,78 +263,24 @@ export default function PlatformContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, ease: EASE_OUT_EXPO }}
-              className="bg-slate-900 text-white rounded-xl p-8 sm:p-12 lg:p-14"
+              className="bg-slate-900 text-white rounded-xl p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                <div className="lg:col-span-6 space-y-4">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white text-balance">
-                    Help shape it
-                  </h2>
-                  <p className="text-base sm:text-lg text-slate-300 leading-relaxed text-pretty">
-                    Join as an early partner, or leave your email and we’ll send an update when something new is ready.
-                  </p>
-                  <div className="pt-2">
-                    <Link
-                      href="/#contact"
-                      className="inline-flex items-center justify-center min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-7 py-3 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
-                    >
-                      Become an early partner
-                    </Link>
-                  </div>
-                </div>
+              <div className="max-w-2xl space-y-3">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white text-balance">
+                  Help shape it
+                </h2>
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed text-pretty">
+                  Join as an early partner on a real supplier task. What repeats across early partners is what we build first.
+                </p>
+              </div>
 
-                <div className="lg:col-span-6">
-                  {notifyDone ? (
-                    <div
-                      role="status"
-                      aria-live="polite"
-                      className="bg-slate-800/80 border border-slate-700 rounded-xl p-6 flex items-start gap-3"
-                    >
-                      <CheckCircle2 size={20} className="text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
-                      <div>
-                        <p className="text-sm sm:text-base font-semibold text-white">
-                          You’re on the list. We’ll send an update when something new is ready.
-                        </p>
-                      </div>
-                    </div>
-                  ) : (
-                    <form
-                      onSubmit={handleNotifySubmit}
-                      className="bg-slate-800/70 border border-slate-700/80 rounded-xl p-5 sm:p-6 space-y-3"
-                    >
-                      <label htmlFor="platform-notify-email" className="block text-sm font-medium text-slate-200">
-                        Get platform progress updates
-                      </label>
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <input
-                          id="platform-notify-email"
-                          type="email"
-                          required
-                          value={notifyEmail}
-                          onChange={(e) => setNotifyEmail(e.target.value)}
-                          placeholder="Work email"
-                          autoComplete="email"
-                          className="flex-1 min-h-[48px] bg-slate-900 border border-slate-500 rounded px-4 py-2.5 text-base sm:text-sm text-white placeholder-slate-400 focus:border-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-400"
-                        />
-                        <button
-                          type="submit"
-                          disabled={notifyLoading}
-                          className="min-h-[48px] bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-6 py-2.5 rounded transition-colors disabled:opacity-50 shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
-                        >
-                          {notifyLoading ? 'Saving...' : 'Notify me'}
-                        </button>
-                      </div>
-                      <p className="text-xs text-slate-400 leading-relaxed">
-                        We’ll only email you about PROQRA updates. Unsubscribe any time.
-                      </p>
-                      {notifyError && (
-                        <p role="alert" className="text-xs text-red-300">
-                          {notifyError}
-                        </p>
-                      )}
-                    </form>
-                  )}
-                </div>
+              <div className="shrink-0">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-8 py-3.5 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                >
+                  Talk to us
+                </Link>
               </div>
             </motion.div>
           </div>

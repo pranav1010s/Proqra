@@ -17,7 +17,6 @@ export default function ClientConfidentialityPage() {
     <main className="min-h-screen bg-white text-slate-800">
       <Navbar />
 
-      {/* Header Banner */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="max-w-3xl">
@@ -47,10 +46,8 @@ export default function ClientConfidentialityPage() {
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-12 sm:py-20 px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24">
         <div className="max-w-3xl mx-auto space-y-12">
-          {/* Commitment */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               1. Our Core Commitment
@@ -63,7 +60,6 @@ export default function ClientConfidentialityPage() {
             </p>
           </div>
 
-          {/* NDAs */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               2. Non-Disclosure Agreements (NDAs)
@@ -76,7 +72,6 @@ export default function ClientConfidentialityPage() {
             </p>
           </div>
 
-          {/* Controlled Supplier Access */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               3. Controlled Supplier Disclosure
@@ -97,7 +92,6 @@ export default function ClientConfidentialityPage() {
             </ul>
           </div>
 
-          {/* IP Ownership */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               4. 100% Client IP Ownership
@@ -110,7 +104,6 @@ export default function ClientConfidentialityPage() {
             </p>
           </div>
 
-          {/* Secure Storage & Purging */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               5. Secure Handling & Data Purging
@@ -123,7 +116,6 @@ export default function ClientConfidentialityPage() {
             </p>
           </div>
 
-          {/* Contact & NDA Request */}
           <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-base font-bold text-slate-900">

@@ -27,7 +27,6 @@ export default function Hero() {
 
   return (
     <section className="relative bg-white min-h-[100dvh] lg:h-[100dvh] lg:max-h-[100dvh] flex flex-col justify-center pt-24 pb-12 sm:pt-28 sm:pb-14 border-b border-slate-200 overflow-hidden">
-      {/* Crisp Machining Video Blended with Layout - Full height to bottom edge */}
       <div
         aria-hidden="true"
         className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[56%] h-full overflow-hidden pointer-events-none select-none z-0"
@@ -52,7 +51,6 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Soft ambient wash behind text on the left */}
       <div
         aria-hidden="true"
         className="absolute inset-y-0 left-0 w-full lg:w-[72%] h-full pointer-events-none select-none z-0"
@@ -72,7 +70,6 @@ export default function Hero() {
 
       <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-          {/* Left Column */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] max-w-2xl text-balance 3xl:text-7xl 4xl:text-8xl">
               Taking the manual work out of{' '}
@@ -87,14 +84,13 @@ export default function Hero() {
               We’re starting with UK manufacturers who buy from India.
             </p>
 
-            {/* CTAs */}
             <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
-                href="#contact"
-                id="hero-early-partner"
+                href="/contact"
+                id="hero-talk-to-us"
                 className="inline-flex items-center justify-center min-h-[48px] bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded transition-colors text-center shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
-                Become an early partner
+                Talk to us
               </Link>
               <Link
                 href="#what-were-building"
@@ -106,7 +102,6 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Three short lines */}
             <div className="mt-10 sm:mt-12 pt-6 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
               <p className="text-xs sm:text-sm font-semibold text-slate-800">
                 Documents & approvals.
@@ -120,7 +115,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Open visual window for the blended video */}
           <div className="hidden lg:flex lg:col-span-5 min-h-[420px] items-center justify-center pointer-events-none" aria-hidden="true" />
         </div>
       </div>

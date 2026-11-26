@@ -19,7 +19,6 @@ export default function WhereThisIsGoing() {
         className="py-20 sm:py-28 bg-white border-b border-slate-200 scroll-mt-20"
       >
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36 space-y-12 sm:space-y-16">
-          {/* What we can take on today */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +53,6 @@ export default function WhereThisIsGoing() {
             </div>
           </motion.div>
 
-          {/* Where we’re starting */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}

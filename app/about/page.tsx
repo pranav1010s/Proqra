@@ -129,10 +129,10 @@ export default function AboutPage() {
 
               <div className="shrink-0">
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center min-h-[48px] bg-white hover:bg-blue-50 text-slate-900 font-semibold text-sm sm:text-base px-8 py-3.5 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                 >
-                  Become an early partner
+                  Talk to us
                 </Link>
               </div>
             </div>

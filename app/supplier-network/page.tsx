@@ -49,7 +49,6 @@ export default function SupplierNetworkPage() {
       <Navbar />
 
       <main>
-        {/* Top Section */}
         <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 border-b border-slate-200 bg-white">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="max-w-3xl mb-8 sm:mb-10">
@@ -61,7 +60,6 @@ export default function SupplierNetworkPage() {
               </p>
             </div>
 
-            {/* Pale blue box: What to know first */}
             <div className="bg-blue-50/70 border border-blue-200/80 rounded-xl p-6 sm:p-8 max-w-4xl">
               <div className="flex items-start gap-3.5">
                 <Info size={20} className="text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
@@ -78,10 +76,8 @@ export default function SupplierNetworkPage() {
           </div>
         </section>
 
-        {/* Middle Section: What UK buyers usually ask for + What happens next */}
         <section className="py-12 sm:py-16 bg-slate-50/70 border-b border-slate-200">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36 space-y-12">
-            {/* What UK buyers usually ask for (2-column checklist) */}
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-5">
                 What UK buyers usually ask for
@@ -100,7 +96,6 @@ export default function SupplierNetworkPage() {
               </ul>
             </div>
 
-            {/* What happens next (4 steps in a row) */}
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-5">
                 What happens next
@@ -124,7 +119,6 @@ export default function SupplierNetworkPage() {
           </div>
         </section>
 
-        {/* Registration Form */}
         <section className="py-14 sm:py-20 bg-white">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
             <div className="max-w-3xl mb-8">

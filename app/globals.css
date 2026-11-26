@@ -44,23 +44,19 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Serif Italic class for emphasis */
 .italic-accent {
   font-family: var(--font-serif, Georgia, serif);
   font-style: italic;
   font-weight: 400;
 }
 
-/* Minimalist Scrollbar for Light Theme */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-/* High-Contrast Selection */
 ::selection { background: #2563eb; color: #ffffff; }
 
-/* Dynamic Glassmorphism Navbars */
 .glass-light {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
@@ -68,7 +64,6 @@ body {
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-/* Form inputs */
 input:focus:not(:focus-visible), textarea:focus:not(:focus-visible), select:focus:not(:focus-visible) {
   outline: none;
 }

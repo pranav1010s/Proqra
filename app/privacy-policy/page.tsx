@@ -17,7 +17,6 @@ export default function PrivacyPolicyPage() {
     <main className="min-h-screen bg-white text-slate-800">
       <Navbar />
 
-      {/* Header Banner */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="max-w-3xl">
@@ -47,10 +46,8 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      {/* Policy Content */}
       <section className="py-12 sm:py-20 px-5 sm:px-8 lg:px-12 2xl:px-16 3xl:px-24">
         <div className="max-w-3xl mx-auto space-y-12">
-          {/* Section 1: Who We Are */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               1. Who We Are
@@ -72,7 +69,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          {/* Section 2: What Information We Collect */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               2. Information We Collect
@@ -99,7 +95,6 @@ export default function PrivacyPolicyPage() {
             </ul>
           </div>
 
-          {/* Section 3: Engineering IP & Confidentiality */}
           <div className="space-y-4 bg-slate-50 border border-slate-200 rounded-xl p-6">
             <h2 className="text-xl font-bold text-slate-900">
               3. Protection of Engineering IP & Drawings
@@ -118,7 +113,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          {/* Section 4: How We Use Your Data */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               4. How We Use Your Information
@@ -137,7 +131,6 @@ export default function PrivacyPolicyPage() {
             </ul>
           </div>
 
-          {/* Section 5: Lawful Basis for Processing */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               5. Lawful Basis for Processing (UK GDPR)
@@ -158,7 +151,6 @@ export default function PrivacyPolicyPage() {
             </ul>
           </div>
 
-          {/* Section 6: Sharing & International Transfers */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               6. Data Sharing & International Transfers
@@ -182,7 +174,6 @@ export default function PrivacyPolicyPage() {
             </ul>
           </div>
 
-          {/* Section 7: Data Retention & Security */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               7. Data Retention & Security
@@ -195,7 +186,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          {/* Section 8: Your Rights */}
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               8. Your Rights Under UK GDPR
@@ -223,7 +213,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          {/* Section 9: Contact */}
           <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-base font-bold text-slate-900">

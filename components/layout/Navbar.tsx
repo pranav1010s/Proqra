@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/platform', label: 'Platform' },
   { href: '/work-with-us', label: 'Work With Us' },
   { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Talk to us' },
 ]
 
 export default function Navbar() {
@@ -35,7 +36,6 @@ export default function Navbar() {
         aria-label="Main navigation"
         className="max-w-[1440px] mx-auto flex items-center justify-between 3xl:max-w-[1900px] 4xl:max-w-[2200px]"
       >
-        {/* Typographic logo - PROQRA in all-caps, tracking-tighter */}
         <Link
           href="/"
           className="font-black text-xl tracking-tighter text-slate-900 uppercase select-none flex items-center gap-2 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-2xl 4xl:text-3xl"
@@ -44,17 +44,20 @@ export default function Navbar() {
           <span className="inline-block w-2 h-2 rounded-sm bg-blue-600 3xl:w-2.5 3xl:h-2.5" aria-hidden="true" />
         </Link>
 
-        {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-7 3xl:gap-9 4xl:gap-11">
           {navLinks.map((item) => {
             const active = pathname === item.href
+            const isContact = item.href === '/contact'
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                id={isContact ? 'nav-cta' : undefined}
                 className={`text-sm font-semibold transition-colors duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg ${
                   active
                     ? 'text-blue-600'
+                    : isContact
+                    ? 'text-slate-900 hover:text-blue-600'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -62,16 +65,8 @@ export default function Navbar() {
               </Link>
             )
           })}
-          <Link
-            href="/#contact"
-            id="nav-cta"
-            className="text-sm font-semibold bg-slate-900 text-white rounded px-5 py-2.5 hover:bg-slate-800 transition-all duration-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 3xl:px-7 3xl:py-3 4xl:text-lg 4xl:px-8 4xl:py-3.5"
-          >
-            Become an early partner
-          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           ref={toggleRef}
           type="button"
@@ -86,7 +81,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -100,14 +94,18 @@ export default function Navbar() {
             <div className="py-4 flex flex-col gap-1">
               {navLinks.map((item) => {
                 const active = pathname === item.href
+                const isContact = item.href === '/contact'
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
+                    id={isContact ? 'mobile-nav-cta' : undefined}
                     onClick={() => setOpen(false)}
                     className={`min-h-[44px] flex items-center text-sm font-semibold transition-colors duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${
                       active
                         ? 'text-blue-600'
+                        : isContact
+                        ? 'text-slate-900 hover:text-blue-600'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -115,14 +113,6 @@ export default function Navbar() {
                   </Link>
                 )
               })}
-              <Link
-                href="/#contact"
-                id="mobile-nav-cta"
-                onClick={() => setOpen(false)}
-                className="min-h-[44px] flex items-center justify-center text-sm font-semibold bg-slate-900 text-white rounded px-5 py-3 text-center mt-2 hover:bg-slate-800 transition-all duration-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-              >
-                Become an early partner
-              </Link>
             </div>
           </motion.div>
         )}

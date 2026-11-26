@@ -13,7 +13,6 @@ export default function WhoDoesWhat() {
       >
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 3xl:max-w-[1900px] 3xl:px-28 4xl:max-w-[2200px] 4xl:px-36">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            {/* How we’re getting there */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +30,6 @@ export default function WhoDoesWhat() {
               </div>
             </motion.div>
 
-            {/* Early partners */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -46,15 +44,14 @@ export default function WhoDoesWhat() {
                 <p className="text-base sm:text-lg text-slate-700 leading-relaxed text-pretty max-w-prose mb-6">
                   Tell us the supplier task that’s eating your time. We’ll agree a scope and a fixed price, do the work over a few weeks and give you the result plus a clear record of what was involved. Your feedback shapes what we build.
                 </p>
-                {/* <p className="text-sm font-semibold text-slate-900 mb-6">Early partner pilots start from £[X].</p> */}
               </div>
 
               <div>
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 min-h-[48px] bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm sm:text-base px-6 py-3 rounded transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
-                  <span>Become an early partner</span>
+                  <span>Talk to us</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>

@@ -5,7 +5,6 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-200/80 bg-white pt-16 pb-12 px-5 sm:px-8 lg:px-12 text-slate-600 3xl:pt-24 3xl:pb-18 3xl:px-28 4xl:pt-28 4xl:pb-20 4xl:px-36">
       <div className="max-w-[1440px] mx-auto 3xl:max-w-[1900px] 4xl:max-w-[2200px]">
-        {/* Top Info & Links Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 pb-12 border-b border-slate-100 3xl:gap-16 3xl:mb-20 3xl:pb-16 4xl:gap-20 4xl:mb-24 4xl:pb-20">
           <div className="md:col-span-5 flex flex-col gap-3 3xl:gap-4">
             <Link
@@ -45,8 +44,8 @@ export default function Footer() {
               <Link href="/supplier-network" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
                 Supplier Network
               </Link>
-              <Link href="/#contact" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
-                Become an early partner
+              <Link href="/contact" className="min-h-[44px] sm:min-h-0 inline-flex items-center w-fit text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 3xl:text-base 4xl:text-lg">
+                Talk to us
               </Link>
             </div>
           </div>
@@ -97,7 +96,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom row: Wordmark and Legal details */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
           <div className="flex flex-col gap-2">
             <p className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tighter text-slate-200/70 leading-none select-none uppercase 3xl:text-[7rem] 4xl:text-[8.5rem]">
